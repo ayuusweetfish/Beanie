@@ -1,8 +1,10 @@
-#include <ncurses.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <termios.h>
 #include <time.h>
+#include <unistd.h>
 const char N = 5;
 
 char A[N - 1][N], r0, s = 5, r, c, f;
@@ -38,35 +40,45 @@ void M()
   }
 }
 
+// Ref: https://viewsourcecode.org/snaptoken/kilo/02.enteringRawMode.html
+
+struct termios t, T;
+void e()
+{
+  tcsetattr(STDIN_FILENO, TCSAFLUSH, &t);
+}
+
 int main()
 {
-  initscr();
-  noecho();
-  cbreak();
+  tcgetattr(STDIN_FILENO, &t);
+  atexit(e);
+  T = t; T.c_lflag &= ~(ECHO | ICANON);
+  tcsetattr(STDIN_FILENO, 0, &T);
   while (1) {
     if (s & 4) {
       if (s == 4) {
-        printw("Press Enter to continue\n");
-        while (getch() != '\n') { }
+        printf("Press Enter to continue\n");
+        while (getchar() != '\n') { }
       }
       rs -= time(0) ^ clock() << 3;
       reset();
+    } else {
+      printf("\e[7A");
     }
-    clear();
-    printw("Move %d\n", s);
+    printf("Move %d\e[K\n", s);
     for (char i = -1; i < N; i++) {
       for (char j = 0; j < N; j++)
-        printw("%c%d%c", r == i && c == j ? '[' : ' ',
+        printf("%c%d%c", r == i && c == j ? '[' : ' ',
           i < 0 || i > N - 2 ? 3 : A[i][j], r == i && c == j ? ']' : ' ');
-      printw("\n");
+      printf("\n");
     }
-    char m = getch();
+    char m = getchar();
     switch (m) { case 'k': r -= 2; case 'j': r++; c++; case 'h': c -= 2; case 'l': c++; }
     M();
-    if (r > N - 2) printw("\\(^ ^)/\n"), s++;
+    if (r > N - 2) printf("\\(^ ^)/\n"), s++;
     else if (r >= 0 && r < N - 1 && A[r][c] == 2) {
       r = -1;
-      if (s++ == 3) printw("(> <)\n");
+      if (s++ == 3) printf("(> <)\n");
     }
   }
 }
