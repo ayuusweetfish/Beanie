@@ -4,7 +4,7 @@
 #include <time.h>
 const char N = 5;
 
-char A[N - 1][N], r0, s = 4, r, c;
+char A[N - 1][N], r0, s = 4, r, c, f;
 uint32_t rs;
 
 uint32_t my_rand()
@@ -15,19 +15,19 @@ uint32_t my_rand()
 void reset()
 {
   memset(A, 0, sizeof A);
-  r0 = N - 1;
-  r = -1; c = my_rand() % N; s = 1;
+  r0 = my_rand() % N;
+  r = -1; c = my_rand() % N; s = 1; f = 0;
 }
 void move()
 {
   // 0 - unknown; 1 - known safe; 2 - monster
   if (r < 0 || A[r][c]) return;
   if (s == 1) {
-    A[r][c] = 1 + (r > 0 || c == r0);
-  } else if (s == 3 || /* s == 2 && */ r0 > 0 && r0 < N - 1) {
+    A[r][c] = 1 + ((f |= !!r) || c == r0);
+  } else if (s == 3 || f || /* s == 2 && */ r0 > 0 && r0 < N - 1) {
     A[r][c] = 2;
   } else {
-    A[r][c] = 1 + (r0 == 0 ? c <= r : c >= N - 1 - r) || r == N - 2;
+    A[r][c] = 1 + ((r0 == 0 ? c <= r : c >= N - 1 - r) || r == N - 2);
   }
   if (A[r][c] == 2) {
     for (char i = 0; i < N; i++) A[r][i] = A[i - (i > N - 2)][c] = 1;
