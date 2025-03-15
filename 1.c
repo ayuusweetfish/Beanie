@@ -21,18 +21,20 @@ void reset()
 }
 void M()
 {
-  // 0 - unknown; 1 - known safe; 2 - monster
-  if (r < 0 || A[r][c]) return;
-  if (s == 1) {
-    A[r][c] = 1 + ((f |= !!r) || c == r0);
-  } else if (s == 3 || f || /* s == 2 && */ r0 > 0 && r0 < N - 1) {
-    A[r][c] = 2;
-  } else {
-    A[r][c] = 1 + ((r0 == 0 ? c <= r : c >= N - 1 - r) || r == N - 2);
-  }
-  if (A[r][c] == 2) {
-    for (char i = 0; i < N; i++) A[r][i] = A[i - (i > N - 2)][c] = 1;
-    A[r][c] = 2;
+  if (r < -1) r = -1; else if (c < 0) c = 0; else if (c > N - 1) c--; else {
+    // 0 - unknown; 1 - known safe; 2 - monster
+    if (r < 0 || A[r][c]) return;
+    if (s == 1) {
+      A[r][c] = 1 + ((f |= !!r) || c == r0);
+    } else if (s == 3 || f || /* s == 2 && */ r0 > 0 && r0 < N - 1) {
+      A[r][c] = 2;
+    } else {
+      A[r][c] = 1 + ((r0 == 0 ? c <= r : c >= N - 1 - r) || r == N - 2);
+    }
+    if (A[r][c] == 2) {
+      for (char i = 0; i < N; i++) A[r][i] = A[i - (i > N - 2)][c] = 1;
+      A[r][c] = 2;
+    }
   }
 }
 
