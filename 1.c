@@ -35,14 +35,19 @@ void M()
       // This will guarantee 2-move unwinnable
     } else if (s == 1) {
       if (f ^= r) {
-        for (char i = 1; i < N; i++) F[i] = i - (i <= c);
-        char j, t;
-        for (char i = 1; j = my_rand() % i + 1, i < N; i++)
+        // FIXME: Does not cover cases where row 0's assigned monster cell is already uncovered.
+        // We might need to abandon this approach and use direct random instead,
+        // so that the above TODO can also be covered
+        char j, t = c + (my_rand() & 2) - 1;
+        if (t < 0) t = 1; if (t >= N) t -= 2;
+        F[0] = t, F[1] = c;
+        for (char i = 2; i < N; i++) F[i] = i - (i <= c || i <= t) * 2;
+        for (int i = 0; i < N; i++) printf(" %d", F[i]);
+        for (char i = 2; j = my_rand() % (i - 1) + 2, i < N; i++)
           t = F[i], F[i] = F[j], F[j] = t;
-        F[0] = F[1]; F[1] = c;
         if (my_rand() & 1)
           F[1] = F[j = my_rand() % (N - 2) + 2], F[j] = c;
-        // for (int i = 0; i < N; i++) printf(" %d", F[i]);
+        for (int i = 0; i < N; i++) printf(" %d", F[i]);
       }
       A[r][c] = 1 + ((f && F[1] == c) || c == r0);
     } else if (r0 > 0 && r0 < N - 1) {
