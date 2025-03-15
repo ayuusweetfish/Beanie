@@ -28,10 +28,15 @@ void M()
     if (r < 0 || A[r][c]) return;
     if (s == 1) {
       A[r][c] = 1 + ((f |= !!r) || c == r0);
-    } else if (s == 3 || f || /* s == 2 && */ r0 > 0 && r0 < N - 1) {
+    } else if (s == 3 || f) {
       A[r][c] = 2;
+    } else if (r0 > 0 && r0 < N - 1) {
+      // Rule: known-safe cells cannot reach the already-exploded column
+      A[r][c] = 1 + (r < 2 ? abs(r0 - c) < 2 : A[r - 1][c + (c < r0) * 2 - 1] == 0);
     } else {
-      A[r][c] = 1 + ((r0 == 0 ? c <= r : c >= N - 1 - r) || r == N - 2);
+      A[r][c] = 1 + ((r0 == 0
+        ? c <= r || (A[r - 1][c - 1] == 0 || A[r - 1][c - 2] + A[r - 1][c] == 0)
+        : c >= N - 1 - r || (A[r - 1][c + 1] == 0 || A[r - 1][c + 2] + A[r - 1][c] == 0)) || r == N - 2);
     }
     if (A[r][c] == 2) {
       for (char i = 0; i < N; i++) A[r][i] = A[i - (i > N - 2)][c] = 1;
