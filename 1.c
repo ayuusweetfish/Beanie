@@ -54,6 +54,18 @@ int main()
   atexit(e);
   T = t; T.c_lflag &= ~(ECHO | ICANON);
   tcsetattr(STDIN_FILENO, 0, &T);
+
+  while (1) {
+    unsigned char m = getchar();
+    // i~l: 0/- +/0 -/0 0/+
+    //      0   3   1   2
+    // A~D: -/0 +/0 0/+ 0/-
+    //      1   3   2   0
+    // if ((m += m == 'h') >= 'i') m = (m - 'i') + 1 - (m == 'l') * 4; else m = (3 - (m - 'A')) ^ (m > 'B');
+    // if (m < 4) printf("%d ", m), r = c = (m & 1) - 1, r *= m > 1, c *= m < 2, printf("%d %d\n", r, c);
+    char *a = (m += m == 'h') >= 'i' ? "i\x9c" : "A-";
+    if ((m -= *a) < 4) printf("%d ", m), m = a[1] >> (m * 2), r = c = (m & 2) - 1, r *= m & 1, c *= !(m & 1), printf("%d %d\n", r, c);
+  }
   while (1) {
     if (s & 4) {
       if (s == 4) {
