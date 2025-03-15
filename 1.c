@@ -27,18 +27,24 @@ void M()
   if (r < -1) r = -1; else if (c < 0) c = 0; else if (c > N - 1) c--; else {
     // 0 - unknown; 1 - known safe; 2 - monster
     if (r < 0 || A[r][c]) return;
-    if (s == 1) {
-      if (f ^= r) {
-        for (char i = 1; i < N; i++) F[i] = i - (i <= c);
-        for (char i = 1, j, t; j = my_rand() % i + 1, i < N; i++)
-          t = F[i], F[i] = F[j], F[j] = t;
-        F[0] = F[1]; F[1] = c;
-      }
-      A[r][c] = 1 + (f || c == r0);
-    } else if (s == 3) {
+    if (s == 3) {
       A[r][c] = 2;
     } else if (f) {
       A[r][c] = 1 + (F[r] == c);
+      // TODO: If a newly-revealed safe cell allows a direct path, overwrite to monster
+      // This will guarantee 2-move unwinnable
+    } else if (s == 1) {
+      if (f ^= r) {
+        for (char i = 1; i < N; i++) F[i] = i - (i <= c);
+        char j, t;
+        for (char i = 1; j = my_rand() % i + 1, i < N; i++)
+          t = F[i], F[i] = F[j], F[j] = t;
+        F[0] = F[1]; F[1] = c;
+        if (my_rand() & 1)
+          F[1] = F[j = my_rand() % (N - 2) + 2], F[j] = c;
+        // for (int i = 0; i < N; i++) printf(" %d", F[i]);
+      }
+      A[r][c] = 1 + ((f && F[1] == c) || c == r0);
     } else if (r0 > 0 && r0 < N - 1) {
       // Rule: known-safe cells cannot reach the already-exploded column
       A[r][c] = 1 + (r < 2 ? abs(r0 - c) < 2 : A[r - 1][c + (c < r0) * 2 - 1] == 0);
