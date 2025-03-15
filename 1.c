@@ -40,20 +40,18 @@ void M()
   }
 }
 
-// Ref: https://viewsourcecode.org/snaptoken/kilo/02.enteringRawMode.html
-
 struct termios t, T;
 void e()
 {
-  tcsetattr(STDIN_FILENO, TCSAFLUSH, &t);
+  tcsetattr(0, TCSAFLUSH, &t);
 }
 
 int main()
 {
-  tcgetattr(STDIN_FILENO, &t);
+  tcgetattr(0, &t);
   atexit(e);
   T = t; T.c_lflag &= ~(ECHO | ICANON);
-  tcsetattr(STDIN_FILENO, 0, &T);
+  tcsetattr(0, 0, &T);
 
   while (1) {
     if (s & 4) {
@@ -64,7 +62,7 @@ int main()
       rs -= time(0) ^ clock() << 3;
       reset();
     } else {
-      printf("\e[7A");
+      printf("\e[%dA", N + 2);
     }
     printf("Move %d\e[K\n", s);
     for (char i = -1; i < N; i++) {
@@ -74,12 +72,8 @@ int main()
       printf("\n");
     }
     unsigned char m = getchar();
-    // i~l: 0/- +/0 -/0 0/+
-    //      0   3   1   2
-    // A~D: -/0 +/0 0/+ 0/-
-    //      1   3   2   0
-    char *a = "Aix6" + ((m += m == 'h') >= 'i'), z;
-    if ((m -= *a) < 4) m = a[2] >> (6-m-m), z = (m & 2) - 1, r += z * (m & 1), c += z * !(m & 1);
+    char *a = "Aix6" + ((m += m == 'h') >= 'i');
+    if ((m -= *a) < 4) m = a[2] >> (6-m-m), *(m & 1 ? &r : &c) += (m & 2) - 1;
     M();
     if (r > N - 2) printf("\\(^ ^)/\n"), s++;
     else if (r >= 0 && r < N - 1 && A[r][c] == 2) {
