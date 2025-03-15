@@ -7,7 +7,7 @@
 #include <unistd.h>
 const char N = 5;
 
-char A[N - 1][N], r0, s = 5, r, c, f;
+char A[N - 1][N], r0, s = 5, r, c, f, F[N];
 uint32_t rs;
 
 uint32_t my_rand()
@@ -19,6 +19,7 @@ void reset()
 {
   memset(A, 0, sizeof A);
   r0 = my_rand() % N;
+  printf("<%d>\n", r0);
   r = -1; c = my_rand() % N; s = 1; f = 0;
 }
 void M()
@@ -27,9 +28,17 @@ void M()
     // 0 - unknown; 1 - known safe; 2 - monster
     if (r < 0 || A[r][c]) return;
     if (s == 1) {
-      A[r][c] = 1 + ((f |= !!r) || c == r0);
-    } else if (s == 3 || f) {
+      if (f ^= r) {
+        for (char i = 1; i < N; i++) F[i] = i - (i <= c);
+        for (char i = 1, j, t; j = my_rand() % i + 1, i < N; i++)
+          t = F[i], F[i] = F[j], F[j] = t;
+        F[0] = F[1]; F[1] = c;
+      }
+      A[r][c] = 1 + (f || c == r0);
+    } else if (s == 3) {
       A[r][c] = 2;
+    } else if (f) {
+      A[r][c] = 1 + (F[r] == c);
     } else if (r0 > 0 && r0 < N - 1) {
       // Rule: known-safe cells cannot reach the already-exploded column
       A[r][c] = 1 + (r < 2 ? abs(r0 - c) < 2 : A[r - 1][c + (c < r0) * 2 - 1] == 0);
@@ -80,7 +89,7 @@ int main()
     char *a = "Aix6" + ((m += m == 'h') >= 'i');
     if ((m -= *a) < 4) m = a[2] >> (6-m-m), *(m & 1 ? &r : &c) += (m & 2) - 1;
     M();
-    if (r > N - 2) printf("\\(^ ^)/\n"), s++;
+    if (r > N - 2) printf("\\(^ ^)/\n"), s = 4;
     else if (r >= 0 && r < N - 1 && A[r][c] == 2) {
       r = -1;
       if (s++ == 3) printf("(> <)\n");
