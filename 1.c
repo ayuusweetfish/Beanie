@@ -7,7 +7,7 @@
 #include <unistd.h>
 const char N = 5;
 
-char A[N - 1][N], r0, s = 5, r, c, f, F[N];
+char A[N - 1][N], r0, s = 5, r, c, f, F[N - 1][N], qr[N * N], qc[N * N], qh, qt;
 uint32_t rs;
 
 uint32_t my_rand()
@@ -30,26 +30,28 @@ void M()
     if (s == 3) {
       A[r][c] = 2;
     } else if (f) {
-      A[r][c] = 1 + (F[r] == c);
-      // TODO: If a newly-revealed safe cell allows a direct path, overwrite to monster
+      // If no path emerges even with newly-revealed safe cells
+      // or a trivial win next-step condition is held (r == N - 2), set to monster
       // This will guarantee 2-move unwinnable
-    } else if (s == 1) {
-      if (f ^= r) {
-        // FIXME: Does not cover cases where row 0's assigned monster cell is already uncovered.
-        // We might need to abandon this approach and use direct random instead,
-        // so that the above TODO can also be covered
-        char j, t = c + (my_rand() & 2) - 1;
-        if (t < 0) t = 1; if (t >= N) t -= 2;
-        F[0] = t, F[1] = c;
-        for (char i = 2; i < N; i++) F[i] = i - (i <= c || i <= t) * 2;
-        for (int i = 0; i < N; i++) printf(" %d", F[i]);
-        for (char i = 2; j = my_rand() % (i - 1) + 2, i < N; i++)
-          t = F[i], F[i] = F[j], F[j] = t;
-        if (my_rand() & 1)
-          F[1] = F[j = my_rand() % (N - 2) + 2], F[j] = c;
-        for (int i = 0; i < N; i++) printf(" %d", F[i]);
+      memset(F, 0, sizeof F);
+      qh = qt = 0;
+      A[r][c] = 2;
+    #define I(r1, c1) \
+      if (qh < N * N && (r1) >= 0 && (r1) < N - 1 && (c1) >= 0 && (c1) < N && \
+        !F[r1][c1] && A[r1][c1] < 2 && (A[r1][c1] || (r1) == r || (c1) == c)) \
+        F[r1][c1] = 1, qr[qt] = r1, qc[qt++] = c1, (r1 == 0 ? qh = N * N : 0);
+      for (char c1 = 0; c1 < N; c1++) I(N - 2, c1)
+      while (qh < qt) {
+        char r1 = qr[qh], c1 = qc[qh++];
+        I(r1 + 1, c1)
+        I(r1 - 1, c1)
+        I(r1, c1 + 1)
+        I(r1, c1 - 1)
       }
-      A[r][c] = 1 + ((f && F[1] == c) || c == r0);
+      // printf("<%d %d> ", qh, qt);
+      A[r][c] = 1 + (qh < N * N);
+    } else if (s == 1) {
+      A[r][c] = 1 + (((f ^= r) && (my_rand() & 1)) || c == r0);
     } else if (r0 > 0 && r0 < N - 1) {
       // Rule: known-safe cells cannot reach the already-exploded column
       A[r][c] = 1 + (r < 2 ? abs(r0 - c) < 2 : A[r - 1][c + (c < r0) * 2 - 1] == 0);
