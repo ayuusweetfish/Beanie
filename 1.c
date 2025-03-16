@@ -13,14 +13,15 @@ void R(unsigned x)
 void M()
 {
   if (r < -1) r = -1; else if (c < 0) c = 0; else if (c > N - 1) c--; else {
-    if (r < 0 || A[r][c]) return;
+    char *a = &A[r][c];
+    if (r < 0 || *a) return;
     if (f *= 6 - s - s) {
     #define I(R, C) \
       if (h < N * N && R >= 0 && R < N - 1 && C >= 0 && C < N && \
-        A[R][C] < 2 && (A[R][C] || (A[r][c] == 2 && (R == r || C == c)))) \
+        A[R][C] < 2 && (A[R][C] || (*a == 2 && (R == r || C == c)))) \
         A[R][C] |= 4, q[t++] = (R) * N + C, h += N * N * !(R);
     #define i(n, o) \
-      A[r][c] = n; h = t = 0; \
+      *a = n; h = t = 0; \
       F(C, N) I(N - 2, C) \
       while (h < t) { \
         char R = q[h] / N, C = q[h++] % N; \
@@ -30,18 +31,20 @@ void M()
       f |= (h o N * N);
       i(2,<)i(1,>)
       if (r0 == 0 && c <= r || r0 == N - 1 && c >= N - 1 - r) f |= 1;
-      f = 4 - (A[r][c] = 1 + (f & 1)) - s;
+      f = 4 - (*a = 1 + (f & 1)) - s;
     } else {
-      A[r][c] = 1 + (s == 3 || c == r0);
+      *a = 1 + (s == 3 || c == r0);
       f ^= (r || c == r0);
     }
-    #define f { F(i, N) A[r][i] = A[i - (i > N - 2)][c] = 1; A[r][c]++; }
-    if (A[r][c] == 2) f
+    #define f { F(i, N) a[i] = A[i - (i > N - 2)][c] = 1; a[c]++; }
+    if (a -= c, a[c] == 2) f
     t = 1;
+    a = A;
     while (t--)
       F(r, N - 1) {
-        h = 0; F(c, N) h += A[r][c];
-        if (h == N - 1) F(c, N) if (t = !A[r][c]) f
+        a += N;
+        h = 0; F(c, N) h += a[c];
+        if (h == N - 1) F(c, N) if (t = !a[c]) f
       }
   }
 }
