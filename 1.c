@@ -50,11 +50,8 @@ void M()
       A[r][c] = 1 + (f & 1);
       f = 1;
     } else if (s == 1) {
-      f ^= r;
       A[r][c] = 1 + (c == r0);
-    } else if (r0 > 0 && r0 < N - 1) {
-      // Rule: known-safe cells cannot reach the already-exploded column
-      A[r][c] = 1 + (r < 2 ? abs(r0 - c) < 2 : A[r - 1][c + (c < r0) * 2 - 1] == 0);
+      f ^= (r || c == r0 && r0 > 0 && r0 < N - 1);
     } else {
       A[r][c] = 1 + ((r0 == 0
         ? c <= r || (A[r - 1][c - 1] == 0 || A[r - 1][c - 2] + A[r - 1][c] == 0)
