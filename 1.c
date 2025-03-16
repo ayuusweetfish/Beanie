@@ -25,9 +25,7 @@ void M()
 {
   if (r < -1) r = -1; else if (c < 0) c = 0; else if (c > N - 1) c--; else {
     if (r < 0 || A[r][c]) return;
-    if (s == 3) {
-      A[r][c] = 2;
-    } else if (f *= 2) {
+    if (f *= 2 * (3 - s)) {
     #define I(R, C) \
       if (h < N * N && R >= 0 && R < N - 1 && C >= 0 && C < N && \
         A[R][C] < 2 && (A[R][C] || (A[r][c] == 2 && (R == r || C == c)))) \
@@ -44,9 +42,10 @@ void M()
       F(2,<)F(1,==)
       if (r0 == 0 && c <= r || r0 == N - 1 && c >= N - 1 - r) f |= 1;
       A[r][c] = 1 + (f & 1);
-      f = 1;
+      // Clear if A == 2 and s == 2
+      f = 4 - A[r][c] - s;
     } else {
-      A[r][c] = 1 + (c == r0);
+      A[r][c] = 1 + (s == 3 || c == r0);
       f ^= (r || c == r0);
     }
     #define f for (char i = 0; i < N; i++) A[r][i] = A[i - (i > N - 2)][c] = 1; A[r][c] = 2;
