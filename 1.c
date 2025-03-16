@@ -108,6 +108,7 @@ if (0) {
     else if (r >= 0 && r < N - 1 && A[r * N + c] == 2) {
       r = -1;
       if (s++ == 3) printf("(> <)\n");
-    }
+      else printf("(O O)\r");
+    } else printf("\e[K");
   }
 }
