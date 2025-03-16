@@ -18,7 +18,7 @@ void M()
     if (f *= 6 - s - s) {
     #define I(R, C) \
       if (b = A + (R) * N + C, h < N * N && R >= 0 && R < N - 1 && C >= 0 && C < N && \
-        *b < 2 && (*b || (*a == 2 && (R == r || C == c)))) \
+        *b < 2 && (*b || *a == 2 && !((R - r) * (C - c)))) \
         *b |= 4, q[t++] = b - A, h += N * N * !(R);
     #define i(n, o) \
       *a = n; h = t = 0; \
