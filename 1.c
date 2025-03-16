@@ -29,17 +29,15 @@ void M()
     if (r < 0 || A[r][c]) return;
     if (s == 3) {
       A[r][c] = 2;
-    } else if (f) {
-      f = 0; for (char c = 0; c < N; c++) f += A[r][c];
-      f = (f == N - 1);
+    } else if (f *= 2) {
       // If no path emerges with monster-induced safe cells
       // or the current cell becoming safe enables a path, set to monster
       // This will guarantee 2-move unwinnable
-    #define I(r1, c1) \
-      if (qh < N * N && (r1) >= 0 && (r1) < N - 1 && (c1) >= 0 && (c1) < N && \
-        A[r1][c1] < 2 && (A[r1][c1] || (A[r][c] == 2 && ((r1) == r || (c1) == c)))) \
-        A[r1][c1] |= 4, qr[qt++] = (r1) * N + (c1), (r1 == 0 ? qh = N * N : 0);
-    #define R(n, o) \
+    #define I(R, C) \
+      if (qh < N * N && R >= 0 && R < N - 1 && C >= 0 && C < N && \
+        A[R][C] < 2 && (A[R][C] || (A[r][c] == 2 && (R == r || C == c)))) \
+        A[R][C] |= 4, qr[qt++] = (R) * N + C, (R == 0 ? qh = N * N : 0);
+    #define F(n, o) \
       A[r][c] = n; qh = qt = 0; \
       for (char c1 = 0; c1 < N; c1++) I(N - 2, c1) \
       while (qh < qt) { \
@@ -48,8 +46,9 @@ void M()
       } \
       for (char r = 0; r < N; r++) for (char c = 0; c < N; c++) A[r][c] &= 3; \
       f |= (qh o N * N);
-      R(2,<)R(1,==)
-      A[r][c] = 1 + f++;
+      F(2,<)F(1,==)
+      A[r][c] = 1 + (f & 1);
+      f = 1;
     } else if (s == 1) {
       f ^= r;
       A[r][c] = 1 + (c == r0);
@@ -61,9 +60,14 @@ void M()
         ? c <= r || (A[r - 1][c - 1] == 0 || A[r - 1][c - 2] + A[r - 1][c] == 0)
         : c >= N - 1 - r || (A[r - 1][c + 1] == 0 || A[r - 1][c + 2] + A[r - 1][c] == 0)) || r == N - 2);
     }
+    #define f for (char i = 0; i < N; i++) A[r][i] = A[i - (i > N - 2)][c] = 1; A[r][c] = 2;
     if (A[r][c] == 2) {
-      for (char i = 0; i < N; i++) A[r][i] = A[i - (i > N - 2)][c] = 1;
-      A[r][c] = 2;
+      f
+    } else {
+      // Infer monsters
+      // TODO: Prove that this only needs to be done once
+      qh = 0; for (char c = 0; c < N; c++) qh += A[r][c];
+      if (qh == N - 1) for (char c = 0; c < N; c++) if (!A[r][c]) { f }
     }
   }
 }
