@@ -7,12 +7,12 @@
 #include <unistd.h>
 const char N = 5;
 
-char A[N - 1][N], r0, s = 5, r, c, f, qr[N * N], qh, qt;
-uint32_t rs;
+char A[N - 1][N], r0, s = 5, r, c, f, q[N * N], h, t;
+uint32_t R;
 
 uint32_t my_rand()
 {
-  return (rs = rs * 1103515245 + 12345) << 1 >> 6;
+  return (R = R * 1103515245 + 12345) << 1 >> 6;
 }
 
 void reset()
@@ -29,18 +29,18 @@ void M()
       A[r][c] = 2;
     } else if (f *= 2) {
     #define I(R, C) \
-      if (qh < N * N && R >= 0 && R < N - 1 && C >= 0 && C < N && \
+      if (h < N * N && R >= 0 && R < N - 1 && C >= 0 && C < N && \
         A[R][C] < 2 && (A[R][C] || (A[r][c] == 2 && (R == r || C == c)))) \
-        A[R][C] |= 4, qr[qt++] = (R) * N + C, (R == 0 ? qh = N * N : 0);
+        A[R][C] |= 4, q[t++] = (R) * N + C, (R == 0 ? h = N * N : 0);
     #define F(n, o) \
-      A[r][c] = n; qh = qt = 0; \
-      for (char c1 = 0; c1 < N; c1++) I(N - 2, c1) \
-      while (qh < qt) { \
-        char r1 = qr[qh] / N, c1 = qr[qh++] % N; \
-        I(r1 - 1, c1) I(r1, c1 + 1) I(r1, c1 - 1) \
+      A[r][c] = n; h = t = 0; \
+      for (char C = 0; C < N; C++) I(N - 2, C) \
+      while (h < t) { \
+        char R = q[h] / N, C = q[h++] % N; \
+        I(R - 1, C) I(R, C + 1) I(R, C - 1) \
       } \
       for (char r = 0; r < N; r++) for (char c = 0; c < N; c++) A[r][c] &= 3; \
-      f |= (qh o N * N);
+      f |= (h o N * N);
       F(2,<)F(1,==)
       if (r0 == 0 && c <= r || r0 == N - 1 && c >= N - 1 - r) f |= 1;
       A[r][c] = 1 + (f & 1);
@@ -51,27 +51,27 @@ void M()
     }
     #define f for (char i = 0; i < N; i++) A[r][i] = A[i - (i > N - 2)][c] = 1; A[r][c] = 2;
     if (A[r][c] == 2) { f }
-    qt = 1;
-    while (qt--) {
+    t = 1;
+    while (t--) {
       for (char r = 0; r < N - 1; r++) {
-        qh = 0; for (char c = 0; c < N; c++) qh += A[r][c];
-        if (qh == N - 1) for (char c = 0; c < N; c++) if (!A[r][c]) { qt = 1; f }
+        h = 0; for (char c = 0; c < N; c++) h += A[r][c];
+        if (h == N - 1) for (char c = 0; c < N; c++) if (!A[r][c]) { t = 1; f }
       }
     }
   }
 }
 
-struct termios t, T;
+struct termios S, T;
 void e()
 {
-  tcsetattr(0, TCSAFLUSH, &t);
+  tcsetattr(0, TCSAFLUSH, &S);
 }
 
 int main()
 {
-  tcgetattr(0, &t);
+  tcgetattr(0, &S);
   atexit(e);
-  T = t; T.c_lflag &= ~(ECHO | ICANON);
+  T = S; T.c_lflag &= ~(ECHO | ICANON);
   tcsetattr(0, 0, &T);
 
   while (1) {
@@ -80,7 +80,7 @@ int main()
         printf("Press Enter to continue\n");
         while (getchar() != '\n') { }
       }
-      rs -= time(0) ^ clock() << 3;
+      R -= time(0) ^ clock() << 3;
       reset();
     } else {
       printf("\e[%dA", N + 2);
