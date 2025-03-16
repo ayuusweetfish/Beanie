@@ -7,7 +7,7 @@
 #include <unistd.h>
 const char N = 5;
 
-char A[N - 1][N], r0, s = 5, r, c, f, F[N - 1][N], qr[N * N], qc[N * N], qh, qt;
+char A[N - 1][N], r0, s = 5, r, c, f, qr[N * N], qc[N * N], qh, qt;
 uint32_t rs;
 
 uint32_t my_rand()
@@ -29,27 +29,34 @@ void M()
     if (r < 0 || A[r][c]) return;
     if (s == 3) {
       A[r][c] = 2;
-    } else if (f) {
-      // If no path emerges even with newly-revealed safe cells
-      // or a trivial win next-step condition is held (r == N - 2), set to monster
+    } else if (f *= 2) {
+      // If no path emerges with monster-induced safe cells
+      // or the current cell becoming safe enables a path, set to monster
       // This will guarantee 2-move unwinnable
-      memset(F, 0, sizeof F);
-      qh = qt = 0;
-      A[r][c] = 2;
+    #define R \
+      qh = qt = 0; \
+      for (char c1 = 0; c1 < N; c1++) I(N - 2, c1) \
+      while (qh < qt) { \
+        char r1 = qr[qh], c1 = qc[qh++]; \
+        I(r1 + 1, c1) I(r1 - 1, c1) I(r1, c1 + 1) I(r1, c1 - 1) \
+      } \
+      for (char r = 0; r < N; r++) for (char c = 0; c < N; c++) A[r][c] &= 3;
     #define I(r1, c1) \
       if (qh < N * N && (r1) >= 0 && (r1) < N - 1 && (c1) >= 0 && (c1) < N && \
-        !F[r1][c1] && A[r1][c1] < 2 && (A[r1][c1] || (r1) == r || (c1) == c)) \
-        F[r1][c1] = 1, qr[qt] = r1, qc[qt++] = c1, (r1 == 0 ? qh = N * N : 0);
-      for (char c1 = 0; c1 < N; c1++) I(N - 2, c1)
-      while (qh < qt) {
-        char r1 = qr[qh], c1 = qc[qh++];
-        I(r1 + 1, c1)
-        I(r1 - 1, c1)
-        I(r1, c1 + 1)
-        I(r1, c1 - 1)
-      }
-      // printf("<%d %d> ", qh, qt);
-      A[r][c] = 1 + (qh < N * N);
+        A[r1][c1] < 2 && (A[r1][c1] || (r1) == r || (c1) == c)) \
+        A[r1][c1] |= 4, qr[qt] = r1, qc[qt++] = c1, (r1 == 0 ? qh = N * N : 0);
+      A[r][c] = 2;
+      R
+      f |= (qh < N * N);
+      A[r][c]--;
+    #define I(r1, c1) \
+      if (qh < N * N && (r1) >= 0 && (r1) < N - 1 && (c1) >= 0 && (c1) < N && \
+        A[r1][c1] == 1) \
+        A[r1][c1] |= 4, qr[qt] = r1, qc[qt++] = c1, (r1 == 0 ? qh = N * N : 0);
+      R
+      f |= (qh == N * N);
+      A[r][c] = 1 + (f & 1);
+      f = 1;
     } else if (s == 1) {
       A[r][c] = 1 + (((f ^= r) && (my_rand() & 1)) || c == r0);
     } else if (r0 > 0 && r0 < N - 1) {
