@@ -7,7 +7,7 @@
 #include <unistd.h>
 const char N = 5;
 
-char A[N - 1][N], r0, s = 5, r, c, f, qr[N * N], qc[N * N], qh, qt;
+char A[N - 1][N], r0, s = 5, r, c, f, qr[N * N], qh, qt;
 uint32_t rs;
 
 uint32_t my_rand()
@@ -36,17 +36,18 @@ void M()
     #define I(r1, c1) \
       if (qh < N * N && (r1) >= 0 && (r1) < N - 1 && (c1) >= 0 && (c1) < N && \
         A[r1][c1] < 2 && (A[r1][c1] || (A[r][c] == 2 && ((r1) == r || (c1) == c)))) \
-        A[r1][c1] |= 4, qr[qt] = r1, qc[qt++] = c1, (r1 == 0 ? qh = N * N : 0);
-    #define R \
+        A[r1][c1] |= 4, qr[qt++] = (r1) * N + (c1), (r1 == 0 ? qh = N * N : 0);
+    #define R(o) \
       qh = qt = 0; \
       for (char c1 = 0; c1 < N; c1++) I(N - 2, c1) \
       while (qh < qt) { \
-        char r1 = qr[qh], c1 = qc[qh++]; \
+        char r1 = qr[qh] / N, c1 = qr[qh++] % N; \
         I(r1 + 1, c1) I(r1 - 1, c1) I(r1, c1 + 1) I(r1, c1 - 1) \
       } \
-      for (char r = 0; r < N; r++) for (char c = 0; c < N; c++) A[r][c] &= 3;
-      A[r][c] = 2; R f |= (qh < N * N);
-      A[r][c]--; R f |= (qh == N * N);
+      for (char r = 0; r < N; r++) for (char c = 0; c < N; c++) A[r][c] &= 3; \
+      f |= (qh o N * N);
+      A[r][c] = 2; R(<);
+      A[r][c]--; R(==);
       A[r][c] = 1 + (f & 1);
       f = 1;
     } else if (s == 1) {
