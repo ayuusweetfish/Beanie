@@ -1,25 +1,14 @@
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <termios.h>
-#include <time.h>
-#include <unistd.h>
 #define N 5
+#define F(a, b) for (char a = 0; a < b; a++)
 
 char A[N - 1][N], r0, s = 5, r, c, f, q[N * N], h, t;
-uint32_t R;
+unsigned Y;
 
-uint32_t my_rand()
+void R(unsigned x)
 {
-  return (R = R * 1103515245 + 12345) << 1 >> 6;
-}
-
-void reset()
-{
-  memset(A, 0, sizeof A);
-  r0 = my_rand() % N;
-  r = -1; c = my_rand() % N; s = 1; f = 0;
+  F(r, N - 1) F(c, N) A[r][c] = 0;
+  r0 = ((Y = (Y - x) * 1103515245u + 12345) << 1 >> 3) % N;
+  f = -1; r = f++; c = (Y >> 7) % N; s = 1;
 }
 void M()
 {
@@ -29,40 +18,51 @@ void M()
     #define I(R, C) \
       if (h < N * N && R >= 0 && R < N - 1 && C >= 0 && C < N && \
         A[R][C] < 2 && (A[R][C] || (A[r][c] == 2 && (R == r || C == c)))) \
-        A[R][C] |= 4, q[t++] = (R) * N + C, (R == 0 ? h = N * N : 0);
-    #define F(n, o) \
+        A[R][C] |= 4, q[t++] = (R) * N + C, h += N * N * !(R);
+    #define i(n, o) \
       A[r][c] = n; h = t = 0; \
-      for (char C = 0; C < N; C++) I(N - 2, C) \
+      F(C, N) I(N - 2, C) \
       while (h < t) { \
         char R = q[h] / N, C = q[h++] % N; \
         I(R - 1, C) I(R, C + 1) I(R, C - 1) \
       } \
-      for (char r = 0; r < N - 1; r++) for (char c = 0; c < N; c++) A[r][c] &= 3; \
+      F(r, N - 1) F(c, N) A[r][c] &= 3; \
       f |= (h o N * N);
-      F(2,<)F(1,==)
+      i(2,<)i(1,>)
       if (r0 == 0 && c <= r || r0 == N - 1 && c >= N - 1 - r) f |= 1;
       f = 4 - (A[r][c] = 1 + (f & 1)) - s;
     } else {
       A[r][c] = 1 + (s == 3 || c == r0);
       f ^= (r || c == r0);
     }
-    #define f for (char i = 0; i < N; i++) A[r][i] = A[i - (i > N - 2)][c] = 1; A[r][c] = 2;
-    if (A[r][c] == 2) { f }
+    #define f { F(i, N) A[r][i] = A[i - (i > N - 2)][c] = 1; A[r][c]++; }
+    if (A[r][c] == 2) f
     t = 1;
-    while (t--) {
-      for (char r = 0; r < N - 1; r++) {
-        h = 0; for (char c = 0; c < N; c++) h += A[r][c];
-        if (h == N - 1) for (char c = 0; c < N; c++) if (!A[r][c]) { t = 1; f }
+    while (t--)
+      F(r, N - 1) {
+        h = 0; F(c, N) h += A[r][c];
+        if (h == N - 1) F(c, N) if (t = !A[r][c]) f
       }
-    }
   }
 }
+#undef f
+#undef i
+#undef I
+
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
 
 struct termios S, T;
 void e()
 {
   tcsetattr(0, TCSAFLUSH, &S);
 }
+
+FILE *a;
 
 int main()
 {
@@ -71,14 +71,23 @@ int main()
   T = S; T.c_lflag &= ~(ECHO | ICANON);
   tcsetattr(0, 0, &T);
 
+if (0) {
+  a = popen("ffplay -f f32le -ar 44100 -ch_layout mono pipe:", "w");
+  printf("%p\n", a);
+  for (int i = 0; i < 44100 * 3; i++) {
+    float sample = sinf(2 * (float)M_PI * 440 * i / 44100);
+    fwrite(&sample, sizeof(float), 1, a);
+  }
+  fflush(a);
+}
+
   while (1) {
     if (s & 4) {
       if (s == 4) {
         printf("Press Enter to continue\n");
         while (getchar() != '\n') { }
       }
-      R -= time(0) ^ clock() << 3;
-      reset();
+      R(time(0) ^ clock() << 3);
     } else {
       printf("\e[%dA", N + 2);
     }
