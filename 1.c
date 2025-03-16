@@ -19,19 +19,15 @@ void reset()
 {
   memset(A, 0, sizeof A);
   r0 = my_rand() % N;
-  printf("<%d>\n", r0);
   r = -1; c = my_rand() % N; s = 1; f = 0;
 }
 void M()
 {
   if (r < -1) r = -1; else if (c < 0) c = 0; else if (c > N - 1) c--; else {
-    // 0 - unknown; 1 - known safe; 2 - monster
     if (r < 0 || A[r][c]) return;
     if (s == 3) {
       A[r][c] = 2;
     } else if (f *= 2) {
-      // If no path emerges with monster-induced safe cells
-      // or the current cell becoming safe enables a path, set to monster
     #define I(R, C) \
       if (qh < N * N && R >= 0 && R < N - 1 && C >= 0 && C < N && \
         A[R][C] < 2 && (A[R][C] || (A[r][c] == 2 && (R == r || C == c)))) \
@@ -54,13 +50,13 @@ void M()
       f ^= (r || c == r0);
     }
     #define f for (char i = 0; i < N; i++) A[r][i] = A[i - (i > N - 2)][c] = 1; A[r][c] = 2;
-    if (A[r][c] == 2) {
-      f
-    } else {
-      // Infer monsters
-      // TODO: Prove that this only needs to be done once
-      qh = 0; for (char c = 0; c < N; c++) qh += A[r][c];
-      if (qh == N - 1) for (char c = 0; c < N; c++) if (!A[r][c]) { f }
+    if (A[r][c] == 2) { f }
+    qt = 1;
+    while (qt--) {
+      for (char r = 0; r < N - 1; r++) {
+        qh = 0; for (char c = 0; c < N; c++) qh += A[r][c];
+        if (qh == N - 1) for (char c = 0; c < N; c++) if (!A[r][c]) { qt = 1; f }
+      }
     }
   }
 }
