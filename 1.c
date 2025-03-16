@@ -30,7 +30,6 @@ void M()
       F(r, N * N - N) A[r] &= 3; \
       f |= (h o N * N);
       i(2,<)i(1,>)
-      if (r0 == 0 && c <= r || r0 == N - 1 && c >= N - 1 - r) f |= 1;
       if (!r) { h = 0; F(c, N) h += A[c]; if (h == N - 1) f |= 1; }
       f = 4 - (*a = 1 + (f & 1)) - s;
     } else {
