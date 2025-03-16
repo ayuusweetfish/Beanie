@@ -29,7 +29,9 @@ void M()
     if (r < 0 || A[r][c]) return;
     if (s == 3) {
       A[r][c] = 2;
-    } else if (f *= 2) {
+    } else if (f) {
+      f = 0; for (char c = 0; c < N; c++) f += A[r][c];
+      f = (f == N - 1);
       // If no path emerges with monster-induced safe cells
       // or the current cell becoming safe enables a path, set to monster
       // This will guarantee 2-move unwinnable
@@ -37,21 +39,20 @@ void M()
       if (qh < N * N && (r1) >= 0 && (r1) < N - 1 && (c1) >= 0 && (c1) < N && \
         A[r1][c1] < 2 && (A[r1][c1] || (A[r][c] == 2 && ((r1) == r || (c1) == c)))) \
         A[r1][c1] |= 4, qr[qt++] = (r1) * N + (c1), (r1 == 0 ? qh = N * N : 0);
-    #define R(o) \
-      qh = qt = 0; \
+    #define R(n, o) \
+      A[r][c] = n; qh = qt = 0; \
       for (char c1 = 0; c1 < N; c1++) I(N - 2, c1) \
       while (qh < qt) { \
         char r1 = qr[qh] / N, c1 = qr[qh++] % N; \
-        I(r1 + 1, c1) I(r1 - 1, c1) I(r1, c1 + 1) I(r1, c1 - 1) \
+        I(r1 - 1, c1) I(r1, c1 + 1) I(r1, c1 - 1) \
       } \
       for (char r = 0; r < N; r++) for (char c = 0; c < N; c++) A[r][c] &= 3; \
       f |= (qh o N * N);
-      A[r][c] = 2; R(<);
-      A[r][c]--; R(==);
-      A[r][c] = 1 + (f & 1);
-      f = 1;
+      R(2,<)R(1,==)
+      A[r][c] = 1 + f++;
     } else if (s == 1) {
-      A[r][c] = 1 + (((f ^= r) && (my_rand() & 1)) || c == r0);
+      f ^= r;
+      A[r][c] = 1 + (c == r0);
     } else if (r0 > 0 && r0 < N - 1) {
       // Rule: known-safe cells cannot reach the already-exploded column
       A[r][c] = 1 + (r < 2 ? abs(r0 - c) < 2 : A[r - 1][c + (c < r0) * 2 - 1] == 0);
