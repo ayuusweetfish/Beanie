@@ -33,6 +33,10 @@ void M()
       // If no path emerges with monster-induced safe cells
       // or the current cell becoming safe enables a path, set to monster
       // This will guarantee 2-move unwinnable
+    #define I(r1, c1) \
+      if (qh < N * N && (r1) >= 0 && (r1) < N - 1 && (c1) >= 0 && (c1) < N && \
+        A[r1][c1] < 2 && (A[r1][c1] || (A[r][c] == 2 && ((r1) == r || (c1) == c)))) \
+        A[r1][c1] |= 4, qr[qt] = r1, qc[qt++] = c1, (r1 == 0 ? qh = N * N : 0);
     #define R \
       qh = qt = 0; \
       for (char c1 = 0; c1 < N; c1++) I(N - 2, c1) \
@@ -41,20 +45,8 @@ void M()
         I(r1 + 1, c1) I(r1 - 1, c1) I(r1, c1 + 1) I(r1, c1 - 1) \
       } \
       for (char r = 0; r < N; r++) for (char c = 0; c < N; c++) A[r][c] &= 3;
-    #define I(r1, c1) \
-      if (qh < N * N && (r1) >= 0 && (r1) < N - 1 && (c1) >= 0 && (c1) < N && \
-        A[r1][c1] < 2 && (A[r1][c1] || (r1) == r || (c1) == c)) \
-        A[r1][c1] |= 4, qr[qt] = r1, qc[qt++] = c1, (r1 == 0 ? qh = N * N : 0);
-      A[r][c] = 2;
-      R
-      f |= (qh < N * N);
-      A[r][c]--;
-    #define I(r1, c1) \
-      if (qh < N * N && (r1) >= 0 && (r1) < N - 1 && (c1) >= 0 && (c1) < N && \
-        A[r1][c1] == 1) \
-        A[r1][c1] |= 4, qr[qt] = r1, qc[qt++] = c1, (r1 == 0 ? qh = N * N : 0);
-      R
-      f |= (qh == N * N);
+      A[r][c] = 2; R f |= (qh < N * N);
+      A[r][c]--; R f |= (qh == N * N);
       A[r][c] = 1 + (f & 1);
       f = 1;
     } else if (s == 1) {
