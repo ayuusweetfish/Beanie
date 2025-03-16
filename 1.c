@@ -1,25 +1,25 @@
 #define N 5
 #define F(a, b) for (char a = 0; a < b; a++)
 
-char A[N - 1][N], r0, s = 5, r, c, f, q[N * N], h, t;
+char A[N * N - N], r0, s = 5, r, c, f, q[N * N], h, t;
 unsigned Y;
 
 void R(unsigned x)
 {
-  F(r, N - 1) F(c, N) A[r][c] = 0;
+  F(r, N * N - N) A[r] = 0;
   r0 = ((Y = (Y - x) * 1103515245u + 12345) << 1 >> 3) % N;
   f = -1; r = f++; c = (Y >> 7) % N; s = 1;
 }
 void M()
 {
   if (r < -1) r = -1; else if (c < 0) c = 0; else if (c > N - 1) c--; else {
-    char *a = &A[r][c];
+    char *a = A + r * N + c, *b;
     if (r < 0 || *a) return;
     if (f *= 6 - s - s) {
     #define I(R, C) \
-      if (h < N * N && R >= 0 && R < N - 1 && C >= 0 && C < N && \
-        A[R][C] < 2 && (A[R][C] || (*a == 2 && (R == r || C == c)))) \
-        A[R][C] |= 4, q[t++] = (R) * N + C, h += N * N * !(R);
+      if (b = A + (R) * N + C, h < N * N && R >= 0 && R < N - 1 && C >= 0 && C < N && \
+        *b < 2 && (*b || (*a == 2 && (R == r || C == c)))) \
+        *b |= 4, q[t++] = b - A, h += N * N * !(R);
     #define i(n, o) \
       *a = n; h = t = 0; \
       F(C, N) I(N - 2, C) \
@@ -27,7 +27,7 @@ void M()
         char R = q[h] / N, C = q[h++] % N; \
         I(R - 1, C) I(R, C + 1) I(R, C - 1) \
       } \
-      F(r, N - 1) F(c, N) A[r][c] &= 3; \
+      F(r, N * N - N) A[r] &= 3; \
       f |= (h o N * N);
       i(2,<)i(1,>)
       if (r0 == 0 && c <= r || r0 == N - 1 && c >= N - 1 - r) f |= 1;
@@ -36,13 +36,11 @@ void M()
       *a = 1 + (s == 3 || c == r0);
       f ^= (r || c == r0);
     }
-    #define f { F(i, N) a[i] = A[i - (i > N - 2)][c] = 1; a[c]++; }
+    #define f { F(i, N) a[i] = A[(i - (i > N - 2)) * N + c] = 1; a[c]++; }
     if (a -= c, a[c] == 2) f
     t = 1;
-    a = A;
     while (t--)
-      F(r, N - 1) {
-        a += N;
+      for (a = A; a < A + N * N - N; a += N) {
         h = 0; F(c, N) h += a[c];
         if (h == N - 1) F(c, N) if (t = !a[c]) f
       }
@@ -98,7 +96,7 @@ if (0) {
     for (char i = -1; i < N; i++) {
       for (char j = 0; j < N; j++)
         printf("%c%d%c", r == i && c == j ? '[' : ' ',
-          i < 0 || i > N - 2 ? 3 : A[i][j], r == i && c == j ? ']' : ' ');
+          i < 0 || i > N - 2 ? 3 : A[i * N + j], r == i && c == j ? ']' : ' ');
       printf("\n");
     }
     unsigned char m = getchar();
@@ -106,7 +104,7 @@ if (0) {
     if ((m -= *a) < 4) m = a[2] >> (6-m-m), *(m & 1 ? &r : &c) += (m & 2) - 1;
     M();
     if (r > N - 2) printf("\\(^ ^)/\n"), s = 4;
-    else if (r >= 0 && r < N - 1 && A[r][c] == 2) {
+    else if (r >= 0 && r < N - 1 && A[r * N + c] == 2) {
       r = -1;
       if (s++ == 3) printf("(> <)\n");
     }
