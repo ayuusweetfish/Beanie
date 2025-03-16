@@ -5,7 +5,7 @@
 #include <termios.h>
 #include <time.h>
 #include <unistd.h>
-const char N = 5;
+#define N 5
 
 char A[N - 1][N], r0, s = 5, r, c, f, q[N * N], h, t;
 uint32_t R;
@@ -39,7 +39,7 @@ void M()
         char R = q[h] / N, C = q[h++] % N; \
         I(R - 1, C) I(R, C + 1) I(R, C - 1) \
       } \
-      for (char r = 0; r < N; r++) for (char c = 0; c < N; c++) A[r][c] &= 3; \
+      for (char r = 0; r < N - 1; r++) for (char c = 0; c < N; c++) A[r][c] &= 3; \
       f |= (h o N * N);
       F(2,<)F(1,==)
       if (r0 == 0 && c <= r || r0 == N - 1 && c >= N - 1 - r) f |= 1;
