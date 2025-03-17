@@ -1,19 +1,19 @@
 #define N 5
 #define F(a, b) for (char a = 0; a < b; a++)
 
-char A[N * N - N], r0, s = 5, r, c, f, q[N * N], h, t;
+char A[N * N - N], r0, s = 5, r, c, f, q[N * N];
 unsigned Y;
 
 void R(unsigned x)
 {
   F(r, N * N - N) A[r] = 0;
   r0 = ((Y = (Y - x) * 1103515245u + 12345) << 1 >> 3) % N;
-  f = -1; r = f++; c = (Y >> 7) % N; s = 1;
+  r = 0; f = r--; c = (Y >> 7) % N; s = 1;
 }
 void M()
 {
-  if (r < -1) r = -1; else if (c < 0) c = 0; else if (c > N - 1) c--; else {
-    char *a = A + r * N + c, *b;
+  if (r < -1) r++; else if (c < 0) c = 0; else if (c > N - 1) c--; else {
+    char *a = A + r * N + c, *b, h, t;
     if (r < 0 || *a) return;
     if (f *= 6 - s - s) {
     #define I(R, C) \
@@ -24,7 +24,7 @@ void M()
         *a = -~n; h = t = 0;
         F(C, N) I(N - 2, C)
         while (h < t) {
-          char R = q[h] / N, C = q[h++] % N;
+          char R = q[h++], C = R % N; R /= N;
           I(R - 1, C) I(R, C + 1) I(R, C - 1)
         }
         F(r, N * N - N) A[r] &= 3;
@@ -36,7 +36,7 @@ void M()
     } else {
       i(A)-2) r0 = c;
       *a = 1 + (s == 3 || c == r0);
-      f ^= (r || c == r0);
+      f ^= r || c == r0;
     }
     #define f { F(i, N) a[i] = A[(i - (i > N - 2)) * N + c] = 1; a[c]++; }
     if (a -= c, a[c] == 2) f
@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
   tcsetattr(0, 0, &T);
 
   // ./a.out >(sox --buffer 1024 -t f32 -r 44100 -c 1 - -d 2>/dev/null)
-  if (argv[1]) {
+  if (argc >= 1) {
     a = fopen(argv[1], "wb");
     if (a) {
       setbuf(a, NULL);
