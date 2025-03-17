@@ -66,20 +66,26 @@ void e()
 
 FILE *a;
 
-int main()
+int main(int argc, char *argv[])
 {
   tcgetattr(0, &S);
   atexit(e);
   T = S; T.c_lflag &= ~(ECHO | ICANON);
   tcsetattr(0, 0, &T);
 
-  a = popen("sox --buffer 1024 -t f32 -r 44100 -c 1 - -d 2>/dev/null", "w");
-  setbuf(a, NULL);
-  for (int i = 0; i < 44100 * 3; i++) {
-    float sample = sinf(2 * (float)M_PI * 440 * i / 44100);
-    fwrite(&sample, sizeof(float), 1, a);
-    fflush(a);
+  // ./a.out >(sox --buffer 1024 -t f32 -r 44100 -c 1 - -d 2>/dev/null)
+  if (argv[1]) {
+    a = fopen(argv[1], "wb");
+    if (a) {
+      setbuf(a, NULL);
+      for (int i = 0; i < 44100 * 3; i++) {
+        float sample = sinf(2 * (float)M_PI * 440 * i / 44100);
+        fwrite(&sample, sizeof(float), 1, a);
+        fflush(a);
+      }
+    }
   }
+  if (!a) printf("No audio device supplied, game will be silent (_ _)\n");
 
   while (1) {
     if (s & 4) {
