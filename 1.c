@@ -73,15 +73,13 @@ int main()
   T = S; T.c_lflag &= ~(ECHO | ICANON);
   tcsetattr(0, 0, &T);
 
-if (0) {
-  a = popen("ffplay -f f32le -ar 44100 -ch_layout mono pipe:", "w");
-  printf("%p\n", a);
+  a = popen("sox --buffer 1024 -t f32 -r 44100 -c 1 - -d 2>/dev/null", "w");
+  setbuf(a, NULL);
   for (int i = 0; i < 44100 * 3; i++) {
     float sample = sinf(2 * (float)M_PI * 440 * i / 44100);
     fwrite(&sample, sizeof(float), 1, a);
+    fflush(a);
   }
-  fflush(a);
-}
 
   while (1) {
     if (s & 4) {
