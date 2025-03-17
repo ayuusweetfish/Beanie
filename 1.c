@@ -20,20 +20,21 @@ void M()
       if (b = A + (R) * N + C, h < N * N && R >= 0 && R < N - 1 && C >= 0 && C < N && \
         *b < 2 && (*b || *a == 2 && !((R - r) * (C - c)))) \
         *b |= 4, q[t++] = b - A, h += N * N * !(R);
-    #define i(n, o) \
-      *a = n; h = t = 0; \
-      F(C, N) I(N - 2, C) \
-      while (h < t) { \
-        char R = q[h] / N, C = q[h++] % N; \
-        I(R - 1, C) I(R, C + 1) I(R, C - 1) \
-      } \
-      F(r, N * N - N) A[r] &= 3; \
-      f |= (h o N * N);
-      i(2,<)i(1,>)
-      if (!r) { h = 0; F(c, N) h += A[c]; if (h == N - 1) f |= 1; }
-      f = 4 - (*a = 1 + (f & 1)) - s;
+      F(n, 2) {
+        *a = -~n; h = t = 0;
+        F(C, N) I(N - 2, C)
+        while (h < t) {
+          char R = q[h] / N, C = q[h++] % N;
+          I(R - 1, C) I(R, C + 1) I(R, C - 1)
+        }
+        F(r, N * N - N) A[r] &= 3;
+        f |= (h - N * N) * (1 - n - n) > 0;
+      }
+    #define i(A) h = 0; F(c, N) h += A[c]; if (h == N
+      if (!r) { i(A)) f |= 1; }
+      f = 4 - (*a = -~(f & 1)) - s;
     } else {
-      h = 0; F(c, N) h += A[c]; if (h == N - 2) r0 = c;
+      i(A)-2) r0 = c;
       *a = 1 + (s == 3 || c == r0);
       f ^= (r || c == r0);
     }
@@ -42,8 +43,7 @@ void M()
     t = 1;
     while (t--)
       for (a = A; a < A + N * N - N; a += N) {
-        h = 0; F(c, N) h += a[c];
-        if (h == N - 1) F(c, N) if (t = !a[c]) f
+        i(a)-1) F(c, N) if (t = !a[c]) f
       }
   }
 }
@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
 {
   tcgetattr(0, &S);
   atexit(e);
-  T = S; T.c_lflag &= ~(ECHO | ICANON);
+  T = S; T.c_lflag &= ~ECHO & ~ICANON;
   tcsetattr(0, 0, &T);
 
   // ./a.out >(sox --buffer 1024 -t f32 -r 44100 -c 1 - -d 2>/dev/null)
@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
     if ((m -= *a) < 4) m = a[2] >> (6-m-m), *(m & 1 ? &r : &c) += (m & 2) - 1;
     M();
     if (r > N - 2) printf("\\(^ ^)/\n"), s = 4;
-    else if (r >= 0 && r < N - 1 && A[r * N + c] == 2) {
+    else if (r >= 0 && A[r * N + c] == 2) {
       r = -1;
       if (s++ == 3) printf("(> <)\n");
       else printf("(O O)\r");
