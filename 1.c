@@ -30,25 +30,25 @@ void M()
         F(r, N * N - N) A[r] &= 3;
         f |= (h - N * N) * (1 - n - n) > 0;
       }
-    #define i(A) h = 0; F(c, N) h += A[c]; if (h == N
-      if (!r) { i(A)) f |= 1; }
+    #define R h = 0; F(c, N) h += b[c]; if (h == N
+      if (!r) { b = A; R) f |= 1; }
       f = 4 - (*a = -~(f & 1)) - s;
     } else {
-      i(A)-2) r0 = c;
+      b = A; R-2) r0 = c;
       *a = 1 + (s == 3 || c == r0);
       f ^= r || c == r0;
     }
-    #define f { F(i, N) a[i] = A[(i - (i > N - 2)) * N + c] = 1; a[c]++; }
-    if (a -= c, a[c] == 2) f
+    #define f { F(i, N) b[i] = A[(i - (i > N - 2)) * N + c] = 1; b[c]++; }
+    if (b = a - c, *a == 2) f
     t = 1;
     while (t--)
-      for (a = A; a < A + N * N - N; a += N) {
-        i(a)-1) F(c, N) if (t = !a[c]) f
+      for (b = A; b < A + N * N - N; b += N) {
+        R-1) F(c, N) if (t = !b[c]) f
       }
   }
 }
 #undef f
-#undef i
+#undef R
 #undef I
 
 #include <math.h>
