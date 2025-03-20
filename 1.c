@@ -18,7 +18,7 @@ void M()
     if (f *= 6 - s - s) {
     #define I(R, C) \
       if (b = A + (R) * N + C, h < N * N & R >= 0 & R < N - 1 & C >= 0 & C < N & \
-        *b < 2 & (*b | !(*a - 2 | R - r | C - c))) \
+        *b < 2 & (*b | !(*a - 2 | R == r | C == c))) \
         *b |= 4, q[t++] = b - A, h += N * N * !(R);
       F(n, 2) {
         *a = -~n; h = t = 0;
@@ -31,11 +31,11 @@ void M()
         f |= (h - N * N) * (1 - n - n) > 0;
       }
     #define R h = 0; F(c, N) h += b[c]; if (h == N
-      if (!r) { b = A; R) f |= 1; }
+      if (!r) { b = A; R) f |= Y /= 8; }
       f = 4 - (*a = -~(f & 1)) - s;
     } else {
       b = A; R-2) r0 = c;
-      *a = 1 + (s == 3 | c == r0);
+      *a = 1 + (s == 3 | c == r0 || r && Y & 4);
       f ^= r || c == r0;
     }
     #define f { F(i, N) b[i] = A[(i - (i > N - 2)) * N + c] = 1; b[c]++; }
