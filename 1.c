@@ -12,13 +12,13 @@ void R(unsigned x)
 }
 void M()
 {
-  if (r < -1) r++; else if (c < 0) c = 0; else if (c > N - 1) c--; else {
+  if (r < -1) r++; else if (c < 0) c = 0; else if (c >= N) c--; else {
     char *a = A + r * N + c, *b, h, t;
-    if (r < 0 || *a) return;
+    if (r < 0 | *a) return;
     if (f *= 6 - s - s) {
     #define I(R, C) \
-      if (b = A + (R) * N + C, h < N * N && R >= 0 && R < N - 1 && C >= 0 && C < N && \
-        *b < 2 && (*b || *a == 2 && !((R - r) * (C - c)))) \
+      if (b = A + (R) * N + C, h < N * N & R >= 0 & R < N - 1 & C >= 0 & C < N & \
+        *b < 2 & (*b | !(*a - 2 | R - r | C - c))) \
         *b |= 4, q[t++] = b - A, h += N * N * !(R);
       F(n, 2) {
         *a = -~n; h = t = 0;
@@ -35,7 +35,7 @@ void M()
       f = 4 - (*a = -~(f & 1)) - s;
     } else {
       b = A; R-2) r0 = c;
-      *a = 1 + (s == 3 || c == r0);
+      *a = 1 + (s == 3 | c == r0);
       f ^= r || c == r0;
     }
     #define f { F(i, N) b[i] = A[(i - (i > N - 2)) * N + c] = 1; b[c]++; }
@@ -101,7 +101,7 @@ int main(int argc, char *argv[])
     for (char i = -1; i < N; i++) {
       for (char j = 0; j < N; j++)
         printf("%c%d%c", r == i && c == j ? '[' : ' ',
-          i < 0 || i > N - 2 ? 3 : A[i * N + j], r == i && c == j ? ']' : ' ');
+          i < 0 | i > N - 2 ? 3 : A[i * N + j], r == i && c == j ? ']' : ' ');
       printf("\n");
     }
     unsigned char m = getchar();
