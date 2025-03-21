@@ -12,13 +12,13 @@ void R(unsigned x)
 }
 void M()
 {
-  if (r < -1) r++; else if (c < 0) c = 0; else if (c >= N) c--; else {
+  if (~r > 0) r++; else if (c < 0) c = 0; else if (c >= N) c--; else {
     char *a = A + r * N + c, *b, h, t;
     if (r < 0 | *a) return;
     if (f *= 6 - s - s) {
     #define I(R, C) \
       if (b = A + (R) * N + C, h < N * N & R >= 0 & R < N - 1 & C >= 0 & C < N & \
-        *b < 2 & (*b | !(*a - 2 | R == r | C == c))) \
+        *b < 2 & (*b | !(*a - 2 || R - r && C - c))) \
         *b |= 4, q[t++] = b - A, h += N * N * !(R);
       F(n, 2) {
         *a = -~n; h = t = 0;
@@ -28,7 +28,7 @@ void M()
           I(R - 1, C) I(R, C + 1) I(R, C - 1)
         }
         F(r, N * N - N) A[r] &= 3;
-        f |= (h - N * N) * (1 - n - n) > 0;
+        f |= (h - N * N) * (n - !n) < 0;
       }
     #define R h = 0; F(c, N) h += b[c]; if (h == N
       if (!r) { b = A; R) f |= Y /= 8; }
