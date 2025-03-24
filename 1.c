@@ -7,8 +7,8 @@ unsigned Y;
 void R(unsigned x)
 {
   F(r, N * N - N) A[r] = 0;
-  c = ((Y = (Y - x) * 1103515245u + 12345) << 1 >> 3) % N;
-  r = 0; f = r--; r0 = (Y >> 7) % N; s = 1;
+  c = (2 * (Y = (Y - x) * 1103515245u + 12345) >> 3) % N;
+  r = 0; f = r--; r0 = (Y + Y >> 6) % N; s = 1;
 }
 void M()
 {
