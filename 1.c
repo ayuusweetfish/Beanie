@@ -51,6 +51,7 @@ void M()
 #undef R
 #undef I
 
+#ifndef FUZZ
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -116,3 +117,4 @@ int main(int argc, char *argv[])
     } else printf("\e[K");
   }
 }
+#endif
