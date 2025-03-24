@@ -38,8 +38,8 @@ void M()
       f = 4 - (*a = -~(f & 1)) - s;
     } else {
       b = A; R-2) r0 = c;
-      *a = 1 + (s == 3 | c == r0 || r && Y & 4);
-      f ^= (r ? r0 = c : 0) || c == r0;
+      if ((*a = 1 + (s == 3 | c == r0 || r && Y & 4)) / 2) r0 = c;
+      f ^= r || c == r0;
     }
     #define f { F(i, N) b[i] = A[(i - (i > N - 2)) * N + c] = 1; b[c]++; }
     if (b = a - c, *a == 2) f
