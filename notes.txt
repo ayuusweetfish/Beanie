@@ -1,3 +1,2 @@
-`i(1,>)`: Why not `>=`?
 `I(R - 1, C)`: Why not move down?
-`!((R - r) * (C - c))`: Overflow when N >= 16?
+Under which values of `N` can the "initial-deep-move" outcome be predicted during play?
