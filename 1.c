@@ -31,12 +31,15 @@ void M()
         f |= (h - N * N) * (n - !n) < 0;
       }
     #define R h = 0; F(c, N) h += b[c]; if (h == N
-      if (!r) { b = A; R) f |= Y /= 8; }
+      if (!r) {
+        f |= r0 && r0 < N && A[r0 - 1] && A[r0 + 1];
+        b = A; R) f |= 1;
+      }
       f = 4 - (*a = -~(f & 1)) - s;
     } else {
       b = A; R-2) r0 = c;
       *a = 1 + (s == 3 | c == r0 || r && Y & 4);
-      f ^= r || c == r0;
+      f ^= (r ? r0 = c : 0) || c == r0;
     }
     #define f { F(i, N) b[i] = A[(i - (i > N - 2)) * N + c] = 1; b[c]++; }
     if (b = a - c, *a == 2) f

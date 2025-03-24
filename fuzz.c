@@ -9,7 +9,7 @@
 #ifdef PRINT
 #include <stdio.h>
 #else
-#define print(...)
+#define printf(...)
 #endif
 
 int LLVMFuzzerTestOneInput(const uint8_t *data, size_t n)
