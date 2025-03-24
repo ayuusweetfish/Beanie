@@ -13,7 +13,7 @@ void R(unsigned x)
 void M()
 {
   if (~r > 0) r++; else if (c < 0) c = 0; else if (c >= N) c--; else {
-    char *a = A + r * N + c, *b, h, t;
+    char *a = A + r * N + c, *b = A, h, t;
     if (r < 0 | *a) return;
     if (f *= 6 - s - s) {
     #define I(R, C) \
@@ -37,9 +37,9 @@ void M()
       }
       f = 4 - (*a = -~(f & 1)) - s;
     } else {
-      b = A; R-2) r0 = c;
-      if ((*a = 1 + (s == 3 | c == r0 || r && Y & 4)) / 2) r0 = c;
-      f ^= r || c == r0;
+      R-2) r0 = c;
+      *a = 1 + (s == 3 | c == r0 || r && Y & 4) && ~(r0 = c);
+      f ^= r | c == r0;
     }
     #define f { F(i, N) b[i] = A[(i - (i > N - 2)) * N + c] = 1; b[c]++; }
     if (b = a - c, *a == 2) f
