@@ -32,7 +32,7 @@ void M()
       }
     #define R h = 0; F(c, N) h += b[c]; if (h == N
       if (!r) {
-        f |= r0 && r0 < N && A[r0 - 1] && A[r0 + 1];
+        f |= r0 && r0 < ~-N & A[r0 - 1] & A[r0 + 1];
         b = A; R) f |= 1;
       }
       f = 4 - (*a = -~(f & 1)) - s;
@@ -42,10 +42,10 @@ void M()
       f ^= r | c == r0;
     }
     #define f { F(i, N) b[i] = A[(i - (i > N - 2)) * N + c] = 1; b[c]++; }
-    if (b = a - c, *a == 2) f
+    if (b = a - c, *a / 2) f
     t = 1;
     while (t--)
-      for (b = A; b < A + N * (N - 1); b += N) {
+      for (b = A; b < A + N * ~-N; b += N) {
         R-1) F(c, N) if (t = !b[c]) f
       }
   }
