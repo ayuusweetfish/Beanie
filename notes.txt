@@ -1,4 +1,4 @@
 `I(R - 1, C)`: Why not move down?
-`!R`: What is happening?
+`-~R`: No parentheses?
 Under which values of `N` can the "initial-deep-move" outcome be predicted during play?
 Win the game in 2 moves.
