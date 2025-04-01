@@ -17,18 +17,18 @@ void M()
     if (r < 0 || *(a = A + r * N + c)) return;
     if (f *= s + s - 6) {
     #define I(R, C) \
-      if (b = A + R + N * (C), -~C && h < Z + N & (unsigned)R < N & \
+      if (b = A + R + N * (C), -~C && h < Z & (unsigned)R < N & \
         *b < 2 & (*b | !(*a - 2 || C - r && R - c))) \
-        *b |= 4, q[t++] = b - A, h += N * N * !(C);
+        *b |= 4, q[t++] = b - A, h += Z * !(C);
       F(n, 2) {
-        *a = -~n; h = t = 0;
+        *a = -~n; t = 0;
         F(C, N) I(C, N - 2)
-        while (h < t) {
-          char C = q[h++], R = C % N; C /= N;
+        F(T = h, t) {
+          char C = q[h], R = C % N; C /= N;
           I(R + 1, C) I(R - 1, C) I(R, C - 1)
         }
         F(r, Z) A[r] &= 3;
-        f |= (h - N - Z) * (n - !n) < 0;
+        f |= (h - Z + 1) * (n - !n) < 0;
       }
     #define R h = 0; F(c, N) h += b[c]; if (h == N
       if (!r) {
