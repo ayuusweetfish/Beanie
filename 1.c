@@ -16,16 +16,16 @@ void M()
     char *a, *b = A, h, t;
     if (r < 0 || *(a = A + r * N + c)) return;
     if (f *= 6 - s - s) {
-    #define I(C, R) \
-      if (b = A + (R) * N + C, -~R && h < Z + N & (unsigned)C < N & \
-        *b < 2 & (*b | !(*a - 2 || R - r && C - c))) \
-        *b |= 4, q[t++] = b - A, h += N * N * !(R);
+    #define I(R, C) \
+      if (b = A + R + N * (C), -~C && h < Z + N & (unsigned)R < N & \
+        *b < 2 & (*b | !(*a - 2 || C - r && R - c))) \
+        *b |= 4, q[t++] = b - A, h += N * N * !(C);
       F(n, 2) {
         *a = -~n; h = t = 0;
         F(C, N) I(C, N - 2)
         while (h < t) {
           char C = q[h++], R = C % N; C /= N;
-          I(R, C - 1) I(R + 1, C) I(R - 1, C)
+          I(R + 1, C) I(R - 1, C) I(R, C - 1)
         }
         F(r, Z) A[r] &= 3;
         f |= (h - N - Z) * (n - !n) < 0;
