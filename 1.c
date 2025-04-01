@@ -1,12 +1,12 @@
 #define N 5
 #define F(a, b) for (char a = 0; a < b; a++)
 
-char A[N * N - N], r0, s = 5, r, c, f, q[N * N];
+char A[N * N - N], r0, s = 5, r, c, f, q[N * N], Z;
 unsigned Y;
 
 void R(unsigned x)
 {
-  F(r, N * N - N) A[r] = 0;
+  F(r, (Z = ~-N * N)) A[r] = 0;
   c = (2 * (Y = (Y - x) * 1103515245u + 12345) >> 3) % N;
   r = 0; f = r--; r0 = (Y + Y >> 6) % N; s = 1;
 }
@@ -27,7 +27,7 @@ void M()
           char R = q[h++], C = R % N; R /= N;
           I(R - 1, C) I(R, C + 1) I(R, C - 1)
         }
-        F(r, N * N - N) A[r] &= 3;
+        F(r, Z) A[r] &= 3;
         f |= (h - N * N) * (n - !n) < 0;
       }
     #define R h = 0; F(c, N) h += b[c]; if (h == N
@@ -44,7 +44,7 @@ void M()
     #define f { F(i, N) b[i] = A[(i - (i > N - 2)) * N + c] = t; b[c]++; }
     if (b = a - c, t = 1, *a / 2) f
     while (t--)
-      for (b = A; b < A + N * ~-N; b += N) {
+      for (b = A; b < Z + A; b += N) {
         R-1) F(c, N) if (t = !b[c]) f
       }
   }
