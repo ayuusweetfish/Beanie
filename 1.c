@@ -1,7 +1,9 @@
 #define N 5
 #define F(a, b) for (char a = 0; a < b; a++)
 
-char A[N * N - N], r0, s = 5, r, c, f, q[N * N], Z;
+typedef char p[N * N - N];
+p A, q;
+char r0, s = 5, r, c, f, Z;
 unsigned Y;
 
 void R(unsigned x)
@@ -19,15 +21,15 @@ void M()
     #define I(R, C) \
       if (-~C && h < Z & (unsigned)R < N && \
         *(b = R + N * (C) + A) < 2 && *b | !(*a - 2 || C - r && R - c)) \
-        *b ^= 4, q[t++] = b - A, h += Z * !(C);
-      F(n, 2) {
+        *b -= f + f, q[t++] = b - A, h += Z * !(C);
+      F(n, s + 2 - *a) {
         *a = -~n; t = 0;
         F(C, N) I(C, N - 2)
         F(T = h, t) {
           char C = q[h], R = C % N; C /= N;
           I(R + T, C) I(~-R, C) I(R, C - T)
         }
-        F(r, Z) A[r] &= 3;
+        F(r, Z) r[A] &= 3;
         f |= (h - Z + 1) * (n - !n) < 0;
       }
     #define R h = 0; F(c, N) h += b[c]; if (h == N
@@ -45,7 +47,7 @@ void M()
     if (b = a - c, t = 1, *a / 2) f
     while (t--)
       for (b = A; b < Z + A; b += N) {
-        R-1) F(c, N) if (t = !b[c]) f
+        R-1) F(c, N) if (t = !c[b]) f
       }
   }
 }

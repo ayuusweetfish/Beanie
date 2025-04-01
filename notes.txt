@@ -1,4 +1,5 @@
-`I(R - 1, C)`: Why not move down?
-`-~R`: No parentheses?
+`-~C`: No parentheses?
+Why is there a missing direction?
 Under which values of `N` can the "initial-deep-move" outcome be predicted during play?
+What is the maximum possible value of any element of `A`, at any time throughout the program?
 Win the game in 2 moves.
