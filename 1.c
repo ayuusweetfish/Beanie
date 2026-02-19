@@ -3,7 +3,7 @@
 
 typedef char p[N * N - N];
 p A, q;
-char r0, s = 5, r, c, f, Z;
+signed char r0, s = 5, r, c, f, Z;
 unsigned Y;
 
 void R(unsigned x)
@@ -103,10 +103,10 @@ int main(int argc, char *argv[])
       printf("\e[%dA", N + 2);
     }
     printf("Move %d\e[K\n", s);
-    for (char i = -1; i < N; i++) {
+    for (signed char i = -1; i < N; i++) {
       for (char j = 0; j < N; j++)
         printf("%c%d%c", r == i && c == j ? '[' : ' ',
-          i < 0 | i > N - 2 ? 3 : A[i * N + j], r == i && c == j ? ']' : ' ');
+          !~i | i > N - 2 ? 3 : A[i * N + j], r == i && c == j ? ']' : ' ');
       printf("\n");
     }
     unsigned char m = getchar();
