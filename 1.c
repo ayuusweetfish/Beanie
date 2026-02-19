@@ -14,7 +14,7 @@ void R(unsigned x)
 }
 void M()
 {
-  if (~r > 0) r++; else if (c < 0) c = 0; else if (c >= N) c--; else {
+  if (0 < ~r) r++; else if (!~c) c = 0; else if (c >= N) c--; else {
     char *a, *b = A, h, t;
     if (r < 0 || *(a = A + r * N + c)) return;
     if (f *= s + s - 6) {
@@ -30,7 +30,7 @@ void M()
           I(R + T, C) I(~-R, C) I(R, C - T)
         }
         F(r, Z) r[A] &= 3;
-        f |= (h - Z + 1) * (n - !n) < 0;
+        f |= (h - ~ - Z) * (n - !n) < 0;
       }
     #define R h = 0; F(c, N) h += b[c]; if (h == N
       if (!r) {
@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
     }
     unsigned char m = getchar();
     char *a = "Aix6" + ((m += m == 'h') >= 'i');
-    if ((m -= *a) < 4) m = a[2] >> (6-m-m), *(m & 1 ? &r : &c) += (m & 2) - 1;
+    if (4 > (m -= *a)) m = a[2] >> 6-m-m, *(m % 2 ? &r : &c) += ~-(m & 2);
     M();
     if (r > N - 2) printf("\\(^ ^)/\n"), s = 4;
     else if (r >= 0 && A[r * N + c] == 2) {
