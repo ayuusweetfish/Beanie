@@ -16,7 +16,7 @@ void M()
 {
   if (0 < ~r) r++; else if (!~c) c = 0; else if (c >= N) c--; else {
     char *a, *b = A, h, t;
-    if (r < 0 || *(a = A + r * N + c)) return;
+    if (r < 0 | ~r <= -N || *(a = A + r * N + c)) return;
     if (f *= s + s - 6) {
     #define I(R, C) \
       if (-~C && h < Z & (unsigned)R < N && \
