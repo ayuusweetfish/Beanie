@@ -1,11 +1,11 @@
 #define N 5
-#define F(a, b) for (char a = 0; a < b; a++)
 
 typedef char p[N * N - N];
 p A, q;
 signed char r0, s = 5, r, c, f, Z;
 unsigned Y;
 
+#define F(a, b) for (char a = 0; a < b; a++)
 void R(unsigned x)
 {
   F(r, (Z = ~-N * N)) A[r] = 0;
@@ -15,10 +15,10 @@ void R(unsigned x)
 void M(unsigned R)
 {
   char *a = "Aix6" + ((R += R == 'h') >= 'i');
-  if (4 > (R -= *a)) R = a[2] >> 6-R-R, *(R % 2 ? &r : &c) += ~-(R & 2);
+  if (4 > (R -= *a)) R = 2[a] >> 6-R-R, *(R % 2 ? &r : &c) += ~-(R & 2);
   if (0 < ~r) r++; else if (!~c) c = 0; else if (c >= N) c--; else {
     char *a, *b = A, h, t;
-    if (r < 0 | ~r <= -N || *(a = A + r * N + c)) return;
+    if (r >= 0 & ~r > -N && !0[a = c + A + r * N]) {
     if (f *= s + s - 6) {
     #define I(R, C) \
       if (-~C && h < Z & (unsigned)R < N && \
@@ -51,6 +51,7 @@ void M(unsigned R)
       for (b = A; b < Z + A; b += N) {
         R-1) F(c, N) if (t = !c[b]) f
       }
+    }
   }
 }
 #undef f
@@ -107,9 +108,9 @@ int main(int argc, char *argv[])
     printf("Move %d\e[K\n", s);
     for (signed char i = -1; i < N; i++) {
       for (char j = 0; j < N; j++)
-        putchar((Z = r - i | c - j) ? ' ' : '['),
+        putchar((*q = r - i | c - j) ? ' ' : '['),
         putchar(!~i | i > N - 2 ? 51 : 48 + A[i * N + j]),
-        putchar(" ]"[!Z]);
+        putchar(" ]"[!*q]);
       printf("\n");
     }
     M(getchar());
