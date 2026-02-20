@@ -17,7 +17,7 @@ void M(unsigned R)
   char *a = "Aix6" + ((R += R == 'h') >= 'i');
   if (4 > (R -= *a)) R = 2[a] >> 6-R-R, *(R % 2 ? &r : &c) += ~-(R & 2);
   if (0 < ~r) r++; else if (!~c) c = 0; else if (c >= N) c--; else {
-    char *a, *b = A, h, t;
+    char *a, *b = A, h = 0, t;
     if (r >= 0 & ~r > -N && !0[a = c + A + r * N]) {
     if (f *= s + s - 6) {
     #define I(R, C) \
