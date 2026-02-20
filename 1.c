@@ -6,26 +6,27 @@ signed char r0, s = 5, r, c, f, Z;
 unsigned Y;
 
 #define F(a, b) for (char a = 0; a < b; a++)
-void R(unsigned x)
+void R(unsigned M)
 {
   F(r, (Z = ~-N * N)) A[r] = 0;
-  c = (2 * (Y = (Y - x) * 1103515245u + 12345) >> 3) % N;
-  r = 0; f = r--; r0 = (Y + Y >> 6) % N; s = 1;
+  c = ((Y = (Y - M) * 1103515245u + 12345) >> 5) % N;
+  s = !(r = 0, f = r--); r0 = (Y + Y / 9) % N;
 }
 void M(unsigned R)
 {
   char *a = "Aix6" + ((R += R == 'h') >= 'i');
   if (4 > (R -= *a)) R = 2[a] >> 6-R-R, *(R % 2 ? &r : &c) += ~-(R & 2);
-  if (0 < ~r) r++; else if (!~c) c = 0; else if (c >= N) c--; else {
-    char *a, *b = A, h = 0, t;
-    if (r >= 0 & ~r > -N && !0[a = c + A + r * N]) {
+  char *b = A, h = 0, t;
+  r += h < ~r;
+  c -= (c == N) - !~c;
+  if (r >= 0 & ~r > -N && !0[a = c + A + r * N]) {
     if (f *= s + s - 6) {
     #define I(R, C) \
       if (-~C && h < Z & (unsigned)R < N && \
         *(b = R + N * (C) + A) < 2 && *b | !(*a - 2 || C - r && R - c)) \
         *b -= f + f, q[t++] = b - A, h += Z * !(C);
       F(n, s + 2 - *a) {
-        *a = -~n; t = 0;
+        t = !(*a = -~n);
         F(C, N) I(C, N - 2)
         F(T = h, t) {
           char C = q[h], R = C % N; C /= N;
@@ -51,7 +52,6 @@ void M(unsigned R)
       for (b = A; b < Z + A; b += N) {
         R-1) F(c, N) if (t = !c[b]) f
       }
-    }
   }
 }
 #undef f
@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
       printf("\e[%dA", N + 2);
     }
     printf("Move %d\e[K\n", s);
-    for (signed char i = -1; i < N; i++) {
+    for (char i = -1; i - N; i++) {
       for (char j = 0; j < N; j++)
         putchar((*q = r - i | c - j) ? ' ' : '['),
         putchar(!~i | i > N - 2 ? 51 : 48 + A[i * N + j]),
