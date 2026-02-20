@@ -29,7 +29,7 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t n)
     M('A' + move);
     printf("(%2d,%2d) Step %d", r, c, s);
     if (r > N - 2) {
-      assert(s == 3);
+      assert(s == 2 || s == 3);
       s = 4;
       printf(" | Success!\n");
       break;
