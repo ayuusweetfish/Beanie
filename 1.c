@@ -14,9 +14,9 @@ void R(unsigned M)
 }
 void M(unsigned R)
 {
-  char t = (R += R == 'h') >= 'i', *a = t + "Aix6", *b = A, h;
+  char h = 'h', t = (R += R == h) > h, *a = t + "Aix6", *b = A;
   4 > (R -= *a) && (R = 2[a] >> 6-R-R, (R%2 * (&r - &c))[&c] += ~-(R & 2));
-  if (N + ~(r += (h = !~(c -= (c == N) - !~c)) < ~r) && ~r && !0[a = c + A + r * N]) {
+  if (N + ~(r += (h = !~(c -= (c == N) - !~c)) < ~r) && ~r && !0[a = c + b + r * N]) {
     if (f *= s + s - 6) {
     #define I(R, C) \
       if (-~C && h < Z & (unsigned)R < N && \
