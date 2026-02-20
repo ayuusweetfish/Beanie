@@ -12,8 +12,10 @@ void R(unsigned x)
   c = (2 * (Y = (Y - x) * 1103515245u + 12345) >> 3) % N;
   r = 0; f = r--; r0 = (Y + Y >> 6) % N; s = 1;
 }
-void M()
+void M(unsigned R)
 {
+  char *a = "Aix6" + ((R += R == 'h') >= 'i');
+  if (4 > (R -= *a)) R = a[2] >> 6-R-R, *(R % 2 ? &r : &c) += ~-(R & 2);
   if (0 < ~r) r++; else if (!~c) c = 0; else if (c >= N) c--; else {
     char *a, *b = A, h, t;
     if (r < 0 | ~r <= -N || *(a = A + r * N + c)) return;
@@ -105,14 +107,12 @@ int main(int argc, char *argv[])
     printf("Move %d\e[K\n", s);
     for (signed char i = -1; i < N; i++) {
       for (char j = 0; j < N; j++)
-        printf("%c%d%c", r == i && c == j ? '[' : ' ',
-          !~i | i > N - 2 ? 3 : A[i * N + j], r == i && c == j ? ']' : ' ');
+        putchar((Z = r - i | c - j) ? ' ' : '['),
+        putchar(!~i | i > N - 2 ? 51 : 48 + A[i * N + j]),
+        putchar(" ]"[!Z]);
       printf("\n");
     }
-    unsigned char m = getchar();
-    char *a = "Aix6" + ((m += m == 'h') >= 'i');
-    if (4 > (m -= *a)) m = a[2] >> 6-m-m, *(m % 2 ? &r : &c) += ~-(m & 2);
-    M();
+    M(getchar());
     if (r > N - 2) printf("\\(^ ^)/\n"), s = 4;
     else if (r >= 0 && A[r * N + c] == 2) {
       r = -1;
