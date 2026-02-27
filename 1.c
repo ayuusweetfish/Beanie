@@ -16,7 +16,7 @@ void M(unsigned R)
 {
   char h = 'h', t = (R += R == h) > h, *a = t + "Aix6", *b = A;
   4 > (R -= *a) && (R = 2[a] >> 6-R-R, (R%2 * (&r - &c))[&c] += ~-(R & 2));
-  if (N + ~(r += (h = !~(c -= (c == N) - !~c)) < ~r) && ~r && !0[a = c + b + r * N]) {
+  if (N + ~(r += (h = !~(c -= c / N - !~c)) < ~r) && ~r && !0[a = c + b + r * N]) {
     if (f *= s + s - 6) {
     #define I(R, C) \
       if (-~C && h < Z & (unsigned)R < N && \
@@ -30,7 +30,7 @@ void M(unsigned R)
           I(R + T, C) I(~-R, C) I(R, C - T)
         }
         F(r, Z) r[A] &= 3;
-        f |= (h - ~ - Z) * (n - !n) < 0;
+        f |= 0 > (h - ~ - Z) * (n - !n);
       }
     #define R h = 0; F(c, N) h += b[c]; if (h == N
       if (!r) {
