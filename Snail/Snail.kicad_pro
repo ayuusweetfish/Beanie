@@ -529,10 +529,10 @@
     "page_layout_descr_file": ""
   },
   "schematic": {
-    "annotate_start_num": 0,
+    "annotate_start_num": 99,
     "annotation": {
       "method": 0,
-      "sort_order": 0
+      "sort_order": 1
     },
     "bom_export_filename": "${PROJECTNAME}.csv",
     "bom_fmt_presets": [],
@@ -661,10 +661,6 @@
     [
       "06c44982-de05-4c09-9f2e-e41b93391018",
       "Snail"
-    ],
-    [
-      "433b438f-dfaf-43cc-8a2d-f07ece4718db",
-      "LEDs"
     ]
   ],
   "text_variables": {},
