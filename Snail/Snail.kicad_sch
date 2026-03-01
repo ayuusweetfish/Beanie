@@ -2820,6 +2820,10 @@
 		(uuid "0edc98e9-53d3-458a-b6fd-e0176cb0854e")
 	)
 	(no_connect
+		(at 52.07 38.1)
+		(uuid "28c02349-a924-4fe1-a82f-931ecc554ad2")
+	)
+	(no_connect
 		(at 39.37 27.94)
 		(uuid "4262da8c-fadd-44d0-b309-837da6d8f062")
 	)
@@ -2828,20 +2832,24 @@
 		(uuid "577ed7d6-77b7-44aa-a346-5bf03c707020")
 	)
 	(no_connect
-		(at 39.37 48.26)
-		(uuid "593ad672-2c23-4916-b226-109eef1be17f")
+		(at 52.07 43.18)
+		(uuid "78baeb96-65cf-45d9-b7ce-7e7648d29aaa")
 	)
 	(no_connect
 		(at 39.37 38.1)
 		(uuid "7d79344f-4934-48a5-88e9-31b556b2bf0c")
 	)
 	(no_connect
+		(at 39.37 40.64)
+		(uuid "83177891-60b4-4df6-b5b4-f4775eb9ceb4")
+	)
+	(no_connect
 		(at 39.37 33.02)
 		(uuid "84663bd1-de8b-4f91-9b0d-11359f3f2eef")
 	)
 	(no_connect
-		(at 52.07 45.72)
-		(uuid "9a668151-5cda-4717-b5a8-14d5f90cfb3a")
+		(at 52.07 40.64)
+		(uuid "8509d3ea-0162-4b84-b5b1-cafde5fe88c4")
 	)
 	(no_connect
 		(at 394.97 227.33)
@@ -2850,14 +2858,6 @@
 	(no_connect
 		(at 39.37 30.48)
 		(uuid "b0f07c44-46cb-4c56-81ab-2de87cf136a4")
-	)
-	(no_connect
-		(at 52.07 48.26)
-		(uuid "b645c345-7dfb-4c2e-8565-9cd1da72acc7")
-	)
-	(no_connect
-		(at 39.37 45.72)
-		(uuid "f4cd5d1c-5914-4859-9a24-a4037391ae1d")
 	)
 	(wire
 		(pts
@@ -3251,7 +3251,7 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 38.1) (xy 62.23 38.1)
+			(xy 39.37 45.72) (xy 29.21 45.72)
 		)
 		(stroke
 			(width 0)
@@ -3781,7 +3781,7 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 35.56) (xy 62.23 35.56)
+			(xy 52.07 45.72) (xy 62.23 45.72)
 		)
 		(stroke
 			(width 0)
@@ -4031,7 +4031,7 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 40.64) (xy 62.23 40.64)
+			(xy 39.37 48.26) (xy 29.21 48.26)
 		)
 		(stroke
 			(width 0)
@@ -4801,7 +4801,7 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 43.18) (xy 62.23 43.18)
+			(xy 52.07 48.26) (xy 62.23 48.26)
 		)
 		(stroke
 			(width 0)
@@ -4861,7 +4861,7 @@
 	)
 	(wire
 		(pts
-			(xy 39.37 40.64) (xy 29.21 40.64)
+			(xy 52.07 35.56) (xy 62.23 35.56)
 		)
 		(stroke
 			(width 0)
@@ -5180,17 +5180,17 @@
 		(uuid "ff9bcad8-1e58-4ea9-bf6c-7ae547398af0")
 	)
 	(label "BUZZER"
-		(at 29.21 40.64 180)
+		(at 62.23 35.56 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "58be8305-21c7-4bb5-b94d-d0eabb181c25")
 	)
 	(label "KEY_3"
-		(at 62.23 35.56 0)
+		(at 62.23 45.72 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5220,12 +5220,12 @@
 		(uuid "69f57c1c-3e7b-4d35-afbe-98d630f5d6ff")
 	)
 	(label "KEY_2"
-		(at 62.23 38.1 0)
+		(at 29.21 48.26 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "6a6bb2fa-ac16-4be3-ae7d-b2659a8f839a")
 	)
@@ -5270,7 +5270,7 @@
 		(uuid "b532a5ae-f866-424d-8a05-b7f20c3306f2")
 	)
 	(label "KEY_0"
-		(at 62.23 43.18 0)
+		(at 62.23 48.26 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5290,12 +5290,12 @@
 		(uuid "bc3be9a1-dc0d-4ed6-bc0e-65d01f996884")
 	)
 	(label "KEY_1"
-		(at 62.23 40.64 0)
+		(at 29.21 45.72 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "e06986fb-d81f-41a1-86c6-26aa2392190f")
 	)
