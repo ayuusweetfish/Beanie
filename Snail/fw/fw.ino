@@ -4,7 +4,7 @@ static const int LED_STRIP_PIN = 3;
 static const int BUZZER_PIN = A5;
 static const int BUTTON_PIN[4] = {A0, 7, 8, A1};
 
-static Adafruit_NeoPixel strip = Adafruit_NeoPixel(3, LED_STRIP_PIN, NEO_GRB + NEO_KHZ800);
+static Adafruit_NeoPixel strip = Adafruit_NeoPixel(38, LED_STRIP_PIN, NEO_GRB + NEO_KHZ800);
 
 void setup() {
   strip.begin();
