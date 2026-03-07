@@ -2467,6 +2467,18 @@
 		)
 		(uuid "8ee0c44b-bb8c-4a60-9f24-4bacc2d498ec")
 	)
+	(text "16 Ω, 30 mA"
+		(exclude_from_sim no)
+		(at 87.63 88.9 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify right)
+		)
+		(uuid "9013fffd-09f9-4876-8128-403afa48ae8c")
+	)
 	(text "A2"
 		(exclude_from_sim no)
 		(at 54.864 43.18 0)
@@ -14595,7 +14607,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10"
+		(property "Value" "220"
 			(at 91.44 77.4699 0)
 			(show_name no)
 			(do_not_autoplace no)
