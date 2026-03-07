@@ -11,7 +11,8 @@ void setup() {
   strip.setBrightness(16);
 
   pinMode(BUZZER_PIN, OUTPUT);
-  pinMode(BUTTON_PIN[1], INPUT_PULLUP);
+  for (int i = 0; i < 4; i++)
+    pinMode(BUTTON_PIN[i], INPUT_PULLUP);
 }
 
 void showTest(int r, int g, int b) {
@@ -23,13 +24,20 @@ void showTest(int r, int g, int b) {
 
 void loop() {
   showTest(0, 0, 0);
-  while (digitalRead(BUTTON_PIN[1]) == 1) { }
-  tone(BUZZER_PIN, 1320, 50);
-  showTest(255, 0, 0); delay(1000);
-  tone(BUZZER_PIN, 1100, 50);
-  showTest(0, 255, 0); delay(1000);
-  tone(BUZZER_PIN, 880, 50);
-  showTest(0, 0, 255); delay(1000);
-  tone(BUZZER_PIN, 440, 50);
-  showTest(255, 255, 255); delay(1000);
+  for (int i = 0; i < 4; i++) {
+    if (digitalRead(BUTTON_PIN[i]) == 0) {
+      switch (i) {
+      case 0:
+        tone(BUZZER_PIN, 1320, 50); showTest(255, 0, 0); break;
+      case 1:
+        tone(BUZZER_PIN, 1100, 50); showTest(0, 255, 0); break;
+      case 2:
+        tone(BUZZER_PIN, 880, 50); showTest(0, 0, 255); break;
+      case 3:
+        tone(BUZZER_PIN, 440, 50); showTest(255, 255, 255); break;
+      }
+      delay(100);
+      while (digitalRead(BUTTON_PIN[i]) == 0) { }
+    }
+  }
 }
