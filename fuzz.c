@@ -26,17 +26,16 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t n)
   while (p < n) {
     uint8_t move = data[p++] % 4;
     printf("Move %-5s | ", (const char *[]){"Up", "Down", "Right", "Left"}[move]);
-    M('A' + move);
+    char result = M('A' + move);
     printf("(%2d,%2d) Step %d", r, c, s);
-    if (r > N - 2) {
-      assert(s == 2 || s == 3);
-      s = 4;
+    assert(result >= 0 && result <= 3);
+    if (result == 3) {
+      assert(r > N - 2);
       printf(" | Success!\n");
       break;
-    } else if (r >= 0 && A[r * N + c] == 2) {
-      r = -1;
+    } else if (result == 1 || result == 2) {
       printf(" | Bomb!");
-      if (s++ == 3) {
+      if (result == 2) {
         printf(" Fail!\n");
         break;
       }
