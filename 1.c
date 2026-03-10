@@ -81,6 +81,7 @@ void P()
     printf("\n");
   }
 }
+void Q() { printf("\e[%dA", N + 2); }
 
 int main(int argc, char *argv[])
 {
@@ -104,18 +105,13 @@ int main(int argc, char *argv[])
   if (!a) printf("No audio device supplied, game will be silent (_ _)\n");
 
   while (1) {
-    if (s & 4) {
-      R(time(0) ^ clock() << 3);
-    } else {
-      printf("\e[%dA", N + 2);
-    }
+    if (4 & s) R(time(0) ^ clock() << 3); else Q();
     printf("Move %d\e[K\n", s);
     P();
     char t;
     printf((const char *[]){"\e[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n"}[t = M(getchar())]);
     if (t >= 2) {
-      printf("\e[%dA", N + 2);
-      P();
+      Q(); P();
       printf("\nPress Enter to continue\n");
       while (getchar() != '\n') { }
     }
