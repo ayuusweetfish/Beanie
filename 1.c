@@ -49,7 +49,7 @@ char M(unsigned R)
         R-1) F(c, N) if (t = !c[b]) f
       }
   }
-  return r > N - 2 ? ~-(s = 4) : *a - 2 ? 0 : ++s >> -(r = -1);
+  return r > N - 2 ? ~-(s += 2) : *a - 2 ? 0 : ++s >> -(r = -1);
 }
 #undef f
 #undef R
@@ -70,6 +70,17 @@ void e()
 }
 
 FILE *a;
+
+void P()
+{
+  for (char i = -1; i - N; i++) {
+    for (char j = 0; j < N; j++)
+      putchar((*q = r - i | c - j) ? ' ' : '['),
+      putchar(!~i | i > N - 2 ? 51 : 48 + A[i * N + j]),
+      putchar(" ]"[!*q]);
+    printf("\n");
+  }
+}
 
 int main(int argc, char *argv[])
 {
@@ -94,23 +105,20 @@ int main(int argc, char *argv[])
 
   while (1) {
     if (s & 4) {
-      if (s == 4) {
-        printf("Press Enter to continue\n");
-        while (getchar() != '\n') { }
-      }
       R(time(0) ^ clock() << 3);
     } else {
       printf("\e[%dA", N + 2);
     }
     printf("Move %d\e[K\n", s);
-    for (char i = -1; i - N; i++) {
-      for (char j = 0; j < N; j++)
-        putchar((*q = r - i | c - j) ? ' ' : '['),
-        putchar(!~i | i > N - 2 ? 51 : 48 + A[i * N + j]),
-        putchar(" ]"[!*q]);
-      printf("\n");
+    P();
+    char t;
+    printf((const char *[]){"\e[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n"}[t = M(getchar())]);
+    if (t >= 2) {
+      printf("\e[%dA", N + 2);
+      P();
+      printf("\nPress Enter to continue\n");
+      while (getchar() != '\n') { }
     }
-    printf((const char *[]){"\e[K", "(O O)\r", "(> <)\n", "\\(^ ^)/\n"}[M(getchar())]);
   }
 }
 #endif

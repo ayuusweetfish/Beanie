@@ -5,4 +5,4 @@ Win the game in 2 moves.
 cc 1.c -o /tmp/a.out -lm && /tmp/a.out
 cc 1.c -o /tmp/a.out -lm -g -fsanitize=address,undefined,bounds-strict -include stdio.h && /tmp/a.out
 clang fuzz.c -o /tmp/a.out -g -O2 -fsanitize=fuzzer,address,undefined && /tmp/a.out
-clang fuzz.c -o /tmp/a.out -g -O2 -fsanitize=fuzzer,address,undefined -include stdio.h -DPRINT && ./a.out ./crash-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+clang fuzz.c -o /tmp/a.out -g -O2 -fsanitize=fuzzer,address,undefined -include stdio.h -DPRINT && /tmp/a.out ./crash-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
