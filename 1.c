@@ -49,8 +49,7 @@ char M(unsigned R)
         R-1) F(c, N) if (t = !c[b]) f
       }
   }
-  return r > N - 2 ? ~-(s = 4) :
-    r < 0 || 2 - A[r * N + c] ? 0 : ++s >> -(r = -1);
+  return r > N - 2 ? ~-(s = 4) : *a - 2 ? 0 : ++s >> -(r = -1);
 }
 #undef f
 #undef R
