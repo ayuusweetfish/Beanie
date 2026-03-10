@@ -56,7 +56,6 @@ char M(unsigned R)
 #undef I
 
 #ifndef FUZZ
-#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <termios.h>
@@ -90,14 +89,14 @@ int main(int argc, char *argv[])
   T = S; T.c_lflag &= ~ECHO & ~ICANON;
   tcsetattr(0, 0, &T);
 
-  // ./a.out >(sox --buffer 1024 -t f32 -r 44100 -c 1 - -d 2>/dev/null)
+  // ./a.out >(sox --buffer 1024 -t s16 -r 48000 -c 1 - -d 2>/dev/null)
   if (argc >= 1) {
     a = fopen(argv[1], "wb");
     if (a) {
-      setbuf(a, NULL);
-      for (int i = 0; i < 44100 * 3; i++) {
-        float sample = sinf(2 * (float)M_PI * 440 * i / 44100);
-        fwrite(&sample, sizeof(float), 1, a);
+      setbuf(a, 0);
+      for (int i = 0; i < 48000 * 3; i++) {
+        int16_t sample = (i % 109 < 54) ? 3000 : 0;
+        fwrite(&sample, sizeof(int16_t), 1, a);
         fflush(a);
       }
     }
