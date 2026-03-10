@@ -14,33 +14,32 @@ void R(unsigned M)
 }
 void M(unsigned R)
 {
-  char h = 'h', t = (R += R == h) > h, *a = t + "Aix6", *b = A;
-  4 > (R -= *a) && (R = 2[a] >> 6-R-R, (R%2 * (&r - &c))[&c] += ~-(R & 2));
+  char h = 'h', t = h < (R += R == h), *a = t + "Aix6", *b = A, C;
+  4 > (R -= *a) && (R = 2[a] >> 6-R-R, (R%2 * (&r - &c))[&c] += ~-(2 & R));
   if (N + ~(r += (h = !~(c -= c / N - !~c)) < ~r) && ~r && !0[a = c + b + r * N]) {
-    if (f *= s + s - 6) {
+    if (f *= s - 6 + s) {
     #define I(R, C) \
-      if (-~C && h < Z & (unsigned)R < N && \
-        *(b = R + N * (C) + A) < 2 && *b | !(*a - 2 || C - r && R - c)) \
-        *b -= f + f, q[t++] = b - A, h += Z * !(C);
-      F(n, s + 2 - *a) {
+      -~C && h < Z & (unsigned)R < N && \
+        2 > *(b = R + N * (C) + A) && *b | !(*a - 2 || C - r && R - c) && \
+        (*b -= f + f, q[t++] = b - A, h += Z * !(C))
+      F(n, 2 + s - *a) {
         t = !(*a = -~n);
-        F(C, N) I(C, N - 2)
-        F(T = h, t) {
-          char C = q[h], R = C % N; C /= N;
-          I(R + T, C) I(~-R, C) I(R, C - T)
-        }
+        F(C, N) I(C, N - 2);
+        F(T = h, t)
+          R = (C = h[q]) % N, C /= N,
+          I(R + T, C), I(~-R, C), I(R, C - T);
         F(r, Z) r[A] &= 3;
         f |= 0 > (h - ~ - Z) * (n - !n);
       }
     #define R h = 0; F(c, N) h += b[c]; if (h == N
       if (!r) {
-        f |= r0 && r0 < ~-N & A[r0 - 1] & A[r0 + 1];
-        b = A; R) f |= 1;
+        f |= r0++ && r0 < N & A[r0 - 2] & r0[b = A];
+        R) f |= 1; r0--;
       }
       f = 4 - (*a = -~(f & 1)) - s;
     } else {
       R-2) r0 = c;
-      *a = -~(s == 3 || c == r0 || r && Y & 4 && ~(r0 = c));
+      *a = -~(2 < s || c == r0 || r && 4 & Y && ~(r0 = c));
       f ^= r | c == r0;
     }
     #define f { F(i, N) b[i] = A[(i - (i > N - 2)) * N + c] = t; b[c]++; }
