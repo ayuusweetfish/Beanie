@@ -82,6 +82,16 @@ void P()
 }
 void Q() { printf("\e[%dA", N + 2); }
 
+void B(int l, int p)
+{
+  unsigned s = 123;
+  for (int i = 0; i < l; i++) {
+    int16_t sample = p ? ((i % p < p / 2) ? 3000 : 0) : ((s = s * 997) % 3 == 0 ? 3000 : 0);
+    fwrite(&sample, sizeof(int16_t), 1, a);
+    fflush(a);
+  }
+}
+
 int main(int argc, char *argv[])
 {
   tcgetattr(0, &S);
@@ -90,18 +100,9 @@ int main(int argc, char *argv[])
   tcsetattr(0, 0, &T);
 
   // ./a.out >(sox --buffer 1024 -t s16 -r 48000 -c 1 - -d 2>/dev/null)
-  if (argc >= 1) {
-    a = fopen(argv[1], "wb");
-    if (a) {
-      setbuf(a, 0);
-      for (int i = 0; i < 48000 * 3; i++) {
-        int16_t sample = (i % 109 < 54) ? 3000 : 0;
-        fwrite(&sample, sizeof(int16_t), 1, a);
-        fflush(a);
-      }
-    }
-  }
-  if (!a) printf("No audio device supplied, game will be silent (_ _)\n");
+  if (argc >= 1) a = fopen(argv[1], "wb");
+  if (a) setbuf(a, 0);
+  else printf("No audio device supplied, game will be silent (_ _)\n");
 
   while (1) {
     if (4 & s) R(time(0) ^ clock() << 3); else Q();
@@ -109,6 +110,12 @@ int main(int argc, char *argv[])
     P();
     char t;
     printf((const char *[]){"\e[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n"}[t = M(getchar())]);
+    if (a) {
+      if (t >= 3) B(4800, 54);
+      else if (t == 2) B(4800, 218);
+      else if (t == 1) B(2400, 0);
+      else B(480, 109);
+    }
     if (t >= 2) {
       Q(); P();
       printf("\nPress Enter to continue\n");
