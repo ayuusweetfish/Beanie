@@ -12,7 +12,7 @@ void R(unsigned M)
   c = ((Y = (Y - M) * 1103515245u + 12345) >> 5) % N;
   s = !(r = 0, f = r--); r0 = (Y + Y / 9) % N;
 }
-void M(unsigned R)
+char M(unsigned R)
 {
   char h = 'h', t = h < (R += R == h), *a = t + "Aix6", *b = A, C;
   4 > (R -= *a) && (R = 2[a] >> 6-R-R, (R%2 * (&r - &c))[&c] += ~-(2 & R));
@@ -49,6 +49,8 @@ void M(unsigned R)
         R-1) F(c, N) if (t = !c[b]) f
       }
   }
+  return r > N - 2 ? ~-(s = 4) :
+    r < 0 || 2 - A[r * N + c] ? 0 : ++s >> -(r = -1);
 }
 #undef f
 #undef R
@@ -109,13 +111,7 @@ int main(int argc, char *argv[])
         putchar(" ]"[!*q]);
       printf("\n");
     }
-    M(getchar());
-    if (r > N - 2) printf("\\(^ ^)/\n"), s = 4;
-    else if (r >= 0 && A[r * N + c] == 2) {
-      r = -1;
-      if (s++ == 3) printf("(> <)\n");
-      else printf("(O O)\r");
-    } else printf("\e[K");
+    printf((const char *[]){"\e[K", "(O O)\r", "(> <)\n", "\\(^ ^)/\n"}[M(getchar())]);
   }
 }
 #endif
