@@ -48,13 +48,14 @@ char M(unsigned R)
     while (t--)
       for (b = A; b < Z + A; b += N)
         R-1) F(c, N) if (t = !c[b] f break; }
-        if (b - A && h == N - 2) {
-          h = 0;
-          F(r, N) h |= b[r] ^ b[r - N];
-          if (!h) {
-            F(r, N - 1) if (r * N != b - A && r * N != b - A - N)
-              F(c, N) if (!b[c] && (t = !A[r * N + c])) A[r * N + c]++;
+        if ((C = b - A) && N == h + 2) {
+          F(r, N) Z |= !r[b - N] ^ !r[b];
+          F(r, Z) {
+            if (C - r && r != C - N && !(Z & 1))
+              F(c, N) !c[b] && (c[A + r] += (t = !A[r + c]));
+            r += Z / N;
           }
+          Z &= -2;
         }
       }
   }
