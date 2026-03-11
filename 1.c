@@ -99,30 +99,23 @@ void B(int l, int p)
   fflush(a);
 }
 
-int main(int argc, char *argv[])
+int main(int t, char *argv[])
 {
   tcgetattr(0, &S);
   atexit(e);
   T = S; T.c_lflag &= ~ECHO & ~ICANON;
   tcsetattr(0, 0, &T);
 
-  if (argc >= 1) a = fopen(argv[1], "wb");
+  if (t >= 1) a = fopen(argv[1], "wb");
   if (a) setbuf(a, 0);
   else printf("No audio device supplied, game will be silent (_ _)\n");
 
-  char t;
   while (1) {
     if (4 & s) R(time(0) ^ clock() << 3); else Q();
     printf("Move %d\e[K\n", s);
     P();
-    printf((const char *[]){"\e[K", "\e[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n"}[t = M(getchar())]);
-    if (a) {
-      // TODO: polynomial interpolation
-      if (t >= 4) B(4800, 54);
-      else if (t == 3) B(4800, 218);
-      else if (t == 2) B(2400, 0);
-      else if (t == 1) B(0, 0);
-    }
+    printf((const char *[]){"", "\e[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n"}[t = M(getchar())]);
+    if (a && t) B(2400 * ((t > 1) + (t > 2)), ((91*t-1010)*t+3539)*t-3766);
     if (t >= 3) {
       Q(); P();
       printf("\nPress Enter to continue\n");
