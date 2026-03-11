@@ -9,8 +9,8 @@ unsigned Y;
 void R(unsigned M)
 {
   F(r, (Z = ~-N * N)) A[r] = 0;
-  c = ((Y = (Y - M) * 1103515245u + 12345) >> 5) % N;
-  s = !(r = r[A], f = r--); r0 = (Y + Y / 9) % N;
+  s = !(r = c[A], f = r--); r0 = (Y + Y / 9) % N;
+  c = ((Y = 1 + (Y - M) * 69069) >> 2) % N;
 }
 char M(unsigned R)
 {
