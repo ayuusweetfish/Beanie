@@ -94,8 +94,7 @@ int main(int t, char *argv[])
     if (4 & s) R(time(0) ^ clock() << 3); else q: printf("\e[%dA", N + 2);
     t++ & 4 || printf("Move %d\e[K\n", s);
     for (signed char i = -N; i - N * N; i++)
-      putchar((putchar((i >> 6) * putchar((*q = t && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[q]["] "])),
-      ~i && i % N -~- N || putchar(10);
+      i + 2977 % putchar((putchar((i >> 6) * putchar((*q = t && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[q]["] "])) && i % N -~- N || putchar(10);
     if (t > 4) {
       printf("\nPress Enter to continue\n");
       while (getchar() != '\n') { }
