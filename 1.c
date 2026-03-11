@@ -39,7 +39,7 @@ char M(unsigned R)
       }
       f = 4 - (*a = -~(f & 1)) - s;
     } else {
-      R-2) r0 = c;
+      R-2 || r && 1 - h) r0 = c;
       *a = -~(s & 2 || c == r0 || r && 4 & Y && ~(r0 = c));
       f ^= r | c == r0;
     }
