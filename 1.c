@@ -10,13 +10,13 @@ void R(unsigned M)
 {
   F(r, (Z = ~-N * N)) A[r] = 0;
   c = ((Y = (Y - M) * 1103515245u + 12345) >> 5) % N;
-  s = !(r = 0, f = r--); r0 = (Y + Y / 9) % N;
+  s = !(r = r[A], f = r--); r0 = (Y + Y / 9) % N;
 }
 char M(unsigned R)
 {
   char h = 'h', t = h < (R += R == h), *a = t + "Aix6", *b = A, C;
   4 > (R -= *a) && (R = 2[a] >> 6-R-R, 0[R%2 ? &r : &c] += ~-(2 & R));
-  if (N + ~(r += (h = !~(c -= c / N - !~c)) < ~r) && ~r && !0[a = c + b + r * N]) {
+  if (N + ~(r += (h = !~(c -= c / N - !~c)) < ~r) && ~r && !h[a = c + b + r * N]) {
     if (f *= s - 6 + s) {
     #define I(R, C) \
       -~C && h < Z & (unsigned)R < N && \
