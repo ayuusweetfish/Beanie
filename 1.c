@@ -76,9 +76,8 @@ void P()
   for (char i = -1; i - N; i++) {
     for (char j = 0; j < N; j++)
       putchar((*q = r - i | c - j) ? ' ' : '['),
-      putchar(!~i | i > N - 2 ? 51 : 48 + A[i * N + j]),
-      putchar(" ]"[!*q]);
-    printf("\n");
+      putchar((putchar(!~i | i > N - 2 ? '=' : A[i * N + j][".*o"]), " ]"[!*q]));
+    putchar('\n');
   }
 }
 void Q() { printf("\e[%dA", N + 2); }
