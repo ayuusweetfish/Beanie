@@ -40,7 +40,7 @@ char M(unsigned R)
       f = 4 - (*a = -~(f & 1)) - s;
     } else {
       R-2) r0 = c;
-      *a = -~(2 < s || c == r0 || r && 4 & Y && ~(r0 = c));
+      *a = -~(s & 2 || c == r0 || r && 4 & Y && ~(r0 = c));
       f ^= r | c == r0;
     }
     #define f { F(i, N) b[i] = A[(i - (i > N - 2)) * N + c] = t; b[c]++; }
