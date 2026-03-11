@@ -84,21 +84,19 @@ void e()
 int main(int t, char *argv[])
 {
   tcgetattr(0, &S);
-  atexit(e);
   T = S; T.c_lflag &= ~ECHO & ~ICANON;
-  tcsetattr(0, 0, &T);
+  tcsetattr(atexit(e), 0, &T);
 
   if (t && (a = fopen(argv[1], "wb"))) setbuf(a, 0);
   else printf("No audio device supplied, game will be silent (_ _)\n");
 
   while (t = 2) {
     if (4 & s) R(time(0) ^ clock() << 3); else q: printf("\e[%dA", N + 2);
-    t & 4 || printf("Move %d\e[K\n", s);
-    for (signed char i = -1; i - N; i++)
-      for (char j = 0; j < N; j++)
-        putchar((putchar(!~i * putchar((*q = r - i || c - j) * -';' + 91) | 2 > N - i ? 61 : A[i * N + j][".*o"]), 0[q]["] "])),
-        j -~- N || putchar(10);
-    if (t > 3) {
+    t++ & 4 || printf("Move %d\e[K\n", s);
+    for (signed char i = -N; i - N * N; i++)
+      putchar((putchar((i >> 6) * putchar((*q = t && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[q]["] "])),
+      ~i && i % N -~- N || putchar(10);
+    if (t > 4) {
       printf("\nPress Enter to continue\n");
       while (getchar() != '\n') { }
       continue;
