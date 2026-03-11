@@ -73,22 +73,12 @@ char M(unsigned R)
 #include <unistd.h>
 
 struct termios S, T;
+FILE *a;
+
 void e()
 {
   tcsetattr(0, TCSAFLUSH, &S);
-}
-
-FILE *a;
-
-void B(int l, int p)
-{
-  static int16_t S[8290];
-  unsigned s = sizeof S;
-  l *= 2400, p && (p = 1309 / p);
-  for (int i = 0; i < l + 3490; i++)
-    S[i] = (i < 1090 ? i % 109 < 54 : i < l + 1090 ? p ? i / (p / 2) & 1 : !((s = s * 997) % 3) : 0) << 11;
-  fwrite(S, sizeof(int16_t), l + 3490, a);
-  fflush(a);
+  a && fclose(a);
 }
 
 int main(int t, char *argv[])
@@ -114,7 +104,15 @@ int main(int t, char *argv[])
       continue;
     }
     printf((const char *[]){"", "\e[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n"}[t = M(getchar())]);
-    if (a && t) B((t > 1) + (t > 2), (('3'-t*5)*t-154)*t+144);
+    if (a && t) {
+      static int16_t S[8290];
+      unsigned s = sizeof S;
+      int l = ((t > 1) + (t > 2)) * 2400, p = (('3'-t*5)*t-154)*t+144;
+      for (int i = 0 * (p && (p = 1309 / p)); i < l + 3490; i++)
+        S[i] = (i < 1090 ? i % 109 < 54 : i < l + 1090 ? p ? i / (p / 2) & 1 : !((s = s * 997) % 3) : 0) << 11;
+      fwrite(S, sizeof(int16_t), l + 3490, a);
+      fflush(a);
+    }
     if (t++ > 2) goto q;
   }
 }
