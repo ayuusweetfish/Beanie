@@ -1,9 +1,17 @@
-Under which values of `N` can the player be sure to trigger a deep move on the first try, or determine that it is not possible, during play?
+1.
+Win the game in 2 moves.
+
+2.
+(a) What is the maximum possible value of any element of `A`, at any time throughout the program?
+(b) Assuming that `char` equals `int8_t`, what is the maximum value of `N` that the program correctly supports?
+
+3.
+(a) Under which values of `N` can the player be sure to trigger a row-2 move?
+(b) Under which values of `N` can the player be sure to trigger a deep move on the first try, or determine that it is not possible, during play?
 c = Y / 2
 r0 = Y + (Y & N(N-1))
-
-What is the maximum possible value of any element of `A`, at any time throughout the program?
-Win the game in 2 moves.
+explode = Y & 4
+Given c, we can infer the behaviour iff there is an r0 s.t. (c, r0, 0) for any r0' != r0, and not (c, r0, 1) for all r0' != r0.
 
 cc 1.c -o /tmp/a.out && /tmp/a.out
 cc 1.c -o /tmp/a.out -g -fsanitize=address,undefined,bounds-strict -include stdio.h && /tmp/a.out
