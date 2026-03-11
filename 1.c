@@ -43,12 +43,13 @@ char M(unsigned R)
       *a = -~(s & 2 || c == r0 || r && 4 & Y && ~(r0 = c));
       f ^= r | c == r0;
     }
-    #define f ) { F(i, N) b[i] = A[(i - (i > N - 2)) * N + c] = t; b[c]++; }
-    if (b = a - c, t = 1, *a / 2 f
-    while (t--)
+    #define f ) { F(i, N) b[i] = A[(i - (i > N - 2)) * N + c] = t; b[c]++;
+    if (b = a - c, t = 1, *a / 2 f }
+    while (t--) {
       for (b = A; b < Z + A; b += N)
-        R-1) F(c, N) if (t = !c[b] f
+        R-1) F(c, N) if (t = !c[b] f break; }
       }
+    }
   }
   return r > N - 2 ? ~-(s += 2) : *a - 2 ? 0 : (r |= (s++ - 3) >> 2, s >> 1);
 }

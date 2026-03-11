@@ -25,17 +25,24 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t n)
   while (p < n) {
     uint8_t move = data[p++] % 4;
     char result = M('A' + move);
-    for (signed char i = 0; i < N; i++) {
-      for (char j = 0; j < N; j++)
+    for (signed int i = -1; i < N; i++) {
+      for (int j = 0; j < N; j++)
         printf("%c%c%c",
-          (i == r && j == c) ? ' ' : '[',
+          (i == r && j == c) ? '[' : ' ',
           i < 0 || i > N - 2 ? '=' : ".*o"[A[i * N + j]],
-          (i == r && j == c) ? ' ' : ']');
+          (i == r && j == c) ? ']' : ' ');
       printf("\n");
     }
     printf("Move %-5s | ", (const char *[]){"Up", "Down", "Right", "Left"}[move]);
     printf("(%2d,%2d) Step %d (%d)", r, c, s, result);
     assert(result >= 0 && result <= 4 /* && result != 3 */);
+    // Ensure that no row is empty!
+    for (int i = 0; i < N - 1; i++) {
+      char nonempty = 0;
+      for (int j = 0; j < N; j++)
+        if (A[i * N + j] != 1) { nonempty = 1; break; }
+      assert(nonempty);
+    }
     if (result == 3 || result == 4) {
       assert(r > N - 2);
       printf(" | Success!\n");
