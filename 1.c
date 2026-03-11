@@ -32,22 +32,22 @@ char M(unsigned R)
         F(r, Z) r[A] &= 3;
         f |= 0 > (h - ~ - Z) * (n - !n);
       }
-    #define R h = 0; F(c, N) h += b[c]; if (h == N
-      if (!r) {
-        f |= r0++ && r0 < N & A[r0 - 2] & r0[b = A];
-        R) f |= 1; r0--;
+    #define R { h = 0; F(c, N) h += b[c]; if (h == N
+      if (!r)
+        R) f |= 1;
+        f |= r0++ && r0 < N & A[r0 - 2] & r0[b = A]; r0--;
       }
       f = 4 - (*a = -~(f & 1)) - s;
-    } else {
+    } else
       R-2) r0 = c;
       *a = -~(s & 2 || c == r0 || r && 4 & Y && ~(r0 = c));
       f ^= r | c == r0;
     }
-    #define f { F(i, N) b[i] = A[(i - (i > N - 2)) * N + c] = t; b[c]++; }
-    if (b = a - c, t = 1, *a / 2) f
+    #define f ) { F(i, N) b[i] = A[(i - (i > N - 2)) * N + c] = t; b[c]++; }
+    if (b = a - c, t = 1, *a / 2 f
     while (t--)
-      for (b = A; b < Z + A; b += N) {
-        R-1) F(c, N) if (t = !c[b]) f
+      for (b = A; b < Z + A; b += N)
+        R-1) F(c, N) if (t = !c[b] f
       }
   }
   return r > N - 2 ? ~-(s += 2) : *a - 2 ? 0 : (r |= (s++ - 3) >> 2, s >> 1);
