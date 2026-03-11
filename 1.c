@@ -91,12 +91,11 @@ void Q() { printf("\e[%dA", N + 2); }
 
 void B(int l, int p)
 {
-  static int16_t S[7200];
-  unsigned s = 123;
-  for (int i = 0; i < 7200; i++) {
-    S[i] = i < 1090 ? (i % 109 < 54) * 3000 : i < l + 1090 ? p ? ((i % p < p / 2) ? 3000 : 0) : ((s = s * 997) % 3 == 0 ? 3000 : 0) : 0;
-  }
-  fwrite(S, sizeof(int16_t), 7200, a);
+  static int16_t S[8290];
+  unsigned s = sizeof S;
+  for (int i = 0; i < l + 2890; i++)
+    S[i] = (i < 1090 ? (i % 109 < 54) : i < l + 1090 ? p ? (i % p < p / 2) : !((s = s * 997) % 3) : 0) << 11;
+  fwrite(S, sizeof(int16_t), l + 2890, a);
   fflush(a);
 }
 
