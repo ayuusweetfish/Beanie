@@ -45,11 +45,18 @@ char M(unsigned R)
     }
     #define f ) { F(i, N) b[i] = A[(i - (i > N - 2)) * N + c] = t; b[c]++;
     if (b = a - c, t = 1, *a / 2 f }
-    while (t--) {
+    while (t--)
       for (b = A; b < Z + A; b += N)
         R-1) F(c, N) if (t = !c[b] f break; }
+        if (b - A && h == N - 2) {
+          h = 0;
+          F(r, N) h |= b[r] ^ b[r - N];
+          if (!h) {
+            F(r, N - 1) if (r * N != b - A && r * N != b - A - N)
+              F(c, N) if (!b[c] && (t = !A[r * N + c])) A[r * N + c]++;
+          }
+        }
       }
-    }
   }
   return r > N - 2 ? ~-(s += 2) : *a - 2 ? 0 : (r |= (s++ - 3) >> 2, s >> 1);
 }
