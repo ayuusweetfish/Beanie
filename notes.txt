@@ -1,4 +1,7 @@
-Under which values of `N` can the "initial-deep-move" outcome be predicted during play?
+Under which values of `N` can the player be sure to trigger a deep move on the first try, or determine that it is not possible, during play?
+c = Y / 2
+r0 = Y + (Y & N(N-1))
+
 What is the maximum possible value of any element of `A`, at any time throughout the program?
 Win the game in 2 moves.
 
