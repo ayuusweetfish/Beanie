@@ -1,4 +1,3 @@
-// clang % -g -O2 -fsanitize=fuzzer,address
 #define FUZZ
 #include "1.c"
 
@@ -35,7 +34,7 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t n)
     }
     printf("Move %-5s | ", (const char *[]){"Up", "Down", "Right", "Left"}[move]);
     printf("(%2d,%2d) Step %d (%d)", r, c, s, result);
-    assert(result >= 0 && result <= 4 /* && result != 3 */);
+    assert(result >= 0 && result <= 5 /* && result != 4 */);
     // Ensure that no row is empty!
     for (int i = 0; i < N - 1; i++) {
       char nonempty = 0;
@@ -43,13 +42,13 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t n)
         if (A[i * N + j] != 1) { nonempty = 1; break; }
       assert(nonempty);
     }
-    if (result == 3 || result == 4) {
+    if (result == 4 || result == 5) {
       assert(r > N - 2);
       printf(" | Success!\n");
       break;
-    } else if (result == 1 || result == 2) {
+    } else if (result == 2 || result == 3) {
       printf(" | Bomb!");
-      if (result == 2) {
+      if (result == 3) {
         printf(" Fail!\n");
         break;
       }
