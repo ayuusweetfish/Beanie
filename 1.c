@@ -82,12 +82,10 @@ FILE *a;
 
 void P()
 {
-  for (char i = -1; i - N; i++) {
+  for (signed char i = -1; i - N; i++)
     for (char j = 0; j < N; j++)
-      putchar((*q = r - i | c - j) ? ' ' : '['),
-      putchar((putchar(!~i | i > N - 2 ? '=' : A[i * N + j][".*o"]), " ]"[!*q]));
-    putchar('\n');
-  }
+      putchar((putchar(!~i * putchar((*q = r - i || c - j) * -';' + 91) | 2 > N - i ? 61 : A[i * N + j][".*o"]), 0[q]["] "])),
+      j - ~ - N || putchar(10);
 }
 void Q() { printf("\e[%dA", N + 2); }
 
@@ -108,18 +106,18 @@ int main(int argc, char *argv[])
   T = S; T.c_lflag &= ~ECHO & ~ICANON;
   tcsetattr(0, 0, &T);
 
-  // ./a.out >(sox --buffer 1024 -t s16 -r 48000 -c 1 - -d 2>/dev/null)
   if (argc >= 1) a = fopen(argv[1], "wb");
   if (a) setbuf(a, 0);
   else printf("No audio device supplied, game will be silent (_ _)\n");
 
+  char t;
   while (1) {
     if (4 & s) R(time(0) ^ clock() << 3); else Q();
     printf("Move %d\e[K\n", s);
     P();
-    char t;
     printf((const char *[]){"\e[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n"}[t = M(getchar())]);
     if (a) {
+      // TODO: polynomial interpolation
       if (t >= 3) B(4800, 54);
       else if (t == 2) B(4800, 218);
       else if (t == 1) B(2400, 0);
