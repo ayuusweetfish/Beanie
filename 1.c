@@ -50,7 +50,7 @@ char M(unsigned R)
         R-1) F(c, N) if (t = !c[b]) f
       }
   }
-  return r > N - 2 ? ~-(s += 2) : *a - 2 ? 0 : ++s >> -(r = -1);
+  return r > N - 2 ? ~-(s += 2) : *a - 2 ? 0 : (r |= (s++ - 3) >> 2, s >> 1);
 }
 #undef f
 #undef R
