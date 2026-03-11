@@ -78,15 +78,6 @@ void e()
   tcsetattr(0, TCSAFLUSH, &S);
 }
 
-void P()
-{
-  for (signed char i = -1; i - N; i++)
-    for (char j = 0; j < N; j++)
-      putchar((putchar(!~i * putchar((*q = r - i || c - j) * -';' + 91) | 2 > N - i ? 61 : A[i * N + j][".*o"]), 0[q]["] "])),
-      j - ~ - N || putchar(10);
-}
-void Q() { printf("\e[%dA", N + 2); }
-
 FILE *a;
 
 void B(int l, int p)
@@ -107,20 +98,24 @@ int main(int t, char *argv[])
   T = S; T.c_lflag &= ~ECHO & ~ICANON;
   tcsetattr(0, 0, &T);
 
-  if (t >= 1 && (a = fopen(argv[1], "wb"))) setbuf(a, 0);
+  if (t && (a = fopen(argv[1], "wb"))) setbuf(a, 0);
   else printf("No audio device supplied, game will be silent (_ _)\n");
 
-  while (1) {
-    if (4 & s) R(time(0) ^ clock() << 3); else Q();
-    printf("Move %d\e[K\n", s);
-    P();
-    printf((const char *[]){"", "\e[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n"}[t = M(getchar())]);
-    if (a && t) B((t > 1) + (t > 2), (('3'-t*5)*t-154)*t+144);
-    if (t >= 3) {
-      Q(); P();
+  while (t = 2) {
+    if (4 & s) R(time(0) ^ clock() << 3); else q: printf("\e[%dA", N + 2);
+    t & 4 || printf("Move %d\e[K\n", s);
+    for (signed char i = -1; i - N; i++)
+      for (char j = 0; j < N; j++)
+        putchar((putchar(!~i * putchar((*q = r - i || c - j) * -';' + 91) | 2 > N - i ? 61 : A[i * N + j][".*o"]), 0[q]["] "])),
+        j - ~ - N || putchar(10);
+    if (t > 3) {
       printf("\nPress Enter to continue\n");
       while (getchar() != '\n') { }
+      continue;
     }
+    printf((const char *[]){"", "\e[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n"}[t = M(getchar())]);
+    if (a && t) B((t > 1) + (t > 2), (('3'-t*5)*t-154)*t+144);
+    if (t++ > 2) goto q;
   }
 }
 #endif
