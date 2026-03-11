@@ -1,7 +1,7 @@
 #define N 5
 
 typedef char p[N * N - N];
-p A, q;
+p A, B;
 signed char r0, s = 5, r, c, f, Z;
 unsigned Y;
 
@@ -22,12 +22,12 @@ char M(unsigned R)
     #define I(R, C) \
       -~C && h < Z & (unsigned)R < N && \
         2 > *(b = R + N * (C) + A) && *b | !(*a - 2 || C - r && R - c) && \
-        (*b -= f + f, q[t++] = b - A, h += Z * !(C))
+        (*b -= f + f, B[t++] = b - A, h += Z * !(C))
       F(n, 2 + s - *a) {
         t = !(*a = -~n);
         F(C, N) I(C, N - 2);
         F(T = h, t)
-          R = (C = h[q]) % N, C /= N,
+          R = (C = h[B]) % N, C /= N,
           I(R + T, C), I(~-R, C), I(R, C - T);
         F(r, Z) r[A] &= 3;
         f |= 0 > (h -~- Z) * (n - !n);
@@ -91,10 +91,10 @@ int main(int t, char *argv[])
   else printf("No audio device supplied, game will be silent (_ _)\n");
 
   while (t = 2) {
-    if (4 & s) R(time(0) ^ clock() << 3); else q: printf("\e[%dA", N + 2);
+    if (4 & s) R(time(0) ^ clock() << 3); else t: printf("\e[%dA", N + 2);
     t++ & 4 || printf("Move %d\e[K\n", s);
     for (signed char i = -N; i - N * N; i++)
-      i + 2977 % putchar((putchar((i >> 6) * putchar((*q = t && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[q]["] "])) && i % N -~- N || putchar(10);
+      i + 2977 % putchar((putchar((i >> 6) * putchar((*B = t && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[B]["] "])) && i % N -~- N || putchar(10);
     if (t > 4) {
       printf("\nPress Enter to continue\n");
       while (getchar() != '\n') { }
@@ -110,7 +110,7 @@ int main(int t, char *argv[])
       fwrite(S, sizeof(int16_t), l + 3490, a);
       fflush(a);
     }
-    if (t++ > 2) goto q;
+    if (t++ > 2) goto t;
   }
 }
 #endif
