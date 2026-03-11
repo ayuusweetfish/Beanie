@@ -16,7 +16,7 @@ void R(unsigned M)
 char M(unsigned R)
 {
   char h = 'h', t = h < (R += R == h), *a = t + "Aix6", *b = A, C;
-  4 > (R -= *a) && (R = 2[a] >> 6-R-R, 0[R%2 ? &r : &c] += ~-(2 & R));
+  4 > (R -= *a) ? (R = 2[a] >> 6-R-R, 0[R%2 ? &r : &c] += ~-(2 & R)) : (R = Z);
   if (N + ~(r += (h = !~(c -= c / N - !~c)) < ~r) && ~r && !h[a = c + b + r * N]) {
     if (f *= s - 6 + s) {
     #define I(R, C) \
@@ -59,11 +59,11 @@ char M(unsigned R)
         }
       }
   }
-  return r > N - 2 ? ~-(s += 2) : *a - 2 ? 0 : (r |= (s++ - 3) >> 2, s >> 1);
-}
 #undef f
 #undef R
 #undef I
+  return Z - R ? r > N - 2 ? (s += 2) : *a - 2 ? 1 : (r |= (s++ - 3) >> 2, 2 + s >> 1) : 0;
+}
 
 #ifndef FUZZ
 #include <stdio.h>
@@ -91,12 +91,13 @@ void Q() { printf("\e[%dA", N + 2); }
 
 void B(int l, int p)
 {
+  static int16_t S[7200];
   unsigned s = 123;
-  for (int i = 0; i < l; i++) {
-    int16_t sample = p ? ((i % p < p / 2) ? 3000 : 0) : ((s = s * 997) % 3 == 0 ? 3000 : 0);
-    fwrite(&sample, sizeof(int16_t), 1, a);
-    fflush(a);
+  for (int i = 0; i < 7200; i++) {
+    S[i] = i < 1090 ? (i % 109 < 54) * 3000 : i < l + 1090 ? p ? ((i % p < p / 2) ? 3000 : 0) : ((s = s * 997) % 3 == 0 ? 3000 : 0) : 0;
   }
+  fwrite(S, sizeof(int16_t), 7200, a);
+  fflush(a);
 }
 
 int main(int argc, char *argv[])
@@ -115,15 +116,15 @@ int main(int argc, char *argv[])
     if (4 & s) R(time(0) ^ clock() << 3); else Q();
     printf("Move %d\e[K\n", s);
     P();
-    printf((const char *[]){"\e[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n"}[t = M(getchar())]);
+    printf((const char *[]){"\e[K", "\e[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n"}[t = M(getchar())]);
     if (a) {
       // TODO: polynomial interpolation
-      if (t >= 3) B(4800, 54);
-      else if (t == 2) B(4800, 218);
-      else if (t == 1) B(2400, 0);
-      else B(480, 109);
+      if (t >= 4) B(4800, 54);
+      else if (t == 3) B(4800, 218);
+      else if (t == 2) B(2400, 0);
+      else if (t == 1) B(0, 0);
     }
-    if (t >= 2) {
+    if (t >= 3) {
       Q(); P();
       printf("\nPress Enter to continue\n");
       while (getchar() != '\n') { }
