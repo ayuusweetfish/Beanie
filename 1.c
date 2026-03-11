@@ -93,6 +93,7 @@ void B(int l, int p)
 {
   static int16_t S[8290];
   unsigned s = sizeof S;
+  l *= 2400, p && (p = 1309 / p);
   for (int i = 0; i < l + 3490; i++)
     S[i] = (i < 1090 ? i % 109 < 54 : i < l + 1090 ? p ? i / (p / 2) & 1 : !((s = s * 997) % 3) : 0) << 11;
   fwrite(S, sizeof(int16_t), l + 3490, a);
@@ -114,7 +115,7 @@ int main(int t, char *argv[])
     printf("Move %d\e[K\n", s);
     P();
     printf((const char *[]){"", "\e[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n"}[t = M(getchar())]);
-    if (a && t) B(2400 * ((t > 1) + (t > 2)), ((t*'['-1010)*t+3539)*t-3766);
+    if (a && t) B((t > 1) + (t > 2), (('3'-t*5)*t-154)*t+144);
     if (t >= 3) {
       Q(); P();
       printf("\nPress Enter to continue\n");
