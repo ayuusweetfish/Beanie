@@ -1,5 +1,5 @@
 #define FUZZ
-#include "1.c"
+#include "prog.c"
 
 #include <assert.h>
 #include <stddef.h>

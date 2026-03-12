@@ -53,7 +53,7 @@ char M(unsigned R)
       if ((C = b - A) && N == h + 2) {
         F(r, N) Z |= !r[b - N] ^ !r[b];
         F(r, Z) {
-          if (C - r && r != C - N && !(Z & 1))
+          if (C - r && r + N - C && !(Z & 1))
             F(c, N) !c[b] && (c[A + r] += (t = !A[r + c]));
           r += Z / N;
         }
