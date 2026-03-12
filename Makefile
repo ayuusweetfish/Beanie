@@ -164,9 +164,9 @@ PROG= prog
 OBJ= ${PROG}.o
 TARGET= ${PROG}
 
-# NOTE(author): No alternative program
-# ALT_OBJ= ${PROG}.alt.o
-# ALT_TARGET= ${PROG}.alt
+# NOTE(author): Has alternative program
+ALT_OBJ= ${PROG}.alt.o
+ALT_TARGET= ${PROG}.alt
 
 # list any data files supplied with your submission
 #
@@ -200,8 +200,8 @@ ${PROG}: ${PROG}.c
 alt: data ${ALT_TARGET}
 	@${TRUE}
 
-${PROG}.alt: ${PROG}.alt.c
-	${CC} ${CFLAGS} ${PROG}.alt.c -o $@ ${LDFLAGS}
+${PROG}.alt: ${PROG}.c
+	${CC} ${CFLAGS} ${PROG}.c -DN=8 -o $@ ${LDFLAGS}
 
 # suggested way(s) to run alt code, if you include a prog.alt.c
 # NOTE(author): Removed try.alt rule

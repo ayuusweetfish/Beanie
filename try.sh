@@ -10,7 +10,7 @@
 # make sure the program has been built
 #
 MAKE=$(command -v gmake)
-${MAKE:=make} CC="$CC" all >/dev/null || exit 1
+${MAKE:=make} CC="$CC" all alt >/dev/null || exit 1
 
 # clear the screen
 #
@@ -30,4 +30,11 @@ echo 1>&2
 read -r -n 1 -p "Press any key to run: ./prog >(sox --buffer 1024 -t s16 -r 48000 -c 1 - -d 2>/dev/null): "
 echo 1>&2
 ./prog >(sox --buffer 1024 -t s16 -r 48000 -c 1 - -d 2>/dev/null)
+echo 1>&2
+
+# try the program with a different board size
+#
+read -r -n 1 -p "Press any key to run: ./prog.alt: "
+echo 1>&2
+./prog.alt
 echo 1>&2

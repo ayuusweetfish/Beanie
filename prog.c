@@ -1,4 +1,6 @@
+#if !N
 #define N 5
+#endif
 
 typedef char p[N * N - N];
 p A, B;
@@ -16,7 +18,7 @@ void R(unsigned M)
 char M(unsigned R)
 {
   char h = 'h', t = h < (R += R == h), *a = t + "Aix6", *b = A, C;
-  4 > (R -= *a) ? (R = 2[a] >> 6-R-R, 0[R%2 ? &r : &c] += ~-(2 & R)) : (R = Z);
+  4 > (R -= *a) ? (R = 2[a] >> 6-R-R, 0[R%2 ? &r : &c] += ~-(2 & R)) : (R = !(R - 8) | Z);
   if (N + ~(r += (h = !~(c -= c / N - !~c)) < ~r) && ~r && !h[a = c + b + r * N]) {
     if (f *= s - 6 + s) {
     #define I(R, C) \
@@ -62,7 +64,7 @@ char M(unsigned R)
 #undef f
 #undef R
 #undef I
-  return Z - R ? r > N - 2 ? (s += 2) : *a - 2 ? 1 : (r |= (s++ - 3) >> 2, 2 + s >> 1) : 0;
+  return 1 < R - Z ? r > N - 2 ? (s += 2) : *a - 2 ? 1 : (r |= (s++ - 3) >> 2, 2 + s >> 1) : 6 * (R - Z);
 }
 
 #ifndef FUZZ
@@ -92,16 +94,17 @@ int main(int t, char *argv[])
   else printf("No audio device supplied, game will be silent (_ _)\n");
 
   while (t = 2) {
-    if (4 & s) R(time(0) ^ clock() << 3); else t: printf("\033[%dA", N + 2);
+    if (4 & s) R(time(0) ^ clock() << 3); else t: t - 7 ? printf("\033[%dA", N + 2) : (exit(0), Z);
     t++ & 4 || printf("Move %d\033[K\n", s);
     for (signed char i = -N; i - N * N; i++)
       i + 2977 % putchar((putchar((i >> 6) * putchar((*B = t && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[B]["] "])) && i % N -~- N || putchar(10);
     if (t > 4) {
       printf("\nPress Enter to continue\n");
-      while (getchar() != '\n') { }
+      while (t = 10 - getchar())
+        if (-t < s << 5 & s < ~-(t = 2977 % t - ']' ? 1 | t % 8 : t / -13)) goto t;
       continue;
     }
-    printf((const char *[]){"", "\033[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n"}[t = M(getchar())]);
+    printf((const char *[]){"", "\033[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n", ""}[t = M(getchar())]);
     if (a && t) {
       static int16_t S[8290];
       unsigned s = sizeof S;
