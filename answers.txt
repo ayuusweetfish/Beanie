@@ -1,0 +1,16 @@
+MKIOCCCENTRY_ANSWERS_IOCCC29-1.0
+6141f067-170c-455b-a9db-624a9d05478b
+0
+beanie
+A game
+1
+Ayu
+CN
+claire@ayu.land
+https://ayu.land
+
+
+@ayuusweetfish
+
+Ayu
+ANSWERS_EOF
