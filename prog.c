@@ -104,7 +104,7 @@ int main(int t, char *argv[])
         if (-t < s << 5 & s < ~-(t = 2977 % t - ']' ? 1 | t % 8 : t / -13)) goto t;
       continue;
     }
-    printf((const char *[]){"", "\033[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n", ""}[t = M(getchar())]);
+    printf((const char *[]){"", "\033[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n", "~~\\(^-^)\n"}[t = M(getchar())]);
     if (a && t) {
       static int16_t S[8290];
       unsigned s = sizeof S;
