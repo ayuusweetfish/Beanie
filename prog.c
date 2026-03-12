@@ -104,16 +104,12 @@ int main(int t, char *argv[])
         if (-t < s << 5 && s < ~-(t = 2977 % t - ']' ? 1 | t % 8 : t / -13)) goto t;
       continue;
     }
-    fputs((const char *[]){"", "\033[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n", "~~\\(^-^)\n"}[t = M(getchar())], stdout);
-    if (a && t) {
-      static int16_t S[8290];
-      unsigned s = sizeof S;
-      int l = ((t > 1) + (t > 2)) * 2400, p = (('3'-t*5)*t-154)*t+144;
-      for (int i = 0 * (p && (p = 1309 / p)); i < l + 3490; i++)
-        S[i] = (i < 1090 ? i % 109 < 54 : i < l + 1090 ? p ? i / (p / 2) & 1 : !((s = s * 997) % 3) : 0) << 11;
-      fwrite(S, sizeof(int16_t), l + 3490, a);
-      fflush(a);
-    }
+    fputs((const char *[]){"", "\033[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n", "~~\\(^-^*)\n"}[t = M(getchar())], stdout);
+    static int16_t S[8290];
+    unsigned s = sizeof S, l = ((t > 1) + (t > 2)) * 2400;
+    for (int p = (('3'-t*5)*t-154)*t+144, i = !(l += 3490) * (p && (p = 1309 / p)); i < l; i++)
+      S[i] = (i < 1090 ? 54 > i % 109 : i < l - 2400 ? p ? i / (p / 2) & 1 : !((s = s * 997) % 3) : 0) << 11;
+    a && t && fwrite(S, 2, l, a) && fflush(a);
     if (t++ > 2) goto t;
   }
 }
