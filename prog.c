@@ -19,14 +19,14 @@ char M(unsigned R)
 {
   char h = 'h', t = h < (R += R == h), *a = t + "Aix6", *b = A, C;
   4 > (R -= *a) ? (R = 2[a] >> 6-R-R, 0[R%2 ? &r : &c] += ~-(2 & R)) : (R = !(R - 8) | Z);
-  if (N + ~(r += (h = !~(c -= c / N - !~c)) < ~r) && ~r && !h[a = c + b + r * N]) {
+  if (N +~( r += (h = !~(c -= c / N - !~c)) < ~r) && ~r && !h[a = c + b + r * N]) {
     if (f *= s - 6 + s) {
     #define I(R, C) \
       -~C && h < Z & (unsigned)R < N && \
-        2 > *(b = R + N * (C) + A) && *b | !(*a - 2 || C - r && R - c) && \
+        2 > *(b = R + N * (C) + A) && *b | !(2 - *a || C - r && R - c) && \
         (*b -= f + f, B[t++] = b - A, h += Z * !(C))
       F(n, 2 + s - *a) {
-        t = !(*a = -~n);
+        t = !(*a =-~ n);
         F(C, N) I(C, N - 2);
         F(T = h, t)
           R = (C = h[B]) % N, C /= N,
@@ -39,7 +39,7 @@ char M(unsigned R)
         R) f |= 1;
         f |= r0++ && r0 < N & A[r0 - 2] & r0[b = A]; r0--;
       }
-      f = 4 - (*a = -~(f & 1)) - s;
+      f = 4 - (*a =-~ (f & 1)) - s;
     } else
       R-2) r0 = c;
       *a = 1 << (s & 2 || c == r0 || r && 4 & Y && ~(r0 = c));
@@ -75,7 +75,7 @@ char M(unsigned R)
 #include <time.h>
 #include <unistd.h>
 
-struct termios S, T;
+struct termios S, U;
 FILE *a;
 
 void e(void)
@@ -84,33 +84,33 @@ void e(void)
   a && fclose(a);
 }
 
-int main(int t, char *argv[])
+int main(int T, char *argv[])
 {
   tcgetattr(0, &S);
-  T = S; T.c_lflag &= ~ECHO & ~ICANON;
-  tcsetattr(atexit(e), 0, &T);
+  U = S; U.c_lflag &= ~ECHO & ~ICANON;
+  tcsetattr(atexit(e), 0, &U);
 
-  if (t && (a = fopen(argv[1], "wb"))) setbuf(a, 0);
+  if (T && (a = fopen(argv[1], "wb"))) setbuf(a, 0);
   else printf("No audio device supplied, game will be silent (_ _)\n");
 
-  while (t = 2) {
-    if (4 & s) R(time(0) ^ clock() << 3); else t: t - 7 ? (void)printf("\033[%dA", N + 2) : exit(0);
-    t++ & 4 || printf("Move %d\033[K\n", s);
+  while (T = 2) {
+    if (4 & s) R(time(0) ^ clock() << 3); else T:T - 7 ? (void)printf("\033[%dA", N + 2) : exit(0);
+    T++ & 4 || printf("Move %d\033[K\n", s);
     for (signed char i = -N; i - N * N; i++)
-      i + 2977 % putchar((putchar((i >> 6) * putchar((*B = t && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[B]["] "])) && i % N -~- N || putchar(10);
-    if (t > 4) {
+      i + 2977 % putchar((putchar((i >> 6) * putchar((*B = T && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[B]["] "])) && i % N -~- N || putchar(10);
+    if (T > 4) {
       printf("\nPress Enter to continue\n");
-      while (t = 10 - getchar())
-        if (-t < s << 5 && s < ~-(t = 2977 % t - ']' ? 1 | t % 8 : t / -13)) goto t;
+      while (T = 10 - getchar())
+        if (-T < s << 5 && s <~- (T = 2977 % T - ']' ? 1 | T % 8 : T / -13)) goto T;
       continue;
     }
-    fputs((const char *[]){"", "\033[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n", "~~\\(^-^*)\n"}[t = M(getchar())], stdout);
+    fputs((const char *[]){"", "\033[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n", "~~\\(^-^*)\n"}[T = M(getchar())], stdout);
     static int16_t S[8290];
-    unsigned s = sizeof S, l = ((t > 1) + (t > 2)) * 2400;
-    for (int p = (('3'-t*5)*t-154)*t+144, i = !(l += 3490) * (p && (p = 1309 / p)); i < l; i++)
+    unsigned s = sizeof S, l = ((T > 1) + (T > 2)) * 2400;
+    for (int p = (('3'-T*5)*T-154)*T+144, i = !(l += 3490) * (p && (p = 1309 / p)); i < l; i++)
       S[i] = (i < 1090 ? 54 > i % 109 : i < l - 2400 ? p ? i / (p / 2) & 1 : !((s = s * 997) % 3) : 0) << 11;
-    a && t && fwrite(S, 2, l, a) && fflush(a);
-    if (t++ > 2) goto t;
+    a && T && fwrite(S, 2, l, a) && fflush(a);
+    if (T ++> 2) goto T;
   }
 }
 #endif
