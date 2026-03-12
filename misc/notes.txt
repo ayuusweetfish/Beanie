@@ -18,3 +18,6 @@ cc prog.c -o /tmp/a.out -g -fsanitize=address,undefined,bounds-strict -include s
 cc prog.c -o /tmp/a.out -g -fsanitize=address,undefined,bounds-strict -include stdio.h && /tmp/a.out >(sox --buffer 1024 -t s16 -r 48000 -c 1 - -d 2>/dev/null)
 clang fuzz.c -o /tmp/a.out -g -O2 -fsanitize=fuzzer,address,undefined && /tmp/a.out
 clang fuzz.c -o /tmp/a.out -g -O2 -fsanitize=fuzzer,address,undefined -include stdio.h -DPRINT && /tmp/a.out ./crash-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+(A=$PWD; cd /mnt/data/downloads/mkiocccentry; ./mkiocccentry -x /tmp/iocccwork /mnt/data/dev/ioccc -i $A/misc/answers.txt -X $A/misc/ignorelist.txt)
