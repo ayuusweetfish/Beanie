@@ -1,0 +1,5 @@
+.git
+.gitattributes
+misc
+answers.txt
+ignorelist.txt
