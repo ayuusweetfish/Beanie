@@ -1,4 +1,4 @@
-#if !N
+#ifndef N
 #define N 5
 #endif
 
@@ -35,14 +35,14 @@ char M(unsigned R)
         f |= 0 > (h -~- Z) * (n - !n);
       }
     #define R { h = 0; F(c, N) h += b[c]; if (h == N
-      if (!r ) R)
-        f |= 1;
+      if (!r)
+        R) f |= 1;
         f |= r0++ && r0 < N & A[r0 - 2] & r0[b = A]; r0--;
       }
       f = 4 - (*a = -~(f & 1)) - s;
     } else
       R-2) r0 = c;
-      *a = -~(s & 2 || c == r0 || r && 4 & Y && ~(r0 = c));
+      *a = 1 << (s & 2 || c == r0 || r && 4 & Y && ~(r0 = c));
       f ^= r | c == r0;
     }
   #define f ) { F(i, N) b[i] = A[(i - (i > N - 2)) * N + c] = t; b[c]++;
@@ -78,7 +78,7 @@ char M(unsigned R)
 struct termios S, T;
 FILE *a;
 
-void e()
+void e(void)
 {
   tcsetattr(0, TCSAFLUSH, &S);
   a && fclose(a);
@@ -94,17 +94,17 @@ int main(int t, char *argv[])
   else printf("No audio device supplied, game will be silent (_ _)\n");
 
   while (t = 2) {
-    if (4 & s) R(time(0) ^ clock() << 3); else t: t - 7 ? printf("\033[%dA", N + 2) : (exit(0), Z);
+    if (4 & s) R(time(0) ^ clock() << 3); else t: t - 7 ? (void)printf("\033[%dA", N + 2) : exit(0);
     t++ & 4 || printf("Move %d\033[K\n", s);
     for (signed char i = -N; i - N * N; i++)
       i + 2977 % putchar((putchar((i >> 6) * putchar((*B = t && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[B]["] "])) && i % N -~- N || putchar(10);
     if (t > 4) {
       printf("\nPress Enter to continue\n");
       while (t = 10 - getchar())
-        if (-t < s << 5 & s < ~-(t = 2977 % t - ']' ? 1 | t % 8 : t / -13)) goto t;
+        if (-t < s << 5 && s < ~-(t = 2977 % t - ']' ? 1 | t % 8 : t / -13)) goto t;
       continue;
     }
-    printf((const char *[]){"", "\033[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n", "~~\\(^-^)\n"}[t = M(getchar())]);
+    fputs((const char *[]){"", "\033[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n", "~~\\(^-^)\n"}[t = M(getchar())], stdout);
     if (a && t) {
       static int16_t S[8290];
       unsigned s = sizeof S;
