@@ -66,6 +66,7 @@ char M(unsigned R)
 }
 
 #ifndef FUZZ
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <termios.h>
@@ -91,8 +92,8 @@ int main(int t, char *argv[])
   else printf("No audio device supplied, game will be silent (_ _)\n");
 
   while (t = 2) {
-    if (4 & s) R(time(0) ^ clock() << 3); else t: printf("\e[%dA", N + 2);
-    t++ & 4 || printf("Move %d\e[K\n", s);
+    if (4 & s) R(time(0) ^ clock() << 3); else t: printf("\033[%dA", N + 2);
+    t++ & 4 || printf("Move %d\033[K\n", s);
     for (signed char i = -N; i - N * N; i++)
       i + 2977 % putchar((putchar((i >> 6) * putchar((*B = t && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[B]["] "])) && i % N -~- N || putchar(10);
     if (t > 4) {
@@ -100,7 +101,7 @@ int main(int t, char *argv[])
       while (getchar() != '\n') { }
       continue;
     }
-    printf((const char *[]){"", "\e[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n"}[t = M(getchar())]);
+    printf((const char *[]){"", "\033[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n"}[t = M(getchar())]);
     if (a && t) {
       static int16_t S[8290];
       unsigned s = sizeof S;

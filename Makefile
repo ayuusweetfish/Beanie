@@ -2,10 +2,6 @@
 #
 # YYYY/XXX 	<<=== The IOCCC Judges will replace this line
 
-# XXX - Please use this Makefile, renamed as Makefile of course, as the Makefile in
-# XXX - your submission. Modify it as needed, including removing this comment and
-# XXX - other comments we ask you to remove.
-
 #############################
 # shell used by this Makefile
 #############################
@@ -58,13 +54,8 @@ CWARN= -Wall -Wextra -pedantic ${CSILENCE} ${CUNKNOWN}
 
 # Compiler standard
 #
-# XXX - Your IOCCC submission is free to require older C standards, or
-# XXX - even not specify a C standard at all.  We suggest trying
-# XXX - for -std=gnu17, but that is not a requirement and you won't
-# XXX - be penalized if you name CSTD empty or use another
-# XXX - well known and reasonably widely implemented C standard.
-#
-CSTD= -std=gnu17
+# NOTE(author): Modified (was: -std=gnu17)
+CSTD= -std=c11
 
 # Compiler bit architecture
 #
@@ -173,7 +164,7 @@ PROG= prog
 OBJ= ${PROG}.o
 TARGET= ${PROG}
 
-# XXX - uncomment these next two lines if you have a prog.alt.c
+# NOTE(author): No alternative program
 # ALT_OBJ= ${PROG}.alt.o
 # ALT_TARGET= ${PROG}.alt
 
@@ -202,14 +193,7 @@ ${PROG}: ${PROG}.c
 	${CC} ${CFLAGS} ${PROG}.c -o $@ ${LDFLAGS}
 
 # suggested way(s) to run the program
-#
-# XXX - You are better off supplying a try.sh script, than using a try Makefile rule.
-#
-# XXX - If you have a try.sh script, then please remove this try rule from your Makefile
-#
-try: ${PROG} ${DATA}
-	@# XXX - change this next line as needed
-	./${PROG} XXX some arguments XXX
+# NOTE(author): Removed try rule
 
 # alternative executable
 #
@@ -220,16 +204,7 @@ ${PROG}.alt: ${PROG}.alt.c
 	${CC} ${CFLAGS} ${PROG}.alt.c -o $@ ${LDFLAGS}
 
 # suggested way(s) to run alt code, if you include a prog.alt.c
-#
-# XXX - You are better off supplying a try.alt.sh script, than using a try.alt Makefile rule.
-#
-# XXX - If you have a try.alt.sh script, then please remove this try.alt rule
-#
-# XXX - If you do NOT have a prog.alt.c, then please remove this try.alt rule from your Makefile
-#
-try.alt: ${PROG}.alt ${DATA}
-	@# XXX - change this next line as needed
-	./${PROG}.alt XXX some arguments XXX
+# NOTE(author): Removed try.alt rule
 
 # data files
 #
