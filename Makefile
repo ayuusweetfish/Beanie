@@ -220,18 +220,22 @@ data: ${DATA}
 everything: all alt
 	@${TRUE}
 
+# NOTE(author): Additional fuzz target
+fuzz: ${PROG}.c fuzz.c
+	clang ${CFLAGS} fuzz.c -o $@ -g -fsanitize=fuzzer,address,undefined
+
 
 ###############
 # utility rules
 ###############
 #
 clean:
-	${RM} -f ${OBJ} ${ALT_OBJ}
+	@# NOTE(author): Additional fuzz target
+	${RM} -f ${OBJ} ${ALT_OBJ} fuzz.o
 
 clobber: clean
-	@# XXX - put additional ${RM} -f or ${RM} -rf lines so that
-	@#       "make clobber" restores things to their submission state.
-	${RM} -f ${TARGET} ${ALT_TARGET}
+	@# NOTE(author): Additional fuzz target
+	${RM} -f ${TARGET} ${ALT_TARGET} fuzz
 	${RM} -rf *.dSYM
 
 
