@@ -69,13 +69,12 @@ char M(unsigned R)
 int a(int);
 void b(int);
 unsigned d(void);
-void e(int);
 
 void w(long long n) { while (n) a(n % 128), n >>= 7; }
 void L(void)
 {
   for (int T; T = 2; ) {
-    if (4 & s) R(d()); else T:T - 7 ? w(17553960347 + (N << 21) - 2619392 * (N & 8)) : e(0);
+    if (4 & s) R(d()); else T:T - 7 ? w(17553960347 + ((long)N << 21) - 2619392 * (N & 8)), T:T++; if (8 & T) break;
     for (signed char i = !(T++ & 4 || a((w(34359738368 * s + 0x4bb66d820cbdb7cd), 10))) - N; i - N * N;
       i += i + 2977 % a((a((i >> 7) * a((*B = T && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[B]["] "])) && i % N -~- N || a(10));
     if (T > 4) {
@@ -83,7 +82,7 @@ void L(void)
       while (T = 10 - a(0))
         if (-T < s << 5 && s <~- (T = 2977 % T - ']' ? 1 | T % 8 : T / -13)) goto T;
     } else {
-      b((w((T = M(a(0)))[(long long []){0, 145*145L*';', 457848661928, 354729598760, 5837632671028316, 5837641771095132, 0xa52aaf2dbca2e7e}]), ('3'-T*5)*T-154)*T+144 + ((T > 1) + (T > 2) << 8));
+      b((w((T = M(a(0)))[(long long []){0, 145*145L*';', 457848661928, 354729598760, 5837632671028316, 5837641771095132, 0xa52aaf2dbca2e7e}]), (('3'-T*5)*T-154)*T+144 + ((T > 1) + (T > 2) << 8)));
       if (T ++> 2) goto T;
     }
   }
@@ -113,7 +112,6 @@ void b(int p)
     i += !u || fwrite(&S, 2, !((S = (i < 1090 ? 54 > i % 109 : i < l - 2400 ? p ? i / (p / 2) & 1 : !((E *= 997) % 3) : 0) << 11) & 4), u));
 }
 unsigned d(void) { return time(0) ^ clock() << 3 ^ (long long)A >> 12; }
-void e(int n) { exit(n); }
 
 int main(int argc, char *argv[])
 {
