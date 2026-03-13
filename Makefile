@@ -40,9 +40,7 @@ TRUE= true
 #
 # NOTE(author): Edited
 CSILENCE= \
-  -Wno-unsafe-buffer-usage -Wno-parentheses -Wno-char-subscripts -Wno-unused-value -Wno-sign-compare \
-  -Wno-missing-variable-declarations -Wno-missing-prototypes \
-  -Wno-comma -Wno-shadow -Wno-sign-conversion -Wno-implicit-int-conversion -Wno-string-plus-int
+  -Wno-parentheses -Wno-char-subscripts -Wno-sign-compare -Wno-string-plus-int
 
 # Attempt to silence unknown warning options
 #
@@ -137,7 +135,9 @@ ifeq "$(findstring $(CLANG),${CC})" "$(CLANG)"
 #
 CSILENCE+=
 #
-CWARN+= -Weverything
+CWARN+= -Weverything \
+  -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations -Wno-missing-prototypes \
+  -Wno-comma -Wno-shadow -Wno-sign-conversion -Wno-implicit-int-conversion
 #
 endif
 

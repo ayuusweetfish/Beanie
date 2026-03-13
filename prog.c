@@ -27,7 +27,7 @@ char M(unsigned R)
         (*b -= f + f, B[t++] = b - A, h += Z * !(C))
       F(n, 2 + s - *a) {
         t = !(*a =-~ n);
-        F(C, N) I(C, N - 2);
+        F(C, N) R = I(C, N - 2);
         F(T = h, t)
           R = (C = h[B]) % N, C /= N,
           I(R + T, C), I(~-R, C), I(R, C - T);
@@ -54,7 +54,7 @@ char M(unsigned R)
         F(r, N) Z |= !r[b - N] ^ !r[b];
         F(r, Z) {
           if (C - r && r + N - C && !(Z & 1))
-            F(c, N) !c[b] && (c[A + r] += (t = !A[r + c]));
+            F(c, N) c[A + r] += c[b] ? t = !A[r + c] : 0;
           r += Z / N;
         }
         Z &= -2;
@@ -93,6 +93,7 @@ int main(int T, char *argv[])
   else printf("No audio device supplied, game will be silent (_ _)\n");
 
   while (T = 2) {
+    int16_t S, E;
     if (4 & s) R(time(0) ^ clock() << 3); else T:T - 7 ? (void)printf("\033[%dA", N + 2) : exit(0);
     for (signed char i = !(T++ & 4 || printf("Move %d\033[K\n", s)) - N; i - N * N;
       i += i + 2977 % putchar((putchar((i >> 6) * putchar((*B = T && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[B]["] "])) && i % N -~- N || putchar(10));
@@ -102,12 +103,8 @@ int main(int T, char *argv[])
         if (-T < s << 5 && s <~- (T = 2977 % T - ']' ? 1 | T % 8 : T / -13)) goto T;
       continue;
     }
-    fputs((const char *[]){"", "\033[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n", "~~\\(^-^*)\n"}[T = M(getchar())], stdout);
-    static int16_t S[8290];
-    unsigned s = sizeof S, l = ((T > 1) + (T > 2)) * 2400;
-    for (int p = (('3'-T*5)*T-154)*T+144, i = !(l += 3490) * (p && (p = 1309 / p)); i < l; i++)
-      S[i] = (i < 1090 ? 54 > i % 109 : i < l - 2400 ? p ? i / (p / 2) & 1 : !((s = s * 997) % 3) : 0) << 11;
-    a && T && fwrite(S, 2, l, a) && fflush(a);
+    for (int p = (E = s - fputs((const char *[]){"", "\033[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n", "~~\\(^-^*)\n"}[T = M(getchar())], stdout), (('3'-T*5)*T-154)*T+144), l = 3490 + ((T > 1) + (T > 2)) * 2400, i = (p && (p = 1309 / p)) & !E; a && fflush(a) || i - l; i += !a || l > fwrite(&S, 2, !!T, a))
+      S = (i < 1090 ? 54 > i % 109 : i < l - 2400 ? p ? i / (p / 2) & 1 : !((E *= 997) % 3) : 0) << 11;
     if (T ++> 2) goto T;
   }
 }
