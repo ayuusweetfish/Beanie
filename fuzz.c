@@ -14,7 +14,6 @@
 int LLVMFuzzerTestOneInput(const uint8_t *data, size_t n)
 {
   if (n < 5) return -1;
-  s = 4;
   unsigned seed = *(uint32_t *)(data + 0);
   size_t p = 4;
 
@@ -33,7 +32,7 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t n)
       printf("\n");
     }
     printf("Move %-5s | ", (const char *[]){"Up", "Down", "Right", "Left"}[move]);
-    printf("(%2d,%2d) Step %d (%d)", r, c, s, result);
+    printf("(%2d,%2d) Step %d (%d)", r, c, o, result);
     assert(result >= 0 && result <= 5 /* && result != 4 */);
     // Ensure that no row is empty!
     for (int i = 0; i < N - 1; i++) {

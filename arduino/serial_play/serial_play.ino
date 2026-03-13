@@ -28,7 +28,7 @@ int a(int c)
   } else {
     int b;
     while (!Serial.available() && (b = buttons()) == -1) { }
-    return b != -1 ? s >= 4 ? '\n' : b : (c = Serial.read()) == '\r' ? '\n' : c;
+    return b != -1 ? o >= 4 ? '\n' : b : (c = Serial.read()) == '\r' ? '\n' : c;
   }
 }
 void b(int p)
