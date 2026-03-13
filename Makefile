@@ -224,6 +224,11 @@ everything: all alt
 fuzz: ${PROG}.c fuzz.c
 	clang ${CFLAGS} fuzz.c -o $@ -g -fsanitize=fuzzer,address,undefined
 
+# NOTE(author): Additional arduino-sketch target
+arduino-sketch: ${PROG}.c
+	cp $< arduino/serial_play/prog.h
+.PHONY: arduino-sketch
+
 
 ###############
 # utility rules
@@ -234,8 +239,9 @@ clean:
 	${RM} -f ${OBJ} ${ALT_OBJ} fuzz.o
 
 clobber: clean
-	@# NOTE(author): Additional fuzz target
+	@# NOTE(author): Additional fuzz and arduino-sketch targets
 	${RM} -f ${TARGET} ${ALT_TARGET} fuzz
+	${RM} -f arduino/serial_play/prog.h
 	${RM} -rf *.dSYM
 
 
