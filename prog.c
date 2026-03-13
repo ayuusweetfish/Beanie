@@ -11,9 +11,7 @@ unsigned Y;
 void R(unsigned M)
 {
   F(r, (Z = ~-N * N)) A[r] = 0;
-  s = !(r = c[A], f = r--);
-  c = ((Y = 1 + (Y - M) * 69069) / 2) % N;
-  r0 = (Y + (Y & Z)) % N;
+  r0 = (s = !(r = c[A], f = r--), c = ((Y = 1 + (Y - M) * 69069) / 2) % N, (Y + (Y & Z)) % N);
 }
 char M(unsigned R)
 {
@@ -21,19 +19,20 @@ char M(unsigned R)
   4 > (R -= a++[t = h < t]) ? Y + (R = 1[t + a] >> 6-R-R, 0[R%2 ? &r : &c] += ~-(2 & R)) : (R = !(R - 8) | Z);
   if (N +~( r += (h = !~(c -= c / N - !~c)) < ~r) && ~r && !h[a = c + b + r * N]) {
     if (f *= s - 6 + s) {
-    #define I(R, C) \
+    #define R(R, C) \
       -~C && h < Z & (unsigned)R < N && \
         2 > *(b = R + N * (C) + A) && *b | !(2 - *a || C - r && R - c) && \
         (*b -= f + f, B[t++] = b - A, h += Z * !(C))
       F(n, 2 + s - *a) {
         t = !(*a =-~ n);
-        F(C, N) R = I(C, N - 2);
+        F(C, N) R = R(C, N - 2);
         F(T = h, t)
           R = (C = h[B]) % N, C /= N,
-          I(R + T, C), I(~-R, C), I(R, C - T);
+          R(R + T, C), R(~-R, C), R(R, C - T);
         F(r, Z) r[A] &= 3;
         f |= 0 > (h -~- Z) * (n - !n);
       }
+    #undef R
     #define R { h = 0; F(c, N) h += b[c]; if (h == N
       if (!r)
         R) f |= 1;
@@ -63,11 +62,10 @@ char M(unsigned R)
   }
 #undef f
 #undef R
-#undef I
   return 1 < R - Z ? r > N - 2 ? (s += 2) : *a - 2 ? 1 : (r |= (s++ - 3) >> 2, 2 + s >> 1) : 6 * (C = R - Z);
 }
 
-#ifndef FUZZ
+#ifndef NO_MAIN
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -83,6 +81,11 @@ void e(void)
   tcsetattr(a && fclose(a), TCSAFLUSH, &S);
 }
 
+void w(uint64_t n)
+{
+  while (n) putchar(n % 128), n >>= 7;
+}
+
 int main(int T, char *argv[])
 {
   tcgetattr(0, &S);
@@ -94,9 +97,9 @@ int main(int T, char *argv[])
 
   while (T = 2) {
     uint16_t S, E;
-    if (4 & s) R(time(0) ^ clock() << 3); else T:T - 7 ? (void)printf("\033[%dA", N + 2) : exit(0);
+    if (4 & s) R(time(0) ^ clock() << 3); else T:T - 7 ? w(17553960347 + (N << 21) - 2619392 * (N & 8)) : exit(0);
     for (signed char i = !(T++ & 4 || printf("Move %d\033[K\n", s)) - N; i - N * N;
-      i += i + 2977 % putchar((putchar((i >> 6) * putchar((*B = T && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[B]["] "])) && i % N -~- N || putchar(10));
+      i += i + 2977 % putchar((putchar((i >> 7) * putchar((*B = T && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[B]["] "])) && i % N -~- N || putchar(10));
     if (T > 4) {
       printf("\nPress Enter to continue\n");
       while (T = 10 - getchar())

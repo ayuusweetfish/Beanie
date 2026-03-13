@@ -57,7 +57,7 @@ CWARN= -Wall -Wextra -pedantic ${CSILENCE} ${CUNKNOWN}
 # Compiler standard
 #
 # NOTE(author): Modified (was: -std=gnu17)
-CSTD= -std=c11
+CSTD= -std=c99
 
 # Compiler bit architecture
 #

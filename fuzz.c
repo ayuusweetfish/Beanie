@@ -1,4 +1,4 @@
-#define FUZZ
+#define NO_MAIN
 #include "prog.c"
 
 #include <assert.h>
