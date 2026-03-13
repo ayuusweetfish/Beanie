@@ -67,11 +67,11 @@ char M(unsigned R)
 
 #ifndef NO_LOOP
 int a(int);
-void b(int, int);
+void b(int);
 unsigned d(void);
 void e(int);
 
-void w(long long n) { while (n) putchar(n % 128), n >>= 7; }
+void w(long long n) { while (n) a(n % 128), n >>= 7; }
 void L(void)
 {
   for (int T; T = 2; ) {
@@ -83,12 +83,11 @@ void L(void)
       while (T = 10 - a(0))
         if (-T < s << 5 && s <~- (T = 2977 % T - ']' ? 1 | T % 8 : T / -13)) goto T;
     } else {
-      b((w((T = M(a(0)))[(long long []){0, 145*145L*';', 457848661928, 354729598760, 5837632671028316, 5837641771095132, 0xa52aaf2dbca2e7e}]), (('3'-T*5)*T-154)*T+144), 2400 * ((T > 1) + (T > 2)));
+      b((w((T = M(a(0)))[(long long []){0, 145*145L*';', 457848661928, 354729598760, 5837632671028316, 5837641771095132, 0xa52aaf2dbca2e7e}]), (('3'-T*5)*T-154)*T+144) + ((T > 1) + (T > 2)) * 2400);
       if (T ++> 2) goto T;
     }
   }
 }
-#endif
 
 #ifndef NO_MAIN
 #include <stdint.h>
@@ -107,9 +106,9 @@ void E(void)
 }
 
 int a(int c) { return c ? putchar(c) : getchar(); }
-void b(int p, int l)
+void b(int l)
 {
-  int16_t S, E = 144 - p - l;
+  int16_t p = (l % 2400), S, E = 144 - (l -= p) - p;
   for (int i = (l += 3490, p && (p = 1309 / p)) & !E; (u && fflush(u) || i - l) && E; i += !u || fwrite(&S, 2, !(S & 4), u))
     S = (i < 1090 ? 54 > i % 109 : i < l - 2400 ? p ? i / (p / 2) & 1 : !((E *= 997) % 3) : 0) << 11;
 }
@@ -127,4 +126,5 @@ int main(int argc, char *argv[])
 
   L();
 }
+#endif
 #endif

@@ -1,4 +1,4 @@
-#define NO_MAIN
+#define NO_LOOP
 #include "prog.c"
 
 #include <assert.h>
