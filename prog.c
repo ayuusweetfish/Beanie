@@ -7,10 +7,10 @@ p A, B;
 signed char r0, s = 5, r, c, f, Z;
 unsigned Y;
 
-#define F(a, b) for (char a = 0; a < b; a++)
+#define c(a, b) for (char a = 0; a < b; a++)
 void R(unsigned M)
 {
-  F(r, (Z = ~-N * N)) A[r] = 0;
+  c(r, (Z = ~-N * N)) A[r] = 0;
   r0 = (s = !(r = c[A], f = r--), c = ((Y = 1 + (Y - M) * 69069) / 2) % N, (Y + (Y & Z)) % N);
 }
 char M(unsigned R)
@@ -23,17 +23,17 @@ char M(unsigned R)
       -~C && h < Z & (unsigned)R < N && \
         2 > *(b = R + N * (C) + A) && *b | !(2 - *a || C - r && R - c) && \
         (*b -= f + f, B[t++] = b - A, h += Z * !(C))
-      F(n, 2 + s - *a) {
+      c(n, 2 + s - *a) {
         t = !(*a =-~ n);
-        F(C, N) R = R(C, N - 2);
-        F(T = h, t)
+        c(C, N) R = R(C, N - 2);
+        c(T = h, t)
           R = (C = h[B]) % N, C /= N,
           R(R + T, C), R(~-R, C), R(R, C - T);
-        F(r, Z) r[A] &= 3;
+        c(r, Z) r[A] &= 3;
         f |= 0 > (h -~- Z) * (n - !n);
       }
     #undef R
-    #define R { h = 0; F(c, N) h += b[c]; if (h == N
+    #define R { h = 0; c(c, N) h += b[c]; if (h == N
       if (!r)
         R) f |= 1;
         f |= r0++ && r0 < N & A[r0 - 2] & r0[b = A]; r0--;
@@ -44,16 +44,16 @@ char M(unsigned R)
       *a = 1 << (s & 2 || c == r0 || r && 4 & Y && ~(r0 = c));
       f ^= r | c == r0;
     }
-  #define f ) { F(i, N) b[i] = A[(i - (i > N - 2)) * N + c] = t; b[c]++;
+  #define f ) { c(i, N) b[i] = A[(i - (i > N - 2)) * N + c] = t; b[c]++;
     if (b = a - c, t = 1, *a / 2 f }
     while (t--)
       for (b = A; b < Z + A; b += N)
-        R-1) F(c, N) if (t = !c[b] f break; }
+        R-1) c(c, N) if (t = !c[b] f break; }
       if ((C = b - A) && N == h + 2) {
-        F(r, N) Z |= !r[b - N] ^ !r[b];
-        F(r, Z) {
+        c(r, N) Z |= !r[b - N] ^ !r[b];
+        c(r, Z) {
           if (C - r && r + N - C && !(Z & 1))
-            F(c, N) c[A + r] += !c[b] && (t = !A[r + c]);
+            c(c, N) c[A + r] += !c[b] && (t = !A[r + c]);
           r += Z / N;
         }
         Z &= -2;
