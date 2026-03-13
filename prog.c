@@ -17,8 +17,8 @@ void R(unsigned M)
 }
 char M(unsigned R)
 {
-  char h = 'h', t = h < (R += R == h), *a = t + "Aix6", *b = A, C;
-  4 > (R -= *a) ? (R = 2[a] >> 6-R-R, 0[R%2 ? &r : &c] += ~-(2 & R)) : (R = !(R - 8) | Z);
+  char h = 'h', t = h < (R += R == h), *a = "Aix6", *b = A, C;
+  4 > (R -= t[a++]) ? Y + (R = 1[t + a] >> 6-R-R, 0[R%2 ? &r : &c] += ~-(2 & R)) : (R = !(R - 8) | Z);
   if (N +~( r += (h = !~(c -= c / N - !~c)) < ~r) && ~r && !h[a = c + b + r * N]) {
     if (f *= s - 6 + s) {
     #define I(R, C) \
@@ -64,7 +64,7 @@ char M(unsigned R)
 #undef f
 #undef R
 #undef I
-  return 1 < R - Z ? r > N - 2 ? (s += 2) : *a - 2 ? 1 : (r |= (s++ - 3) >> 2, 2 + s >> 1) : 6 * (R - Z);
+  return 1 < R - Z ? r > N - 2 ? (s += 2) : *a - 2 ? 1 : (r |= (s++ - 3) >> 2, 2 + s >> 1) : 6 * ((C = R) - Z);
 }
 
 #ifndef FUZZ
@@ -103,7 +103,7 @@ int main(int T, char *argv[])
         if (-T < s << 5 && s <~- (T = 2977 % T - ']' ? 1 | T % 8 : T / -13)) goto T;
       continue;
     }
-    for (int p = (E = s - fputs((const char *[]){"", "\033[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n", "~~\\(^-^*)\n"}[T = M(getchar())], stdout), (('3'-T*5)*T-154)*T+144), l = 3490 + ((T > 1) + (T > 2)) * 2400, i = (p && (p = 1309 / p)) & !E; a && fflush(a) || i - l; i += !a || l > fwrite(&S, 2, !!T, a))
+    for (int p = (E = s - fputs((const char *[]){"", "\033[K", "(O O)\r", "(> <)\n", "\\(>-<)/\n", "\\(^ ^)/\n", "~~\\(^-^*)\n"}[T = M(getchar())], stdout), (('3'-T*5)*T-154)*T+144), l = 3490 + ((T > 1) + (T > 2)) * 2400, i = (p && (p = 1309 / p)) & !E; a && fflush(a) || i - l; i += !a || 2 > fwrite(&S, 2, !!T, a))
       S = (i < 1090 ? 54 > i % 109 : i < l - 2400 ? p ? i / (p / 2) & 1 : !((E *= 997) % 3) : 0) << 11;
     if (T ++> 2) goto T;
   }

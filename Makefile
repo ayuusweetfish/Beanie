@@ -40,7 +40,7 @@ TRUE= true
 #
 # NOTE(author): Edited
 CSILENCE= \
-  -Wno-parentheses -Wno-char-subscripts -Wno-sign-compare -Wno-string-plus-int
+  -Wno-parentheses -Wno-char-subscripts
 
 # Attempt to silence unknown warning options
 #
