@@ -80,8 +80,7 @@ FILE *a;
 
 void e(void)
 {
-  tcsetattr(0, TCSAFLUSH, &S);
-  a && fclose(a);
+  tcsetattr(a && fclose(a), TCSAFLUSH, &S);
 }
 
 int main(int T, char *argv[])
@@ -95,9 +94,8 @@ int main(int T, char *argv[])
 
   while (T = 2) {
     if (4 & s) R(time(0) ^ clock() << 3); else T:T - 7 ? (void)printf("\033[%dA", N + 2) : exit(0);
-    T++ & 4 || printf("Move %d\033[K\n", s);
-    for (signed char i = -N; i - N * N; i++)
-      i + 2977 % putchar((putchar((i >> 6) * putchar((*B = T && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[B]["] "])) && i % N -~- N || putchar(10);
+    for (signed char i = !(T++ & 4 || printf("Move %d\033[K\n", s)) - N; i - N * N;
+      i += i + 2977 % putchar((putchar((i >> 6) * putchar((*B = T && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[B]["] "])) && i % N -~- N || putchar(10));
     if (T > 4) {
       printf("\nPress Enter to continue\n");
       while (T = 10 - getchar())
