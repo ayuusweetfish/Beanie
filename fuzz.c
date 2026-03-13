@@ -19,7 +19,7 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t n)
 
   // Run case
   printf("Restart, seed = %u\n", seed);
-  R(seed);
+  Y = 0; R(seed);
   while (p < n) {
     uint8_t move = data[p++] % 4;
     char result = M('A' + move);
