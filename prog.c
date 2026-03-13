@@ -54,7 +54,7 @@ char M(unsigned R)
         F(r, N) Z |= !r[b - N] ^ !r[b];
         F(r, Z) {
           if (C - r && r + N - C && !(Z & 1))
-            F(c, N) c[A + r] += c[b] ? t = !A[r + c] : 0;
+            F(c, N) c[A + r] += !c[b] && (t = !A[r + c]);
           r += Z / N;
         }
         Z &= -2;
