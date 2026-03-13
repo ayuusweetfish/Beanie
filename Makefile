@@ -135,9 +135,9 @@ ifeq "$(findstring $(CLANG),${CC})" "$(CLANG)"
 #
 CSILENCE+=
 #
-CWARN+= -Weverything \
-  -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations -Wno-missing-prototypes \
-  -Wno-comma -Wno-shadow -Wno-sign-conversion -Wno-implicit-int-conversion
+# CWARN+= -Weverything \
+#   -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations -Wno-missing-prototypes \
+#   -Wno-comma -Wno-shadow -Wno-sign-conversion -Wno-implicit-int-conversion
 #
 endif
 
