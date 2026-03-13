@@ -32,7 +32,7 @@ void b(int p)
 }
 unsigned d()
 {
-  return 0;
+  return millis() + analogRead(A0) + analogRead(A1) + analogRead(A2) + analogRead(A3);
 }
 
 void setup()
