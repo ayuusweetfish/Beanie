@@ -83,7 +83,7 @@ void L(void)
       while (T = 10 - a(0))
         if (-T < s << 5 && s <~- (T = 2977 % T - ']' ? 1 | T % 8 : T / -13)) goto T;
     } else {
-      b((w((T = M(a(0)))[(long long []){0, 145*145L*';', 457848661928, 354729598760, 5837632671028316, 5837641771095132, 0xa52aaf2dbca2e7e}]), (('3'-T*5)*T-154)*T+144) + ((T > 1) + (T > 2)) * 2400);
+      b((w((T = M(a(0)))[(long long []){0, 145*145L*';', 457848661928, 354729598760, 5837632671028316, 5837641771095132, 0xa52aaf2dbca2e7e}]), ('3'-T*5)*T-154)*T+144 + ((T > 1) + (T > 2) << 8));
       if (T ++> 2) goto T;
     }
   }
@@ -106,11 +106,11 @@ void E(void)
 }
 
 int a(int c) { return c ? putchar(c) : getchar(); }
-void b(int l)
+void b(int p)
 {
-  int16_t p = (l % 2400), S, E = 144 - (l -= p) - p;
-  for (int i = (l += 3490, p && (p = 1309 / p)) & !E; (u && fflush(u) || i - l) && E; i += !u || fwrite(&S, 2, !(S & 4), u))
-    S = (i < 1090 ? 54 > i % 109 : i < l - 2400 ? p ? i / (p / 2) & 1 : !((E *= 997) % 3) : 0) << 11;
+  int16_t l = ((p + '-') & -256), S, E = 144 - (p -= l) - l;
+  for (int i = (l = 10 * (l + 349), p && (p = 1309 / p)) & !E; (u && fflush(u) || i - l) && E;
+    i += !u || fwrite(&S, 2, !((S = (i < 1090 ? 54 > i % 109 : i < l - 2400 ? p ? i / (p / 2) & 1 : !((E *= 997) % 3) : 0) << 11) & 4), u));
 }
 unsigned d(void) { return time(0) ^ clock() << 3 ^ (long long)A >> 12; }
 void e(int n) { exit(n); }
