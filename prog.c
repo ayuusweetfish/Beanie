@@ -81,24 +81,32 @@ void e(void)
   tcsetattr(a && fclose(a), TCSAFLUSH, &S);
 }
 
-void w(long long n)
-{
-  while (n) putchar(n % 128), n >>= 7;
-}
-
-int main(int T, char *argv[])
+int main(int argc, char *argv[])
 {
   tcgetattr(0, &S);
   U = S; U.c_lflag &= ~ECHO & ~ICANON;
   tcsetattr(atexit(e), 0, &U);
 
-  T && (a = fopen(argv[1], "wb")) ? setbuf(a, 0)
-    : (w(2368795716511872974), w(8495621981700207332), w(7440143561770350704),
-       w(2367120232991520481), w(8421053345252782818), w(45414784422944));
+  if (argc && (a = fopen(argv[1], "wb"))) setbuf(a, 0);
+  else printf("No audio pipe supplied, game will be silent (_ _)\n");
 
-  while (T = 2) {
+  R(time(0) ^ clock() << 3 ^ (long long)A >> 12);
+
+  void L(void); L();
+}
+#endif
+
+#ifndef NO_LOOP
+void w(long long n)
+{
+  while (n) putchar(n % 128), n >>= 7;
+}
+
+void L(void)
+{
+  for (int T; T = 2; ) {
     uint16_t S, E;
-    if (4 & s) R(time(0) ^ clock() << 3 ^ (long long)A >> 12); else T:T - 7 ? w(17553960347 + (N << 21) - 2619392 * (N & 8)) : exit(0);
+    if (4 & s) R(s + r + c); else T:T - 7 ? w(17553960347 + (N << 21) - 2619392 * (N & 8)) : exit(0);
     for (signed char i = !(T++ & 4 || putchar((w(34359738368 * s + 0x4bb66d820cbdb7cd), 10))) - N; i - N * N;
       i += i + 2977 % putchar((putchar((i >> 7) * putchar((*B = T && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[B]["] "])) && i % N -~- N || putchar(10));
     if (T > 4) {
