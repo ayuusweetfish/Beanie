@@ -65,6 +65,31 @@ char M(unsigned R)
   return 1 < R - Z ? r > N - 2 ? (s += 2) : *a - 2 ? 1 : (r |= (s++ - 3) >> 2, 2 + s >> 1) : 6 * (C = R - Z);
 }
 
+#ifndef NO_LOOP
+int a(int);
+void b(int, int);
+unsigned d(void);
+void e(int);
+
+void w(long long n) { while (n) putchar(n % 128), n >>= 7; }
+void L(void)
+{
+  for (int T; T = 2; ) {
+    if (4 & s) R(d()); else T:T - 7 ? w(17553960347 + (N << 21) - 2619392 * (N & 8)) : e(0);
+    for (signed char i = !(T++ & 4 || a((w(34359738368 * s + 0x4bb66d820cbdb7cd), 10))) - N; i - N * N;
+      i += i + 2977 % a((a((i >> 7) * a((*B = T && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[B]["] "])) && i % N -~- N || a(10));
+    if (T > 4) {
+      w(7965323610900178954), w(8054269566225527540), w(47482438056558);
+      while (T = 10 - a(0))
+        if (-T < s << 5 && s <~- (T = 2977 % T - ']' ? 1 | T % 8 : T / -13)) goto T;
+    } else {
+      b((w((T = M(a(0)))[(long long []){0, 145*145L*';', 457848661928, 354729598760, 5837632671028316, 5837641771095132, 0xa52aaf2dbca2e7e}]), (('3'-T*5)*T-154)*T+144), 2400 * ((T > 1) + (T > 2)));
+      if (T ++> 2) goto T;
+    }
+  }
+}
+#endif
+
 #ifndef NO_MAIN
 #include <stdint.h>
 #include <stdio.h>
@@ -74,58 +99,32 @@ char M(unsigned R)
 #include <unistd.h>
 
 struct termios S, U;
-FILE *a;
+FILE *u;
 
-void e(void)
+void E(void)
 {
-  tcsetattr(a && fclose(a), TCSAFLUSH, &S);
+  tcsetattr(u && fclose(u), TCSAFLUSH, &S);
 }
 
-unsigned d()
-{
-  return time(0) ^ clock() << 3 ^ (long long)A >> 12;
-}
-
+int a(int c) { return c ? putchar(c) : getchar(); }
 void b(int p, int l)
 {
   int16_t S, E = 144 - p - l;
-  for (int i = (l += 3490, p && (p = 1309 / p)) & !E; (a && fflush(a) || i - l) && E; i += !a || fwrite(&S, 2, !(S & 4), a))
+  for (int i = (l += 3490, p && (p = 1309 / p)) & !E; (u && fflush(u) || i - l) && E; i += !u || fwrite(&S, 2, !(S & 4), u))
     S = (i < 1090 ? 54 > i % 109 : i < l - 2400 ? p ? i / (p / 2) & 1 : !((E *= 997) % 3) : 0) << 11;
 }
+unsigned d(void) { return time(0) ^ clock() << 3 ^ (long long)A >> 12; }
+void e(int n) { exit(n); }
 
 int main(int argc, char *argv[])
 {
   tcgetattr(0, &S);
   U = S; U.c_lflag &= ~ECHO & ~ICANON;
-  tcsetattr(atexit(e), 0, &U);
+  tcsetattr(atexit(E), 0, &U);
 
-  if (argc && (a = fopen(argv[1], "wb"))) setbuf(a, 0);
+  if (argc && (u = fopen(argv[1], "wb"))) setbuf(u, 0);
   else printf("No audio pipe supplied, game will be silent (_ _)\n");
 
-  void L(void); L();
-}
-#endif
-
-#ifndef NO_LOOP
-void w(long long n)
-{
-  while (n) putchar(n % 128), n >>= 7;
-}
-
-void L(void)
-{
-  for (int T; T = 2; ) {
-    if (4 & s) R(d()); else T:T - 7 ? w(17553960347 + (N << 21) - 2619392 * (N & 8)) : exit(0);
-    for (signed char i = !(T++ & 4 || putchar((w(34359738368 * s + 0x4bb66d820cbdb7cd), 10))) - N; i - N * N;
-      i += i + 2977 % putchar((putchar((i >> 7) * putchar((*B = T && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[B]["] "])) && i % N -~- N || putchar(10));
-    if (T > 4) {
-      w(7965323610900178954), w(8054269566225527540), w(47482438056558);
-      while (T = 10 - getchar())
-        if (-T < s << 5 && s <~- (T = 2977 % T - ']' ? 1 | T % 8 : T / -13)) goto T;
-    } else {
-      b((w((T = M(getchar()))[(long long []){0, 145*145*';', 457848661928, 354729598760, 5837632671028316, 5837641771095132, 0xa52aaf2dbca2e7e}]), (('3'-T*5)*T-154)*T+144), 2400 * ((T > 1) + (T > 2)));
-      if (T ++> 2) goto T;
-    }
-  }
+  L();
 }
 #endif
