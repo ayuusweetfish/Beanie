@@ -88,7 +88,11 @@ void L(void)
   }
 }
 
-#if !defined(NO_MAIN) && !defined(ARDUINO)
+#ifdef ARDUINO
+#define NO_MAIN
+#endif
+
+#ifndef NO_MAIN
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
