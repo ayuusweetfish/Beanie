@@ -1,15 +1,19 @@
 #include "beanie.h"
 #include "src/Adafruit_NeoPixel-1.15.4/Adafruit_NeoPixel.h"
 
-static const int LED_STRIP_PIN = 3;
-static const int BUZZER_PIN = A5;
-static const int BUTTON_PIN[4] = {A0, 7, 8, A1};
+#define BUZZER_PIN A5
+#define BUTTON_PIN _button_pins
+static const int _button_pins[4] = {A0, 7, 8, A1};
+#define LED_STRIP_PIN 3
 
+#ifdef LED_STRIP_PIN
 static Adafruit_NeoPixel strip = Adafruit_NeoPixel(38, LED_STRIP_PIN, NEO_GRB + NEO_KHZ800);
+#endif
 
 int buttons()
 {
   int result = -1;
+#ifdef BUTTON_PIN
   static bool down[4] = {0};
   static unsigned short cooldown[4] = {0};
   static unsigned last_time = 0;
@@ -24,30 +28,88 @@ int buttons()
   }
   last_time = cur_time;
   if (result != -1) cooldown[result] = 50;
+#endif
   return result;
+}
+
+int a(int c)
+{
+  if (c) {
+    if (c == '\n') Serial.write('\r');
+    Serial.write(c);
+    return c;
+  } else {
+    int b;
+    while (!Serial.available() && (b = buttons()) == -1) { }
+    return b != -1 ? o >= 4 ? '\n' : "ACBD"[b] : (c = Serial.read()) == '\r' ? '\n' : c;
+  }
+}
+void b(int p)
+{
+#ifdef BUZZER_PIN
+  int16_t l = ((p + '-') & -256), S, E = 144 - (p -= l) - l;
+  if (E) {
+    tone(BUZZER_PIN, 440), delay(22);
+    if (l) {
+      if (p)
+        tone(BUZZER_PIN, abs(p) * 36.67), delay(l * 0.2);
+      else
+        for (int i = 0; i < l * 0.2; i++)
+          tone(BUZZER_PIN, 420 - i * 20), delay(1);
+    }
+    noTone(BUZZER_PIN);
+  }
+#endif
+}
+unsigned d()
+{
+  return millis() + analogRead(A2) + analogRead(A3) + analogRead(A4);
+}
+void y()
+{
+#ifdef LED_STRIP_PIN
+  #define cell_light(_r, _c) \
+    ((N - 1 - (_r)) * N + ((N - (_r)) % 2 ? (_c) : (N - 1 - (_c))))
+    /* (N + (N - 1 - (_r)) * N + ((N - (_r)) % 2 ? (N - 1 - (_c)) : (_c))) */
+  #define move_light(_n) \
+    (37 - (_n))
+  static const uint32_t palette[6] = {0x000000, 0x000401, 0x060001, 0x030303, 0x080800, 0x080400};
+  for (int r = 0; r < N - 1; r++)
+    for (int c = 0; c < N; c++)
+      strip.setPixelColor(cell_light(r, c), palette[A[r * N + c]]);
+  for (int c = 0; c < N; c++) {
+    strip.setPixelColor(cell_light(N - 1, c), palette[r == N - 1 ? 4 : 3]);
+    strip.setPixelColor(cell_light(-1, c), palette[3]);
+  }
+  strip.setPixelColor(cell_light(r, c), palette[o <= 3 ? 4 : 5]);
+  for (int i = 0; i < 3; i++)
+    strip.setPixelColor(move_light(i), palette[o == i + 1 ? (r == N - 1 ? 4 : 4) : o >= i + 1 ? (r == N - 1 ? 4 : 2) : 0]);
+  strip.show();
+  #undef cell_light
+  #undef move_light
+#endif
 }
 
 void setup()
 {
+#ifdef LED_STRIP_PIN
   strip.begin();
-  strip.setBrightness(16);
+  strip.setBrightness(255);
+#endif
 
+#ifdef BUZZER_PIN
   pinMode(BUZZER_PIN, OUTPUT);
+#endif
+
+#ifdef BUTTON_PIN
   for (int i = 0; i < 4; i++)
     pinMode(BUTTON_PIN[i], INPUT_PULLUP);
+#endif
+
+  Serial.begin(115200);
 }
 
 void loop()
 {
-  static int c[3] = {0};
-
-  int b = buttons();
-  if (b != -1) {
-    c[b % 3] ^= 31;
-  }
-
-  for (int i = 0; i < strip.numPixels(); i++) {
-    strip.setPixelColor(i, i % 2 ? strip.Color(63 - c[0], 63 - c[1], 63 - c[2]) : strip.Color(c[0], c[1], c[2]));
-  }
-  strip.show();
+  L();
 }

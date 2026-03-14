@@ -69,6 +69,7 @@ char M(unsigned R)
 int a(int);
 void b(int);
 unsigned d(void);
+void y(void);
 
 void w(long long n) { while (n) a(n % 128), n >>= 7; }
 void L(void)
@@ -77,6 +78,7 @@ void L(void)
     if (4 & o) R(d()); else T:T - 7 ? w(17553960347 + ((long)N << 21) - 2619392 * (N & 8)), T:T++; if (8 & T ? o = 5 : 0) break;
     for (signed char i = !(T++ & 4 || a((w(34359738368 * o + 0x4bb66d820cbdb7cd), 10))) - N; i - N * N;
       i += i + 2977 % a((a((i >> 7) * a((*B = T && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o"]), 0[B]["] "])) && i % N -~- N || a(10));
+    y();
     if (T > 4) {
       w(7965323610900178954), w(8054269566225527540), w(47482438056558);
       while (T = 10 - a(0))
@@ -112,6 +114,7 @@ void b(int p)
     i += !u || fwrite(&S, 2, !((S = (i < 1090 ? 54 > i % 109 : i < l - 2400 ? p ? i / (p / 2) & 1 : !((E *= 997) % 3) : 0) << 11) & 4), u));
 }
 unsigned d(void) { return time(0) ^ clock() << 3 ^ (long long)A >> 12; }
+void y(void) { }
 
 int main(int argc, char *argv[])
 {
