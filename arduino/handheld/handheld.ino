@@ -15,16 +15,15 @@ int buttons()
   static unsigned last_time = 0;
   unsigned cur_time = millis(), delta_time = cur_time - last_time;
   for (int i = 0; i < 4; i++) {
-    bool cur_down = !digitalRead(BUTTON_PIN[i]);
     cooldown[i] = (cooldown[i] <= delta_time ? 0 : cooldown[i] - delta_time);
-    if (cooldown[i] == 0 && !down[i] && cur_down) result = i;
-    down[i] = cur_down;
-  }
-  if (result != -1) {
-    cooldown[result] = 50;
-    result = "ACBD"[result];
+    if (cooldown[i] == 0 && result == -1) {
+      bool cur_down = !digitalRead(BUTTON_PIN[i]);
+      if (!down[i] && cur_down) result = i;
+      down[i] = cur_down;
+    }
   }
   last_time = cur_time;
+  if (result != -1) cooldown[result] = 50;
   return result;
 }
 
