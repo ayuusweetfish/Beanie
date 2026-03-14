@@ -1,7 +1,7 @@
 #include "beanie.h"
 #include "src/Adafruit_NeoPixel-1.15.4/Adafruit_NeoPixel.h"
 
-#define BUZZER_PIN A5
+// #define BUZZER_PIN A5
 #define BUTTON_PIN _button_pins
 static const int _button_pins[4] = {A0, 7, 8, A1};
 #define LED_STRIP_PIN 3
@@ -65,7 +65,13 @@ unsigned d()
 {
   return millis() + analogRead(A2) + analogRead(A3) + analogRead(A4);
 }
-void y()
+
+enum {
+  LIGHTS_ORDINARY = 0,
+  LIGHTS_BLINK_TRAP_ON = 1,
+  LIGHTS_BLINK_TRAP_OFF = 2,
+};
+void display_lights(int mode)
 {
 #ifdef LED_STRIP_PIN
   #define cell_light(_r, _c) \
@@ -81,13 +87,20 @@ void y()
     strip.setPixelColor(cell_light(N - 1, c), palette[r == N - 1 ? 4 : 3]);
     strip.setPixelColor(cell_light(-1, c), palette[3]);
   }
-  strip.setPixelColor(cell_light(r, c), palette[o <= 3 ? 4 : 5]);
+  strip.setPixelColor(cell_light(r, c), palette[r >= 0 && r < N - 1 && A[r * N + c] == 2 ? 5 : 4]);
   for (int i = 0; i < 3; i++)
     strip.setPixelColor(move_light(i), palette[o == i + 1 ? (r == N - 1 ? 4 : 4) : o >= i + 1 ? (r == N - 1 ? 4 : 2) : 0]);
   strip.show();
   #undef cell_light
   #undef move_light
 #endif
+}
+
+void y(int t)
+{
+  if (t == 2) {
+  }
+  display_lights(LIGHTS_ORDINARY);
 }
 
 void setup()
