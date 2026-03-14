@@ -11,12 +11,20 @@ int buttons()
 {
   int result = -1;
   static bool down[4] = {0};
+  static unsigned short cooldown[4] = {0};
+  static unsigned last_time = 0;
+  unsigned cur_time = millis(), delta_time = cur_time - last_time;
   for (int i = 0; i < 4; i++) {
     bool cur_down = !digitalRead(BUTTON_PIN[i]);
-    if (!down[i] && cur_down) result = "ACBD"[i];
+    cooldown[i] = (cooldown[i] <= delta_time ? 0 : cooldown[i] - delta_time);
+    if (cooldown[i] == 0 && !down[i] && cur_down) result = i;
     down[i] = cur_down;
   }
-  if (result != -1) delay(10);
+  if (result != -1) {
+    cooldown[result] = 50;
+    result = "ACBD"[result];
+  }
+  last_time = cur_time;
   return result;
 }
 
