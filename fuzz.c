@@ -27,7 +27,7 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t n)
       for (int j = 0; j < N; j++)
         printf("%c%c%c",
           (i == r && j == c) ? '[' : ' ',
-          i < 0 || i > N - 2 ? '=' : ".*o"[A[i * N + j]],
+          i < 0 || i > N - 2 ? '=' : ".*o#"[A[i * N + j]],
           (i == r && j == c) ? ']' : ' ');
       printf("\n");
     }
@@ -38,7 +38,7 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t n)
     for (int i = 0; i < N - 1; i++) {
       char nonempty = 0;
       for (int j = 0; j < N; j++)
-        if (A[i * N + j] != 1) { nonempty = 1; break; }
+        if (A[i * N + j] % 2 != 1) { nonempty = 1; break; }
       assert(nonempty);
     }
     if (result == 4 || result == 5) {
