@@ -7,10 +7,10 @@ p A, B;
 signed char r0, o = 5, r, c, f, Z;
 unsigned Y;
 
-#define c(a, b) for (char a = 0; a < b; a++)
+#define r(a, b) for (char a = 0; a < b; a++)
 void R(unsigned M)
 {
-  c(r, (Z = ~-N * N)) A[r] = 0;
+  r(r, (Z = ~-N * N)) A[r] = 0;
   r0 = (o = !(r = c[A], f = r--), c = ((Y = 1 + (Y - M) * 69069) / 2) % N, (Y + (Y & Z)) % N);
 }
 char M(unsigned R)
@@ -18,23 +18,23 @@ char M(unsigned R)
   char h = 'h', C = R, t = R += C == h, H[] = "Aix6", *a = H, *b = A;
   3 < (R -= a++[t = h < t]) ? R = !(R - 8) | Z : Y + (r += (c += (C = ~-(2 & (R = 1[t + a] >> 6 - R - R))), c -= C *= R % 2, C));
   if (N +~( r += (h = !~(c -=- !~c + c / N)) < ~r) && ~r && !(1 & h[a = c + b + r * N])) {
-    c(r, Z) r[A] -= 2 * (r[A] > 2);
+    r(r, Z) r[A] -= 2 * (r[A] > 2);
     if (h[a] - 2) if (f *= o - 6 + o) {
     #define R(R, C) \
       -~C && h < Z & (unsigned)R < N && \
         4 > *(b = R + N * (C) + A) && !(2 - *a || C - r && R - c) | *b && \
         *b - 2 && (*b -= f + f, B[t++] = b - A, h += Z * !(C))
-      c(n, 2 + o - *a) {
+      r(n, 2 + o - *a) {
         t = !(*a =-~ n);
-        c(C, N) R = R(C, N - 2);
-        c(T = h, t)
+        r(C, N) R = R(C, N - 2);
+        r(T = h, t)
           R = (C = h[B]) % N, C /= N,
           R(R + T, C), R(~-R, C), R(R, C - T);
-        c(r, Z) r[A] &= 3;
+        r(r, Z) r[A] &= 3;
         f |= 0 > (h -~- Z) * (n - !n);
       }
     #undef R
-    #define R { h = 0; c(c, N) h += 1 + (b[c] == 2) & b[c]; if (h == N
+    #define R { h = 0; r(c, N) h += 1 + (b[c] == 2) & b[c]; if (h == N
       if (!r)
         R) f |= 1;
         f |= r0++ && r0 < N & A[r0 - 2] & r0[b = A]; r0--;
@@ -45,16 +45,16 @@ char M(unsigned R)
       *a = 1 << (o & 2 || c == r0 || r && 4 & Y && ~(r0 = c));
       f ^= r | c == r0;
     }
-  #define f ) { c(i, N) b[i] += t * !b[i], Z - (h = c + i * N) + c && (h[A] += -!h[A] & t);
+  #define f ) { r(i, N) b[i] += t * !b[i], Z - (h = c + i * N) + c && (h[A] += -!h[A] & t);
     if (b = a - c, t = 3, *a / 2 f }
     while (t--)
       for (t ^= 2, b = A; b < Z + A; b += N)
-        R-1) c(c, N) if (t = 3 * !c[b] f ++c[b]; break; }
+        R-1) r(c, N) if (t = 3 * !c[b] f ++c[b]; break; }
       if ((C = b - A) && N == h + 2) {
-        c(r, N) Z |= !r[b - N] ^ !r[b];
-        c(r, Z) {
+        r(r, N) Z |= !r[b - N] ^ !r[b];
+        r(r, Z) {
           if (C - r && r + N - C && !(Z & 1))
-            c(c, N) c[A + r] |= -(!c[b] && (t = !r[c + A])) & 3;
+            r(c, N) c[A + r] |= -(!c[b] && (t = !r[c + A])) & 3;
           r += Z / N;
         }
         Z &= -2;
