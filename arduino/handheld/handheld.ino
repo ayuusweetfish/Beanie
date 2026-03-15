@@ -83,7 +83,7 @@ void display_lights(int mode)
   for (int r = 0; r < N - 1; r++)
     for (int cc = 0; cc < N; cc++) {
       int a = A[r * N + cc];
-      if (a == 3) a = (mode == LIGHTS_BLINK_TRAP_ON || mode == LIGHTS_BLINK_TRAP_OFF ? 0 : 1);
+      if (a == 3 || a == 4) a = (mode == LIGHTS_BLINK_TRAP_ON || mode == LIGHTS_BLINK_TRAP_OFF ? 0 : a - 2);
       if (a == 2 && cc == c)
         a = (mode == LIGHTS_BLINK_TRAP_ON ? 5 : 
              mode == LIGHTS_BLINK_TRAP_OFF ? 0 : 2);

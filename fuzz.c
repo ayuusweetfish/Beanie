@@ -29,7 +29,7 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t n)
       for (int j = 0; j < N; j++)
         printf("%c%c%c",
           (i == r && j == c) ? '[' : ' ',
-          i < 0 || i > N - 2 ? '=' : ".*o#"[A[i * N + j]],
+          i < 0 || i > N - 2 ? '=' : ".*o#O"[A[i * N + j]],
           (i == r && j == c) ? ']' : ' ');
       printf("\n");
     }
@@ -58,8 +58,8 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t n)
     }
     // Ensure mark behaviour
     for (int i = 0; i < N * N - N; i++) {
-      assert(A[i] >= 0 && A[i] <= 3);
-      if (A[i] == 3) assert(result <= 1 || last_A[i] == 0);
+      assert(A[i] >= 0 && A[i] <= 4);
+      if (A[i] == 3 || A[i] == 4) assert(result <= 1 || last_A[i] == 0);
     }
   }
   // Do not add to corpus if trailing extraneous bytes

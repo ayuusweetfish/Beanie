@@ -18,6 +18,7 @@ char M(unsigned R)
   char h = 'h', C = R, t = R += C == h, H[] = "Aix6", *a = H, *b = A;
   4 > (R -= a++[t = h < t]) ? Y + (R = 1[t + a] >> 6 - R - R, 0[R%2 ? &r : &c] += ~-(2 & R)) : (R = !(R - 8) | Z);
   if (N +~( r += (h = !~(c -=- !~c + c / N)) < ~r) && ~r && !(1 & h[a = c + b + r * N])) {
+    c(r, Z) r[A] -= 2 * (r[A] > 2);
     if (h[a] - 2) if (f *= o - 6 + o) {
     #define R(R, C) \
       -~C && h < Z & (unsigned)R < N && \
@@ -44,12 +45,11 @@ char M(unsigned R)
       *a = 1 << (o & 2 || c == r0 || r && 4 & Y && ~(r0 = c));
       f ^= r | c == r0;
     }
-    c(r, Z) r[A] = 3 & 100 >> 2 * r[A];
   #define f ) { c(i, N) b[i] += t * !b[i], (h = c + i * N) - c - Z && (h[A] += -!h[A] & t);
     if (b = a - c, t = 3, *a / 2 f }
     while (t--)
       for (b = A; b < Z + A; b += N)
-        R-1) c(c, N) if (t = 3 * !c[b] f --c[b]; break; }
+        R-1) c(c, N) if (t = 3 * !c[b] f ++c[b]; break; }
       if ((C = b - A) && N == h + 2) {
         c(r, N) Z |= !r[b - N] ^ !r[b];
         c(r, Z) {
@@ -78,7 +78,7 @@ void L(void)
   for (int T; T = 2; ) {
     if (4 & o) R(d()), y(6); else T:T - 7 ? w(17553960347 + ((long)N << 21) - 2619392 * (N & 8)), T:T++; if (8 & T ? o = 5 : 0) break;
     for (signed char i = !(T++ & 4 || a((w(34359738368 * o + 0x4bb66d820cbdb7cd), 10))) - N; i - N * N;
-      i += i + 2977 % a((a((i >> 7) * a((*B = T && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o#"]), 0[B]["] "])) && i % N -~- N || a(10));
+      i += i + 2977 % a((a((i >> 7) * a((*B = T && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o#O"]), 0[B]["] "])) && i % N -~- N || a(10));
     if (T > 4) {
       w(7965323610900178954), w(8054269566225527540), w(47482438056558);
       while (T = 10 - a(0))
