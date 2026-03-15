@@ -16,14 +16,14 @@ void R(unsigned M)
 char M(unsigned R)
 {
   char h = 'h', C = R, t = R += C == h, H[] = "Aix6", *a = H, *b = A;
-  4 > (R -= a++[t = h < t]) ? Y + (R = 1[t + a] >> 6 - R - R, 0[R%2 ? &r : &c] += ~-(2 & R)) : (R = !(R - 8) | Z);
+  3 < (R -= a++[t = h < t]) ? R = !(R - 8) | Z : Y + (c += (C = ~-(2 & (R = 1[t + a] >> 6 - R - R))), r += C = R % 2 * C, c -= C);
   if (N +~( r += (h = !~(c -=- !~c + c / N)) < ~r) && ~r && !(1 & h[a = c + b + r * N])) {
     c(r, Z) r[A] -= 2 * (r[A] > 2);
     if (h[a] - 2) if (f *= o - 6 + o) {
     #define R(R, C) \
       -~C && h < Z & (unsigned)R < N && \
-        1 & 11 >> *(b = R + N * (C) + A) && *b | !(2 - *a || C - r && R - c) && \
-        (*b -= f + f, B[t++] = b - A, h += Z * !(C))
+        4 > *(b = R + N * (C) + A) && !(2 - *a || C - r && R - c) | *b && \
+        *b - 2 && (*b -= f + f, B[t++] = b - A, h += Z * !(C))
       c(n, 2 + o - *a) {
         t = !(*a =-~ n);
         c(C, N) R = R(C, N - 2);
@@ -63,7 +63,7 @@ char M(unsigned R)
   }
 #undef f
 #undef R
-  return 1 < R - Z ? r > N - 2 ? (o += 2) : *a - 2 ? 1 : (r |= (o++ - 3) >> 2, 2 +o>> 1) : 6 * (C = R - Z);
+  return 1 < R - Z ? r > N - 2 ? o += 2 : *a - 2 ? 1 : (r |= (o++ - 3) >> 2, 2 +o>> 1) : 6 * (C = R - Z);
 }
 
 #ifndef NO_LOOP
