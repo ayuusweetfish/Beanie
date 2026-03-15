@@ -16,7 +16,7 @@ void R(unsigned M)
 char M(unsigned R)
 {
   char h = 'h', C = R, t = R += C == h, H[] = "Aix6", *a = H, *b = A;
-  3 < (R -= a++[t = h < t]) ? R = !(R - 8) | Z : Y + (c += (C = ~-(2 & (R = 1[t + a] >> 6 - R - R))), c -= C *= R % 2, r += C);
+  3 < (R -= a++[t = h < t]) ? R = !(R - 8) | Z : Y + (r += (c += (C = ~-(2 & (R = 1[t + a] >> 6 - R - R))), c -= C *= R % 2, C));
   if (N +~( r += (h = !~(c -=- !~c + c / N)) < ~r) && ~r && !(1 & h[a = c + b + r * N])) {
     c(r, Z) r[A] -= 2 * (r[A] > 2);
     if (h[a] - 2) if (f *= o - 6 + o) {
