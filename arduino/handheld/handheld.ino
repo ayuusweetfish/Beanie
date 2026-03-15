@@ -79,7 +79,7 @@ void display_lights(int mode)
     /* (N + (N - 1 - (_r)) * N + ((N - (_r)) % 2 ? (N - 1 - (_c)) : (_c))) */
   #define move_light(_n) \
     (37 - (_n))
-  static const uint32_t palette[6] = {0x000000, 0x000401, 0x060001, 0x030303, 0x080800, 0x080400};
+  static const uint32_t palette[7] = {0x000000, 0x000401, 0x060001, 0x030303, 0x080800, 0x080400, 0x080008};
   for (int r = 0; r < N - 1; r++)
     for (int cc = 0; cc < N; cc++) {
       int a = A[r * N + cc];
@@ -96,7 +96,7 @@ void display_lights(int mode)
   if (mode == LIGHTS_ORDINARY && !(r >= 0 && r < N - 1 && A[r * N + c] == 2))
     strip.setPixelColor(cell_light(r, c), palette[4]);
   for (int i = 0; i < 3; i++)
-    strip.setPixelColor(move_light(i), palette[o == i + 1 ? (mode == LIGHTS_BLINK_TRAP_ON || mode == LIGHTS_BLINK_TRAP_OFF ? 0 : r == N - 1 ? 4 : 4) : o >= i + 1 ? (r == N - 1 ? 4 : 2) : 0]);
+    strip.setPixelColor(move_light(i), palette[o == i + 1 ? (mode == LIGHTS_BLINK_TRAP_ON || mode == LIGHTS_BLINK_TRAP_OFF ? 0 : r == N - 1 ? 4 : 4) : o >= i + 1 ? (r == N - 1 ? (o >= i + 3 ? 4 : 6) : 2) : 0]);
   strip.show();
   #undef cell_light
   #undef move_light
