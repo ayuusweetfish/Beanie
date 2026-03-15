@@ -45,10 +45,10 @@ char M(unsigned R)
       *a = 1 << (o & 2 || c == r0 || r && 4 & Y && ~(r0 = c));
       f ^= r | c == r0;
     }
-  #define f ) { c(i, N) b[i] += t * !b[i], (h = c + i * N) - c - Z && (h[A] += -!h[A] & t);
+  #define f ) { c(i, N) b[i] += t * !b[i], Z - (h = c + i * N) + c && (h[A] += -!h[A] & t);
     if (b = a - c, t = 3, *a / 2 f }
     while (t--)
-      for (b = A; b < Z + A; b += N)
+      for (t ^= 2, b = A; b < Z + A; b += N)
         R-1) c(c, N) if (t = 3 * !c[b] f ++c[b]; break; }
       if ((C = b - A) && N == h + 2) {
         c(r, N) Z |= !r[b - N] ^ !r[b];

@@ -93,7 +93,7 @@ COTHER=
 #
 # Example: OPT= -O0 -g
 #
-OPT= -O3
+OPT= -O2
 
 # Default flags for ANSI C compilation
 #
