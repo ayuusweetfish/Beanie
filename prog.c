@@ -18,6 +18,7 @@ char M(unsigned R)
   char h = 'h', C = R, t = R += C == h, H[] = "Aix6", *a = H, *b = A;
   4 > (R -= a++[t = h < t]) ? Y + (R = 1[t + a] >> 6 - R - R, 0[R%2 ? &r : &c] += ~-(2 & R)) : (R = !(R - 8) | Z);
   if (N +~( r += (h = !~(c -=- !~c + c / N)) < ~r) && ~r && !(1 & h[a = c + b + r * N])) {
+    c(r, Z) r[A] = 3 & 100 >> 2 * r[A];
     if (h[a] - 2) if (f *= o - 6 + o) {
     #define R(R, C) \
       -~C && h < Z & (unsigned)R < N && \
@@ -44,7 +45,6 @@ char M(unsigned R)
       *a = 1 << (o & 2 || c == r0 || r && 4 & Y && ~(r0 = c));
       f ^= r | c == r0;
     }
-    c(r, Z) r[A] ^= (r[A] == 3) << 1;
   #define f ) { c(i, N) b[i] += t * !b[i], (h = c + i * N) - c - Z && (h[A] += -!h[A] & t);
     if (b = a - c, t = 3, *a / 2 f }
     while (t--)
