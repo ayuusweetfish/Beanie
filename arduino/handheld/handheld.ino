@@ -1,7 +1,7 @@
 #include "beanie.h"
 #include "src/Adafruit_NeoPixel-1.15.4/Adafruit_NeoPixel.h"
 
-// #define BUZZER_PIN A5
+#define BUZZER_PIN A5
 #define BUTTON_PIN _button_pins
 static const int _button_pins[4] = {A0, 7, 8, A1};
 #define LED_STRIP_PIN 3
@@ -81,15 +81,22 @@ void display_lights(int mode)
     (37 - (_n))
   static const uint32_t palette[6] = {0x000000, 0x000401, 0x060001, 0x030303, 0x080800, 0x080400};
   for (int r = 0; r < N - 1; r++)
-    for (int c = 0; c < N; c++)
-      strip.setPixelColor(cell_light(r, c), palette[A[r * N + c]]);
+    for (int cc = 0; cc < N; cc++) {
+      int a = A[r * N + cc];
+      if (a == 3) a = (mode == LIGHTS_BLINK_TRAP_ON || mode == LIGHTS_BLINK_TRAP_OFF ? 0 : 1);
+      if (a == 2 && cc == c)
+        a = (mode == LIGHTS_BLINK_TRAP_ON ? 5 : 
+             mode == LIGHTS_BLINK_TRAP_OFF ? 0 : 2);
+      strip.setPixelColor(cell_light(r, cc), palette[a]);
+    }
   for (int c = 0; c < N; c++) {
     strip.setPixelColor(cell_light(N - 1, c), palette[r == N - 1 ? 4 : 3]);
     strip.setPixelColor(cell_light(-1, c), palette[3]);
   }
-  strip.setPixelColor(cell_light(r, c), palette[r >= 0 && r < N - 1 && A[r * N + c] == 2 ? 5 : 4]);
+  if (mode == LIGHTS_ORDINARY && !(r >= 0 && r < N - 1 && A[r * N + c] == 2))
+    strip.setPixelColor(cell_light(r, c), palette[4]);
   for (int i = 0; i < 3; i++)
-    strip.setPixelColor(move_light(i), palette[o == i + 1 ? (r == N - 1 ? 4 : 4) : o >= i + 1 ? (r == N - 1 ? 4 : 2) : 0]);
+    strip.setPixelColor(move_light(i), palette[o == i + 1 ? (mode == LIGHTS_BLINK_TRAP_ON || mode == LIGHTS_BLINK_TRAP_OFF ? 0 : r == N - 1 ? 4 : 4) : o >= i + 1 ? (r == N - 1 ? 4 : 2) : 0]);
   strip.show();
   #undef cell_light
   #undef move_light
@@ -98,7 +105,11 @@ void display_lights(int mode)
 
 void y(int t)
 {
-  if (t == 2) {
+  if (t == 2 || t == 3) {
+    for (int i = 0; i < 2; i++) {
+      display_lights(LIGHTS_BLINK_TRAP_ON); delay(50);
+      display_lights(LIGHTS_BLINK_TRAP_OFF); delay(50);
+    }
   }
   display_lights(LIGHTS_ORDINARY);
 }
