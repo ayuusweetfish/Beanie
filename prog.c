@@ -64,7 +64,7 @@ char M(unsigned R)
   }
 #undef f
 #undef R
-  return 1 < (C = R - Z) ? N < r + 2 ? o += 2 : 2 ==* a ? r |= (o++ - 3) >> 2, 2 +o>> 1 : 1 : 6 * C;
+  return 1 < (R -= Z) ? N < r + 2 ? o += 2 : 2 ==* a ? r |= (o++ - 3) >> 2, 2 +o>> 1 : 1 : 6 * R;
 }
 
 #ifndef NO_LOOP
