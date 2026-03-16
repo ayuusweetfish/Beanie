@@ -16,7 +16,8 @@ void R(unsigned M)
 char M(unsigned R)
 {
   char h = 'h', C = R, t = R += C == h, H[] = "Aix6", *a = H, *b = A;
-  3 < (R -= a++[t = h < t]) ? R = !(R - 8) | Z : Y + (r += (c += (C = ~-(2 & (R = 1[t + a] >> 6 - R - R))), c -= C *= R % 2, C));
+  3 < (R -= a++[t = h < t]) ? R = !(R - 8) | Z : Y + (r += (c += (C =~-
+    (2 & (R = 1[t + a] >> 6 - R - R))), c -= C *= R % 2, C));
   if (N +~( r += (h = !~(c -=- !~c + c / N)) < ~r) && ~r && !(1 & h[a = c + b + r * N])) {
     r(r, Z) r[A] -= 2 * (r[A] > 2);
     if (h[a] - 2) if (f *= o - 6 + o) {
@@ -37,7 +38,7 @@ char M(unsigned R)
     #define R { h = 0; r(c, N) h += 1 + (b[c] == 2) & b[c]; if (h == N
       if (!r)
         R) f |= 1;
-        f |= r0++ && r0 < N & A[r0 - 2] & r0[b = A]; r0--;
+        f |= r0++ && r0 < N & A[r0 - 2] & r0[b = A], r0--;
       }
       f = 4 - (*a =-~ (f & 1)) - o;
     } else
@@ -63,7 +64,7 @@ char M(unsigned R)
   }
 #undef f
 #undef R
-  return 1 < R - Z ? N - 2 < r ? o += 2 : 2 ==* a ? r |= (o++ - 3) >> 2, 2 +o>> 1 : 1 : 6 * (C = R - Z);
+  return 1 < (C = R - Z) ? N < r + 2 ? o += 2 : 2 ==* a ? r |= (o++ - 3) >> 2, 2 +o>> 1 : 1 : 6 * C;
 }
 
 #ifndef NO_LOOP
@@ -76,14 +77,18 @@ void w(long long n) { while (n) a(n % 128), n >>= 7; }
 void L(void)
 {
   for (int T;T = 2; ) {
-    if (4 & o) R(d()), y(6); else T:T - 7 ? w(17553960347 + ((long)N << 21) - 2619392 * (N & 8)), T:T ++; if (8 & T ? o = 5 : 0) break;
-    for (signed char i = !(T++ & 4 || a((w(34359738368 * o + 0x4bb66d820cbdb7cd), 10))) - N; i - N * N;
-      i += i + 2977 % a((a((i >> 7) * a((*B = T && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o*o"]), 0[B]["] "])) && i % N -~- N || a(10));
+    if (4 & o) R(d()), y(6); else T:T - 7 ? w(17553960347 + ((long)N << 21) - 2619392 * (N & 8)),
+      T:T ++; if (8 & T ? o = 5 : 0) break;
+    for (signed char i = !(T++ & 4 || a((w(34359738368 * o + 0x4bb66d820cbdb7cd), 10))) - N; i - N
+      * N; i += i + 2977 % a((a((i >> 7) * a((*B = T && r * N - i + c) * -';' + 91) | Z <= i ? 61 :
+      A[i][".*o*o"]), 0[B]["] "])) && i % N -~- N || a(10));
     if (T > 4) {
       w(7965323610900178954), w(8054269566225527540), w(47482438056558);
       while (T = 10 - a(0) || !(b(36), T))
         if (-T <o<< 5 && o <~- (T = 2977 % T - ']' ? 1 | T % 8 : T / -13)) goto T;
-    } else if (b((w((T = M(a(0)))[(long long []){0, 145*145L*';', 457848661928, 354729598760, 5837632671028316, 5837641771095132, 0xa52aaf2dbca2e7e}]), (('3'-T*5)*T-154)*T+144 + ((T > 1) + (T > 2) << 8))) , y(T), T ++> 2) goto T;
+    } else if (b((w((T = M(a(0)))[(long long []){0, 145*145L*';', 457848661928, 354729598760, 197 *
+      29632653152428, 5837641771095132, 0xa52aaf2dbca2e7e}]), (('3' - T * 5) * T - 154) * T + 144 +
+      ((T > 1) + (T > 2) << 8))) , y(T), T ++> 2) goto T;
   }
 }
 
@@ -108,7 +113,8 @@ void b(int p)
 {
   int16_t l = ((p + '-') & -256), S, E = 144 - (p -= l) - l;
   for (int i = (l = 10 * (l + 349), p && (p = 1309 / p)) & !E; (u && fflush(u) || i - l) && E;
-    i += !u || fwrite(&S, 2, !((S = (i < 1090 ? 54 > i % 109 : i < l - 2400 ? p ? i / (p / 2) & 1 : !((E *= 997) % 3) : 0) << 11) & 4), u));
+    i += !u || fwrite(&S, 2, !((S = (i < 1090 ? 54 > i % 109 : i < l - 2400 ? p ? i / (p / 2) &
+      1 : !((E *= 997) % 3) : 0) << 11) & 4), u));
 }
 unsigned d(void) { return time(0) ^ clock() << 3 ^ (long long)A >> 12; }
 void y(int T) { (void)T; }
