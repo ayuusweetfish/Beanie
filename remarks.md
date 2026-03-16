@@ -18,9 +18,9 @@ To test the player in varied cases, the program does not always take the "best" 
 
 This game supports sound output by writing PCM to a pipe. An example working with `sox` is provided in `try.sh`.
 
-#### Platform support
+#### Portability
 
-The core game logic is exposed through functions `R()` (for reset) and `M()` (for movement/input handling). A player interface can be created by accessing the game state at the array `a` and the round number `o`; meanwhile, there is also a game loop scaffold `L()` that takes a minimal set of environment adapters (character I/O, sound, entropy) and presents a text-based interface.
+The core game logic is exposed through functions `R()` (for reset) and `M()` (for movement/input handling). A player interface can be created by accessing the game state at the array `a` and the state indicator `o`; meanwhile, there is also a game loop scaffold `L()` that takes a minimal set of environment adapters (character I/O, sound, entropy) and presents a text-based interface.
 
 The author believes that the core game logic can run correctly on any platform, agnostic of word size, endianness, and signedness of `char`. The author has tested the game under ARM64 Linux, x86-64 Linux, and the ATmega 8-bit MCU (and is eagerly looking to adding more to the list, especially on various MCUs ^ ^).
 
@@ -28,25 +28,25 @@ The author believes that the core game logic can run correctly on any platform, 
 
 There is a fuzzing program that uses LLVM's libFuzzer to test the algorithm against memory access violations, undefined behaviour, and overall correctness. Run `make fuzz` to build it, and `./fuzz` to run.
 
-Note that the current algorithm only ensures correct operation at `N = 5` and holds a weaker guarantee at larger values of `N`; namely, if the player is lucky and clever, they can trick the game into generating less than `N - 1` traps. This, however, does not affect the gameplay logic; if the player is at this corner case, they must have no problem winning the game! (\>\_\^)
+Note that the current algorithm only ensures correct operation at `N = 5` and holds a weaker guarantee at larger values of `N`; namely, if the player is lucky and clever, they can trick the game into generating less than `N - 1` traps. This, however, does not affect the gameplay logic, nor does it violate the rules stated above. If the player is at this corner case, they must have no problem winning the game! (\>\_\^)
 
 #### Tangible form
 
-Also included is an Arduino port. The `arduino/serial_play/` directory contains an Arduino sketch that exposes a game interface on the serial port. This sketch also supports sound output through a buzzer, and input through four direction buttons.
+Also included is an Arduino port. The `arduino/serial_play/` directory contains an Arduino sketch that exposes a game interface on the serial port, playable through an ANSI-compatible terminal emulator/multiplexor (e.g., `screen`). This sketch also supports sound output through a passive buzzer, and input through four direction buttons.
 
 The author also has assembled a handheld gaming console that integrates these components and an addressable LED matrix. See `misc/handheld_hw/` for the circuit board design and `arduino/handheld/` for the Arduino sketch.
 
 ### Obfuscation techniques
-
-#### Macros
-
-You might already notice how `r`, `R`, `r(r, N)`, `R(R, C)` are at least five different things; but is 
 
 #### Warnings
 
 In author's tests with GCC 15.2.1 and Clang 20.1.8 on ARM64 Linux, as well as GCC 13.3.0 on x86-64 Linux, the code compiles cleanly with `-Wall -Wextra -pedantic` with the addition of `-Wno-parentheses -Wno-char-subscripts`. These two exemptions are due to deliberate choices, i.e., omitting paretheses as much as possible as an obfuscation technique, and reducing memory usage as much as possible with built-in C types (because we will be running on constrained 8-bit platforms!).
 
 (Secret: GCC might complain about two `-Wsign-compare`'s, but that is actually a deobfuscating hint only available to users of some of the architectures!)
+
+#### Macros
+
+You might already notice how `r`, `R`, `r(r, N)`, `R(R, C)` are at least five different things; but are `R` and `C` really what they appear to stand for, while sometimes they are not properly wrapped by parentheses?
 
 #### Positive energy
 
