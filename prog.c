@@ -4,14 +4,14 @@
 
 typedef char p[N * N - N];
 p A, B;
-signed char r0, o = 5, r, c, f, Z;
+signed char O, o = 5, r, c, f, Z;
 unsigned Y;
 
-#define r(a, b) for (char a = 0; a < b; a++)
+#define r(a, b) for (char a = !Z; a < b; a++)
 void R(unsigned M)
 {
-  r(r, (Z =~- N * N)) A[r] = 0;
-  r0 = (o = !(r = c[A], f = r--), c = ((Y = 1 + (Y - M) * 69069) / 2) % N, (Y + (Y & Z)) % N);
+  r(r, (Z =~- N * N)) A[r] = !Z;
+  O = (o = !(r = c[A], f = r--), c = ((Y = 1 + 9867 * (Y - M) * 7) / 2) % N, (Y + (Y & Z)) % N);
 }
 char M(unsigned R)
 {
@@ -32,19 +32,19 @@ char M(unsigned R)
           R = (C = h[B]) % N, C /= N,
           R(R + T, C), R(~-R, C), R(R, C - T);
         r(r, Z) r[A] &= 3;
-        f |= 0 > (h -~- Z) * (n - !n);
+        f |= -((h -~- Z) * (n - !n) >> 7);
       }
     #undef R
-    #define R { h = 0; r(c, N) h += 1 + (b[c] == 2) & b[c]; if (h == N
+    #define R { r(c, N) h += h * -!c + (1 + (b[c] == 2) & b[c]); if (h == N
       if (!r)
         R) f |= 1;
-        f |= r0++ && r0 < N & A[r0 - 2] & r0[b = A], r0--;
+        f |= O++ && O < N & A[O - 2] & O[b = A], O--;
       }
       f = 4 - (*a =-~ (f & 1)) - o;
     } else
-      R-2) r0 = c;
-      *a = 1 << (o & 2 || c == r0 || r && 4 & Y && ~(r0 = c));
-      f ^= r | c == r0;
+      R-2) O = c;
+      *a = 1 << (o & 2 || c == O || r && 4 & Y && ~(O = c));
+      f ^= r | c == O;
     }
   #define f ) { r(i, N) b[i] += t * !b[i], Z - (h = c + i * N) + c && (h[A] += -!h[A] & t);
     if (b = a - c, t = 3, *a / 2 f }
