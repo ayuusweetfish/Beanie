@@ -10,7 +10,7 @@ unsigned Y;
 #define r(a, b) for (char a = 0; a < b; a++)
 void R(unsigned M)
 {
-  r(r, (Z = ~-N * N)) A[r] = 0;
+  r(r, (Z =~- N * N)) A[r] = 0;
   r0 = (o = !(r = c[A], f = r--), c = ((Y = 1 + (Y - M) * 69069) / 2) % N, (Y + (Y & Z)) % N);
 }
 char M(unsigned R)
@@ -63,7 +63,7 @@ char M(unsigned R)
   }
 #undef f
 #undef R
-  return 1 < R - Z ? N - 2 < r ? o += 2 : 2 == *a ? r |= (o++ - 3) >> 2, 2 +o>> 1 : 1 : 6 * (C = R - Z);
+  return 1 < R - Z ? N - 2 < r ? o += 2 : 2 ==* a ? r |= (o++ - 3) >> 2, 2 +o>> 1 : 1 : 6 * (C = R - Z);
 }
 
 #ifndef NO_LOOP
@@ -75,10 +75,10 @@ void y(int);
 void w(long long n) { while (n) a(n % 128), n >>= 7; }
 void L(void)
 {
-  for (int T; T = 2; ) {
-    if (4 & o) R(d()), y(6); else T:T - 7 ? w(17553960347 + ((long)N << 21) - 2619392 * (N & 8)), T:T++; if (8 & T ? o = 5 : 0) break;
+  for (int T;T = 2; ) {
+    if (4 & o) R(d()), y(6); else T:T - 7 ? w(17553960347 + ((long)N << 21) - 2619392 * (N & 8)), T:T ++; if (8 & T ? o = 5 : 0) break;
     for (signed char i = !(T++ & 4 || a((w(34359738368 * o + 0x4bb66d820cbdb7cd), 10))) - N; i - N * N;
-      i += i + 2977 % a((a((i >> 7) * a((*B = T && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o#O"]), 0[B]["] "])) && i % N -~- N || a(10));
+      i += i + 2977 % a((a((i >> 7) * a((*B = T && r * N - i + c) * -';' + 91) | Z <= i ? 61 : A[i][".*o*o"]), 0[B]["] "])) && i % N -~- N || a(10));
     if (T > 4) {
       w(7965323610900178954), w(8054269566225527540), w(47482438056558);
       while (T = 10 - a(0) || !(b(36), T))

@@ -12,13 +12,15 @@ The game is expected to run in an ANSI-compliant terminal emulator. Movement can
 
 The distribution of traps is not predetermined. Instead, the computer plays against the player whenever they make a move, trying to maximize their number of attempts.
 
+To test the player in varied cases, the program does not always take the "best" (most adverse) decision; instead, it traverses combinations of conditions, and the player might take on some risk to find an early win.
+
 #### Sound
 
-This game supports sound output through a pipe. An example working with `sox` is provided in `try.sh`.
+This game supports sound output by writing PCM to a pipe. An example working with `sox` is provided in `try.sh`.
 
 #### Platform support
 
-The core game logic is exposed through functions `R()` (for reset) and `M()` (for movement/input handling). An interface can be created by accessing the game state at the array `a` and the round number `o`; meanwhile, there is also a game loop function `L()` that takes a minimal set of three environment adapters (character I/O, sound, entropy) and presents a text-based interface.
+The core game logic is exposed through functions `R()` (for reset) and `M()` (for movement/input handling). A player interface can be created by accessing the game state at the array `a` and the round number `o`; meanwhile, there is also a game loop scaffold `L()` that takes a minimal set of environment adapters (character I/O, sound, entropy) and presents a text-based interface.
 
 The author believes that the core game logic can run correctly on any platform, agnostic of word size, endianness, and signedness of `char`. The author has tested the game under ARM64 Linux, x86-64 Linux, and the ATmega 8-bit MCU (and is eagerly looking to adding more to the list, especially on various MCUs ^ ^).
 
@@ -26,34 +28,46 @@ The author believes that the core game logic can run correctly on any platform, 
 
 There is a fuzzing program that uses LLVM's libFuzzer to test the algorithm against memory access violations, undefined behaviour, and overall correctness. Run `make fuzz` to build it, and `./fuzz` to run.
 
-Note that the current algorithm only ensures correct operation at `N = 5` and holds a weaker guarantee at larger values of `N`; namely, if the player is lucky and clever, they can trick the game into generating less than `N - 1` traps. This, however, does not affect the gameplay.
+Note that the current algorithm only ensures correct operation at `N = 5` and holds a weaker guarantee at larger values of `N`; namely, if the player is lucky and clever, they can trick the game into generating less than `N - 1` traps. This, however, does not affect the gameplay logic; if the player is at this corner case, they must have no problem winning the game! (\>\_\^)
 
 #### Tangible form
 
-Also included is an Arduino port. The `arduino/serial_play/` directory contains an Arduino sketch that exposes a game interface on the serial port.
+Also included is an Arduino port. The `arduino/serial_play/` directory contains an Arduino sketch that exposes a game interface on the serial port. This sketch also supports sound output through a buzzer, and input through four direction buttons.
 
-The Arduino toolchain (IDE) expects a location-agnostic project path, so relative includes are not possible. To avoid duplicate files in the submission, the author adds a `arduino-sketch` Makefile target that copies the `prog.c` into the sketch directory for building. It will be removed by `make clobber`.
-
-This sketch also supports sound output through a buzzer, and input through four direction buttons.
-
-The author also has a working circuit board that integrates these components and an addressable LED matrix; porting the final bits has not been done in _prime time_ and left as an exercise for the reader (>-^) The ECAD project and pictorial demonstration might be too large to be included in a submission; the author is happily working on open-sourcing them on their own website!
+The author also has assembled a handheld gaming console that integrates these components and an addressable LED matrix. See `misc/handheld_hw/` for the circuit board design and `arduino/handheld/` for the Arduino sketch.
 
 ### Obfuscation techniques
+
+#### Macros
+
+You might already notice how `r`, `R`, `r(r, N)`, `R(R, C)` are at least five different things; but is 
 
 #### Warnings
 
 In author's tests with GCC 15.2.1 and Clang 20.1.8 on ARM64 Linux, as well as GCC 13.3.0 on x86-64 Linux, the code compiles cleanly with `-Wall -Wextra -pedantic` with the addition of `-Wno-parentheses -Wno-char-subscripts`. These two exemptions are due to deliberate choices, i.e., omitting paretheses as much as possible as an obfuscation technique, and reducing memory usage as much as possible with built-in C types (because we will be running on constrained 8-bit platforms!).
 
-Actually that is not quite the case; GCC might complain about two `-Wsign-compare`'s, but that is actually a deobfuscating hint!
+(Secret: GCC might complain about two `-Wsign-compare`'s, but that is actually a deobfuscating hint only available to users of some of the architectures!)
 
 #### Custom operators
 
-The code features several custom operators that extends the C standard:
-- The sleepy head operator `-~-`, with variants `=~-`, `-=-`, etc.;
-- The fish operator `<o<<` and the fishing hook operator `<~-`;
-- The sword operator `++>`;
+The code features many custom operators that extends the C standard:
+- The sleepyhead operator `-~-`, with variants `=~-`, `=-~`, `-=-`, etc.;
+- The crybaby operator `T:T`, with variant `T;T`;
+- The fish operator `<o<<` and the fishing bait operator `<~-`;
+- The barbecue/tanghulu operators `++>`, `o++`, `+o>>`;
+- The shooting star operator `==*`;
 - The little prince's rose operator `+~(`.
+
+### Food for thought
+
+1. Assuming that `char` equals `int8_t`, what is the maximum value of `N` that the game logic (`R()` and `M()`) correctly supports?
+2. Under which values of `N` can the player determine whether it is possible to land on an empty cell on row _r_ (numbering starting from 1) on the first move, and achieve it when it is?
+  - (a) If _r_ = 1?
+  - (b) If _r_ = 2?
+3. Win the game in 2 moves.
 
 ### Final spoiler
 
-This game is actually a faithful replication of [IMO 2024 Problem 5](https://artofproblemsolving.com/wiki/index.php/2024_IMO_Problems/Problem_5). It's a hard problem on the contest, and a great brain-teaser as well. Hope you have enjoyed it!
+This game is actually a faithful replication of a problem on a well-known contest.
+
+It is [IMO 2024 Problem 5](https://artofproblemsolving.com/wiki/index.php/2024_IMO_Problems/Problem_5). It's a hard problem on the contest, and a great brain-teaser as well. Hope you have enjoyed it!
