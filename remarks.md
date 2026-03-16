@@ -4,7 +4,7 @@ This program is a game that can be played in the console. Use `try.sh` to build 
 
 The game arena is a cell grid of `N - 1` rows and `N` columns. Some of the cells are traps; each row or column contains at most one trap. The player starts from outside the arena, entering on any cell on the first row, and aims to exit from the last, making moves in four directions into adjacent cells (L/R/U/D). Each time the player hits a trap, they are teleported back to the initial position, outside of the arena. The objective is to successfully exit the arena in as few attempts as possible.
 
-The game is expected to run in an ANSI-compliant terminal emulator. Movement can be made by arrow keys or `h`/`j`/`k`/`l` keys as in `vi`. It can be exited by `SIGINT` (Control-C), or the `q` key.
+The game is expected to run in an ANSI-compliant terminal emulator. Movement can be made by arrow keys or `h`/`j`/`k`/`l` keys as in `vi`. It can be exited by SIGINT (Control-C), or the `q` key. (Note that in `try.sh`, a SIGINT terminates the entire script; use the `q` key instead.)
 
 ### Features
 
@@ -46,7 +46,7 @@ In author's tests with GCC 15.2.1 and Clang 20.1.8 on ARM64 Linux, as well as GC
 
 #### Macros
 
-You might already notice how `r`, `R`, `r(r, N)`, `R(R, C)` are at least five different things; but are `R` and `C` really what they appear to stand for, while sometimes they are not properly wrapped by parentheses?
+You might already notice how `r`, `R`, `r(r, N)`, `R(R, C)` are five different things; but are `R` and `C` really what they appear to stand for, while sometimes they are not properly wrapped by parentheses in the macro?
 
 #### Positive energy
 
