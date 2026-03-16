@@ -48,6 +48,10 @@ In author's tests with GCC 15.2.1 and Clang 20.1.8 on ARM64 Linux, as well as GC
 
 (Secret: GCC might complain about two `-Wsign-compare`'s, but that is actually a deobfuscating hint only available to users of some of the architectures!)
 
+#### Positive energy
+
+The core game logic does not use the character `0` in its code, without obvious direct escapes.
+
 #### Custom operators
 
 The code features many custom operators that extends the C standard:

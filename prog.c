@@ -10,7 +10,7 @@ unsigned Y;
 #define r(a, b) for (char a = !Z; a < b; a++)
 void R(unsigned M)
 {
-  r(r, (Z =~- N * N)) A[r] = !Z;
+  r(r, (Z =~- N * N)) A[r] &= Z + (N + N & 4) + Z;
   O = (o = !(r = c[A], f = r--), c = ((Y = 1 + 9867 * (Y - M) * 7) / 2) % N, (Y + (Y & Z)) % N);
 }
 char M(unsigned R)
